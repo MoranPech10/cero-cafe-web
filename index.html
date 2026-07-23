@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cero Café de Origen: café de especialidad, brunch y pastelería.">
+    <title>Cero Café de Origen</title>
+    <link rel="icon" href="assets/logos/Cero Logotipo negro.svg" type="image/svg+xml">
+    <link rel="preload" href="assets/fonts/Hauora-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Hauora-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/Hauora-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="header-logo-circle"><img src="assets/logos/Sublogo vertical_negro.svg" alt="" data-fallback-image></span>
+        <span class="brand-text">Cero Café de Origen</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal" data-nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#menu">Carta</a>
+        <a href="#productos">Productos</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#espacio">Espacio</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img src="assets/imagenes/hero-terraza-cero.webp" alt="" width="720" height="1440" loading="eager" fetchpriority="high" data-fallback-image>
+        </div>
+
+        <div class="hero-inner">
+          <div class="hero-content">
+            <p class="eyebrow">Café de especialidad · Cero Café de Origen</p>
+            <h1 id="hero-title">
+              <span class="hero-title-line">Somos la mejor</span>
+              <span class="hero-title-line hero-title-mixed"><span>cafetería</span> de</span>
+              <span class="hero-title-line">Villa Urquiza.</span>
+            </h1>
+            <p class="hero-copy">Café de especialidad, brunch y pastelería en un espacio cálido para estar presente.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="https://wa.me/5491158173351" target="_blank" rel="noopener noreferrer" data-whatsapp-link>Consultar por WhatsApp</a>
+              <a class="btn btn-ghost" href="#menu">Ver menú</a>
+            </div>
+            <p class="hero-rating" aria-label="4.8 de 5, 116 reseñas de Google">
+              <span aria-hidden="true">★★★★★</span> 4.8 · 116 reseñas de Google
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sabores" id="sabores" aria-labelledby="sabores-title">
+        <div class="sabores-container">
+          <p class="sabores-kicker">HECHO FRESCO A DIARIO</p>
+          <h2 id="sabores-title" class="sabores-title">Sabores de <span>Cero.</span></h2>
+
+          <div class="sabores-track" aria-label="Sabores destacados">
+            <article class="sabores-card">
+              <video autoplay muted loop playsinline preload="none" poster="assets/imagenes/video-posters/espacio-cero-1-poster.webp" data-autoplay-video data-fallback-video>
+                <source data-src="assets/videos/espacio-cero-1-optimized.mp4" type="video/mp4">
+              </video>
+              <div class="sabores-card-content">
+                <p>ESPACIO</p>
+                <h3>Un lugar cálido para quedarse.</h3>
+                <a href="#espacio">Conocer</a>
+              </div>
+            </article>
+
+            <article class="sabores-card">
+              <video autoplay muted loop playsinline preload="none" poster="assets/imagenes/video-posters/cafe-cero-1-poster.webp" data-autoplay-video data-fallback-video>
+                <source data-src="assets/videos/cafe-cero-1-optimized.mp4" type="video/mp4">
+              </video>
+              <div class="sabores-card-content">
+                <p>CAFÉ</p>
+                <h3>Preparaciones con carácter.</h3>
+                <a href="#menu">Ver menú</a>
+              </div>
+            </article>
+
+            <article class="sabores-card">
+              <video autoplay muted loop playsinline preload="none" poster="assets/imagenes/video-posters/nuevo-video-poster.webp" data-autoplay-video data-fallback-video>
+                <source data-src="assets/videos/nuevo_video-optimized.mp4" type="video/mp4">
+              </video>
+              <div class="sabores-card-content">
+                <p>PASTELERÍA</p>
+                <h3>Dulce, simple y artesanal.</h3>
+                <a href="#menu">Ver menú</a>
+              </div>
+            </article>
+
+            <article class="sabores-card">
+              <video autoplay muted loop playsinline preload="none" poster="assets/imagenes/video-posters/brunch-cero-1-poster.webp" data-autoplay-video data-fallback-video>
+                <source data-src="assets/videos/brunch-cero-1-optimized.mp4" type="video/mp4">
+              </video>
+              <div class="sabores-card-content">
+                <p>BRUNCH</p>
+                <h3>Sabores para empezar despacio.</h3>
+                <a href="#menu">Ver menú</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section menu-section" id="menu" aria-labelledby="menu-title">
+        <div class="menu-layout">
+          <div class="section-heading menu-heading">
+            <div class="menu-hero-copy">
+              <p class="eyebrow">Menú por categorías</p>
+              <h2 id="menu-title">Carta de Cero</h2>
+              <div class="menu-tabs" id="menu-tabs" role="tablist" aria-label="Categorías del menú" data-menu-tabs></div>
+              <p class="section-note" data-menu-status></p>
+            </div>
+          </div>
+
+          <aside class="menu-featured-card" aria-label="Más vendidos">
+            <div class="menu-featured-copy">
+              <p class="cero-eyebrow">Selección destacada</p>
+              <h3>Más vendidos</h3>
+            </div>
+
+            <div class="menu-featured-slider" data-featured-slider>
+              <article class="menu-featured-slide is-active" data-featured-slide>
+                <img src="assets/imagenes/menu-drive/Croissant.webp" alt="Croissant" width="1200" height="897" loading="eager" fetchpriority="high">
+                <p>Croissant</p>
+              </article>
+              <article class="menu-featured-slide" data-featured-slide>
+                <img data-src="assets/imagenes/menu/latte.webp" alt="Vanilla Latte" width="800" height="598" loading="lazy">
+                <p>Vanilla Latte</p>
+              </article>
+              <article class="menu-featured-slide" data-featured-slide>
+                <img data-src="assets/imagenes/menu-drive/Medialuna jyq.webp" alt="Medialuna JyQ" width="1200" height="896" loading="lazy">
+                <p>Medialuna JyQ</p>
+              </article>
+              <article class="menu-featured-slide" data-featured-slide>
+                <img data-src="assets/imagenes/menu-drive/Roll de Canela.webp" alt="Roll de canela" width="1200" height="896" loading="lazy">
+                <p>Roll de canela</p>
+              </article>
+            </div>
+
+            <div class="menu-featured-dots" aria-hidden="true" data-featured-dots></div>
+          </aside>
+
+          <div class="menu-shell">
+            <div class="menu-panel" id="menu-content" data-menu-panel></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="products-preview-section" id="productos" aria-labelledby="productos-title">
+        <div class="cero-container products-preview-container">
+          <div class="products-preview-header">
+            <div>
+              <p class="eyebrow">PRODUCTOS</p>
+              <h2 id="productos-title">Productos Cero</h2>
+            </div>
+            <p>Objetos, café y piezas de marca para extender la experiencia Cero más allá del local.</p>
+          </div>
+
+          <div class="products-preview-grid" aria-label="Productos destacados">
+            <article class="cero-product-card">
+              <figure class="cero-product-media">
+                <img src="assets/imagenes/productos/cafe-de-origen-250g.webp" alt="Café de origen Cero en presentación de 250 gramos" loading="lazy">
+              </figure>
+              <div class="cero-product-content">
+                <p class="cero-product-category">Café</p>
+                <h3>Café de origen</h3>
+                <p>Café seleccionado para llevar la experiencia Cero a casa.</p>
+              </div>
+            </article>
+
+            <article class="cero-product-card">
+              <figure class="cero-product-media">
+                <img src="assets/imagenes/productos/buzo-cero.webp" alt="Buzo Cero" loading="lazy">
+              </figure>
+              <div class="cero-product-content">
+                <p class="cero-product-category">Merch</p>
+                <h3>Buzo Cero</h3>
+                <p>Merch de marca con diseño orgánico y espíritu urbano.</p>
+              </div>
+            </article>
+
+            <article class="cero-product-card">
+              <figure class="cero-product-media">
+                <img src="assets/imagenes/productos/Vasos.webp" alt="Vasos y tazas Cero" loading="lazy">
+              </figure>
+              <div class="cero-product-content">
+                <p class="cero-product-category">Objetos</p>
+                <h3>Vasos y Tazas Cero</h3>
+                <p>Piezas simples para acompañar el ritual del café.</p>
+              </div>
+            </article>
+          </div>
+
+          <a class="products-preview-link" href="productos.html">Ver todos los productos</a>
+        </div>
+      </section>
+
+      <section class="events-section" id="eventos" aria-labelledby="eventos-title">
+        <div class="cero-container events-container">
+          <div class="events-content">
+            <div class="events-header">
+              <p class="eyebrow">EVENTOS</p>
+              <h2 id="eventos-title">Eventos en Cero</h2>
+              <p>Un espacio cálido, versátil y con identidad para encuentros corporativos, sociales, brunchs, charlas, cowork y momentos compartidos.</p>
+            </div>
+
+            <div class="events-grid" aria-label="Tipos de eventos en Cero">
+              <article class="event-type-card">
+                <span>01</span>
+                <h3>Corporativos</h3>
+                <p>Reuniones, presentaciones y encuentros de equipo en un espacio con identidad.</p>
+              </article>
+
+              <article class="event-type-card">
+                <span>02</span>
+                <h3>Sociales</h3>
+                <p>Momentos compartidos, celebraciones y experiencias en un ambiente cálido.</p>
+              </article>
+
+              <article class="event-type-card">
+                <span>03</span>
+                <h3>Brunchs</h3>
+                <p>Propuestas pensadas para disfrutar sin apuro, con café, pastelería y cocina.</p>
+              </article>
+
+              <article class="event-type-card">
+                <span>04</span>
+                <h3>Charlas</h3>
+                <p>Un entorno cómodo para encuentros, talleres y conversaciones con comunidad.</p>
+              </article>
+
+              <article class="event-type-card">
+                <span>05</span>
+                <h3>Cowork</h3>
+                <p>Un espacio para trabajar, reunirse y habitar el café desde otro ritmo.</p>
+              </article>
+
+              <article class="event-type-card">
+                <span>06</span>
+                <h3>DJ / Presentaciones</h3>
+                <p>Eventos especiales con música, activaciones y experiencias de marca.</p>
+              </article>
+            </div>
+
+            <p class="events-cta">Cada evento puede pensarse a medida, respetando el ritmo, la estética y la experiencia de Cero.</p>
+          </div>
+
+          <aside class="events-media" aria-label="Material visual de eventos en Cero">
+            <figure class="events-main-media">
+              <video autoplay muted loop playsinline preload="none" poster="assets/imagenes/video-posters/evento-presentacion-poster.webp" data-autoplay-video data-fallback-video>
+                <source data-src="assets/videos/video-evento/back-evento-presentacion-optimized.mp4" type="video/mp4">
+              </video>
+              <figcaption>Encuentros con luz, café y atmósfera Cero.</figcaption>
+            </figure>
+
+            <div class="events-photo-row" aria-hidden="true">
+              <img src="assets/imagenes/eventos/evento-saime-2.webp" alt="" loading="lazy">
+              <img src="assets/imagenes/eventos/evento-saime-5.webp" alt="" loading="lazy">
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="momentos-section space-strip" id="espacio" aria-labelledby="espacio-title">
+        <div class="cero-container space-strip__container">
+          <div class="space-strip__intro">
+            <p class="eyebrow">MOMENTOS CERO</p>
+            <h2 id="espacio-title">Cero en imágenes</h2>
+            <p>Una mirada visual al café, el espacio y la experiencia Cero.</p>
+          </div>
+
+          <div class="space-strip__wrapper">
+            <button class="space-strip__arrow space-strip__arrow--prev" type="button" aria-label="Ver fotos anteriores" data-space-strip-prev>←</button>
+
+            <div class="space-strip__track" aria-label="Fotos y videos de Cero Café de Origen" data-space-strip-track>
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/hero-terraza-cero.webp" alt="Terraza de Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Terraza</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/frente-local-cero.webp" alt="Frente de Cero Café de Origen sobre Avenida Congreso" loading="lazy" data-fallback-image>
+                <figcaption>Fachada</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/interior-cero-1.webp" alt="Interior luminoso de Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Interior</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/interior-cero-2.webp" alt="Detalle del salón de Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Salón</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/eventos/evento-saime-1.webp" alt="Evento realizado en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Evento</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/terraza-clientes-cero-1.webp" alt="Clientes disfrutando la terraza de Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Terraza clientes</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/evento-dj-cero-1.webp" alt="Evento con DJ en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Evento DJ</figcaption>
+              </figure>
+
+              <figure
+                class="space-strip__card space-strip__card--video"
+                role="button"
+                tabindex="0"
+                aria-label="Reproducir video de evento en Cero Café de Origen"
+                data-space-video
+                data-video-src="assets/videos/video-evento/back-evento-presentacion-optimized.mp4"
+                data-video-poster="assets/imagenes/video-posters/evento-presentacion-poster.webp"
+                data-video-title="Evento en Cero"
+              >
+                <video autoplay muted loop playsinline preload="none" poster="assets/imagenes/video-posters/evento-presentacion-poster.webp" aria-label="Video de evento en Cero Café de Origen" data-autoplay-video data-fallback-video>
+                  <source data-src="assets/videos/video-evento/back-evento-presentacion-optimized.mp4" type="video/mp4">
+                </video>
+                <span class="space-strip__media-label">Video</span>
+                <figcaption>Evento</figcaption>
+              </figure>
+
+              <figure
+                class="space-strip__card space-strip__card--video"
+                role="button"
+                tabindex="0"
+                aria-label="Reproducir video del DJ en Cero Café de Origen"
+                data-space-video
+                data-video-src="assets/videos/video-evento/cero-cafe-reel-1-optimized.mp4"
+                data-video-poster="assets/imagenes/video-posters/evento-dj-poster.webp"
+                data-video-title="DJ en Cero"
+              >
+                <video autoplay muted loop playsinline preload="none" poster="assets/imagenes/video-posters/evento-dj-poster.webp" aria-label="Video del DJ en Cero Café de Origen" data-autoplay-video data-fallback-video>
+                  <source data-src="assets/videos/video-evento/cero-cafe-reel-1-optimized.mp4" type="video/mp4">
+                </video>
+                <span class="space-strip__media-label">DJ</span>
+                <figcaption>DJ</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/terraza-servicio-cero-1.webp" alt="Servicio en la terraza de Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Terraza servicio</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/pet-friendly-cero.webp" alt="Momento pet friendly en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Pet friendly</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/interior-cowork-cero-1.webp" alt="Interior con espacio de cowork en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Interior cowork</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/barista-latte-art.webp" alt="Latte art preparado en la barra de Cero" loading="lazy" data-fallback-image>
+                <figcaption>Barra</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/@saime_studio  (31).webp" alt="Mesa de trabajo y café en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Momento Cero</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/barista-cafe-1.webp" alt="Preparación de café en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Café</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/cowork-mesa-cero-1.webp" alt="Mesa de cowork con café en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Cowork mesa</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/barista-cafe-2.webp" alt="Detalle de café de especialidad en Cero" loading="lazy" data-fallback-image>
+                <figcaption>Especialidad</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/barra-cero-1.webp" alt="Barra de Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Barra</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/eventos/evento-saime-3.webp" alt="Ambiente de evento en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Encuentros</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/pet-friendly-cero-exterior.webp" alt="Momento pet friendly en el exterior de Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Pet friendly</figcaption>
+              </figure>
+
+              <figure
+                class="space-strip__card space-strip__card--video"
+                role="button"
+                tabindex="0"
+                aria-label="Reproducir video de ambiente y presentación en Cero Café de Origen"
+                data-space-video
+                data-video-src="assets/videos/video-evento/cero-cafe-sorteo-2-optimized.mp4"
+                data-video-poster="assets/imagenes/video-posters/evento-sorteo-poster.webp"
+                data-video-title="Ambiente y presentación"
+              >
+                <video autoplay muted loop playsinline preload="none" poster="assets/imagenes/video-posters/evento-sorteo-poster.webp" aria-label="Video de ambiente y presentación en Cero Café de Origen" data-autoplay-video data-fallback-video>
+                  <source data-src="assets/videos/video-evento/cero-cafe-sorteo-2-optimized.mp4" type="video/mp4">
+                </video>
+                <span class="space-strip__media-label">Presentación</span>
+                <figcaption>Ambiente</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/barista-cero-1.webp" alt="Barista preparando café en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Barista</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/eventos/evento-saime-5.webp" alt="Detalle de experiencia en evento de Cero" loading="lazy" data-fallback-image>
+                <figcaption>Experiencia</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/terraza-evento-dj-cero-1.webp" alt="Terraza durante un evento con DJ en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Terraza evento DJ</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/eventos/evento-saime-8.webp" alt="Momento compartido en Cero Café de Origen" loading="lazy" data-fallback-image>
+                <figcaption>Comunidad</figcaption>
+              </figure>
+
+              <figure class="space-strip__card">
+                <img src="assets/imagenes/terraza-cero-1.webp" alt="Terraza de Cero Café de Origen bajo los arboles" loading="lazy" data-fallback-image>
+                <figcaption>Terraza</figcaption>
+              </figure>
+            </div>
+
+            <button class="space-strip__arrow space-strip__arrow--next" type="button" aria-label="Ver fotos siguientes" data-space-strip-next>→</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="location-section" aria-labelledby="ubicacion-title">
+        <div class="location-map-panel" id="ubicacion" aria-labelledby="ubicacion-title">
+          <div class="location-map">
+            <iframe
+              src="https://www.google.com/maps?q=Av.%20Congreso%205080%2C%20Villa%20Urquiza%2C%20Buenos%20Aires&output=embed"
+              title="Mapa de Cero Café de Origen"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <div class="location-info-card">
+            <p class="eyebrow">UBICACIÓN Y HORARIOS</p>
+            <h3 id="ubicacion-title">Encontrá Cero</h3>
+            <div class="info-list">
+              <article class="info-item">
+                <h4>Dirección</h4>
+                <p data-address>Av. Congreso 5080, Villa Urquiza</p>
+              </article>
+              <article class="info-item">
+                <h4>Horarios</h4>
+                <div data-hours>
+                  <p>Lun a Vie 8:00 a 20:00</p>
+                  <p>Sáb y Dom 8:30 a 20:30</p>
+                </div>
+              </article>
+            </div>
+            <div class="experience-actions">
+              <a class="btn btn-primary" href="https://www.google.com.ar/maps/place/Cero+Cafe+de+Origen/@-34.5697587,-58.4925334,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcb70028f5094d:0x6ccca2a17439a70d!8m2!3d-34.5697631!4d-58.4899585!16s%2Fg%2F11yq37r5c4?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" data-directions-link>Cómo llegar</a>
+              <a class="btn btn-outline-dark" href="https://wa.me/5491158173351" target="_blank" rel="noopener noreferrer" data-whatsapp-link>Consultar por WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="#inicio">
+        <span class="brand-mark brand-logo"><img src="assets/logos/Cero Logotipo negro.svg" alt="" data-fallback-image></span>
+        <span>Cero Café de Origen</span>
+      </a>
+      <div class="footer-details">
+        <p>Av. Congreso 5080, Villa Urquiza</p>
+        <p>Café de especialidad · Villa Urquiza</p>
+      </div>
+      <nav aria-label="Navegación secundaria">
+        <a href="#sabores">Sabores</a>
+        <a href="#menu">Carta</a>
+        <a href="#espacio">Espacio</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="https://www.instagram.com/cerocafedeorigen/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://wa.me/5491158173351" target="_blank" rel="noopener noreferrer" data-whatsapp-link>WhatsApp</a>
+      </nav>
+    </footer>
+
+    <script src="data/contenido.js" defer></script>
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
+
+

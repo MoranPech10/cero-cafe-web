@@ -1,0 +1,10 @@
+*.zip
+*.7z
+node_modules/
+dist/
+.next/
+.netlify/
+.env
+.env.local
+.git-backup/
+CERO ORIGINALES/
