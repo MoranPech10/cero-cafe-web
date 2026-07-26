@@ -113,46 +113,39 @@
       </section>
 
       <section class="section menu-section" id="menu" aria-labelledby="menu-title">
-        <div class="menu-layout">
+        <div class="menu-container">
           <div class="section-heading menu-heading">
             <div class="menu-hero-copy">
               <p class="eyebrow">Menú por categorías</p>
               <h2 id="menu-title">Carta de Cero</h2>
-              <div class="menu-tabs" id="menu-tabs" role="tablist" aria-label="Categorías del menú" data-menu-tabs></div>
+              <div class="menu-tabs">
+                <div class="menu-tabs-scroll" id="menu-tabs" role="tablist" aria-label="Categorías del menú" data-menu-tabs>
+                  <div class="menu-tabs-track" data-menu-tabs-track></div>
+                </div>
+              </div>
               <p class="section-note" data-menu-status></p>
             </div>
           </div>
 
-          <aside class="menu-featured-card" aria-label="Más vendidos">
-            <div class="menu-featured-copy">
-              <p class="cero-eyebrow">Selección destacada</p>
-              <h3>Más vendidos</h3>
+          <div class="menu-layout">
+            <div class="menu-shell">
+              <div class="menu-panel" id="menu-content" data-menu-panel></div>
             </div>
 
-            <div class="menu-featured-slider" data-featured-slider>
-              <article class="menu-featured-slide is-active" data-featured-slide>
-                <img src="assets/imagenes/menu-drive/Croissant.webp" alt="Croissant" width="1200" height="897" loading="eager" fetchpriority="high">
-                <p>Croissant</p>
-              </article>
-              <article class="menu-featured-slide" data-featured-slide>
-                <img data-src="assets/imagenes/menu/latte.webp" alt="Vanilla Latte" width="800" height="598" loading="lazy">
-                <p>Vanilla Latte</p>
-              </article>
-              <article class="menu-featured-slide" data-featured-slide>
-                <img data-src="assets/imagenes/menu-drive/Medialuna jyq.webp" alt="Medialuna JyQ" width="1200" height="896" loading="lazy">
-                <p>Medialuna JyQ</p>
-              </article>
-              <article class="menu-featured-slide" data-featured-slide>
-                <img data-src="assets/imagenes/menu-drive/Roll de Canela.webp" alt="Roll de canela" width="1200" height="896" loading="lazy">
-                <p>Roll de canela</p>
-              </article>
-            </div>
+            <aside class="menu-featured-card" aria-label="Más vendidos">
+              <div class="menu-featured-copy">
+                <p class="cero-eyebrow">Selección destacada</p>
+                <h3>Más vendidos</h3>
+              </div>
 
-            <div class="menu-featured-dots" aria-hidden="true" data-featured-dots></div>
-          </aside>
+              <div class="menu-featured-slider" data-featured-slider></div>
 
-          <div class="menu-shell">
-            <div class="menu-panel" id="menu-content" data-menu-panel></div>
+              <div class="menu-featured-controls" aria-label="Controles de Más vendidos">
+                <button class="menu-featured-control" type="button" aria-label="Ver producto anterior" data-featured-prev>←</button>
+                <div class="menu-featured-dots" data-featured-dots></div>
+                <button class="menu-featured-control" type="button" aria-label="Ver producto siguiente" data-featured-next>→</button>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -169,8 +162,8 @@
 
           <div class="products-preview-grid" aria-label="Productos destacados">
             <article class="cero-product-card">
-              <figure class="cero-product-media">
-                <img src="assets/imagenes/productos/cafe-de-origen-250g.webp" alt="Café de origen Cero en presentación de 250 gramos" loading="lazy">
+              <figure class="cero-product-media product-coffee-preview-media">
+                <img src="assets/imagenes/productos/fotos%20cafe/cafe-cero-colombia-transparente.webp" alt="Packaging del café de origen Colombia de Cero" width="1000" height="1000" loading="lazy" decoding="async">
               </figure>
               <div class="cero-product-content">
                 <p class="cero-product-category">Café</p>
@@ -213,6 +206,15 @@
               <p class="eyebrow">EVENTOS</p>
               <h2 id="eventos-title">Eventos en Cero</h2>
               <p>Un espacio cálido, versátil y con identidad para encuentros corporativos, sociales, brunchs, charlas, cowork y momentos compartidos.</p>
+              <a
+                class="btn btn-primary events-whatsapp"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Consultar por un evento en CERO Café mediante WhatsApp"
+                data-whatsapp-link
+                data-whatsapp-message="Hola, quería consultar por la posibilidad de realizar un evento en CERO Café."
+              >Consultá por tu evento</a>
             </div>
 
             <div class="events-grid" aria-label="Tipos de eventos en Cero">

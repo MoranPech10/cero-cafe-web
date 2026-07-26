@@ -3,122 +3,10 @@
     menuCategories: [],
     activeCategoryIndex: null,
     revealObserver: null,
+    featuredCarouselCleanup: null,
   };
 
-  function menuImage(fileName) {
-    return encodeURI(`assets/imagenes/menu-drive/${fileName}`);
-  }
-
-  const menuDriveImageByKey = {
-    espresso: "Espresso.webp",
-    americano: "Americano 2.webp",
-    filtrado: "Filtrado cafe de origen.webp",
-    cortado: "Cortado 2.webp",
-    moccacino: "Moccachino.webp",
-    "pistacchio latte": "Pistacchio lattle.webp",
-    "te en hebras": "Te negro 2.webp",
-    "matcha vainilla latte": "Matcha latte.webp",
-    "chocolatada belga": "Chocolatada belga 2.webp",
-    "dirty chai latte": "Dirty Chai Latte.webp",
-    "iced americano": "Iced Americano.webp",
-    "iced latte": "Iced Latte.webp",
-    gaseosas: "Gaseosa coca zero.webp",
-    "agua de jamaica": "Agua de Jamaica.webp",
-    "americano deluxe": "Americano Deluxe.webp",
-    "tazon de granola": "Tazon de Granola 2.webp",
-    "waffle cero": "Waffle CERO.webp",
-    "bagel 3 amores": "Bagel 3 amores.webp",
-    "chipa relleno": "Chipa relleno 2.webp",
-    "french banana toast": "French Banana Toast 4.webp",
-    "ensalada caesar": "Ensalada caesar.webp",
-    "kebab de carnes braseadas": "Kebab de carnes.webp",
-    "bowl cero": "Bowl CERO 2.webp",
-    "wrap de pollo": "Wrap de pollo.webp",
-    "focaccia labneh": "Focaccia labneh 8 .webp",
-    "medialuna jyq": "Medialuna jyq.webp",
-    "sandwich criollo": "Sandwich Criollo.webp",
-    "mbeju guarani xl": "Mbeju guarani.webp",
-    "arabe jyq": "Arabe jyq 2.webp",
-    "scon mas queso": "Scon de queso.webp",
-    "bagel de salmon": "Bagel salmon.webp",
-    "medialuna de manteca": "Medialuna 2.webp",
-    "cookie red velvet": "Cookie red velvet.webp",
-    "cookie de vainilla y chips de chocolate semi amargo": "Cookie chips choco.webp",
-    croissant: "Croissant.webp",
-    "cookie rellena de pistacchio y chocolate blanco": "Cookie de pistacchio.webp",
-    "roll de canela": "Roll de Canela.webp",
-    "croissant a la reina": "Croissant a la reina 2.webp",
-    "cheesecake de frutos rojos": "Torta Cheescake frutos rojos.webp",
-    "key lime pie": "Torta Key Lime.webp",
-    "pomelada con soda y romero": "Pomelada soda y romero.webp",
-    "te verde con cordial de lima batido": "Te verde con cordial de lima 2.webp",
-    "coffee collins": "Coffee Collins.webp",
-    bumble: "Bumble 2.webp",
-    "vermut la fuerza": "Vermut La Fuerza.webp",
-    "aperol spritz": "Aperol Spritz 2.webp",
-    "amarula iced flat": "Amarula Iced Flat.webp",
-    "espresso martini": "Espresso Martini.webp",
-  };
-
-  const menuImageByKey = {
-    americano: "espresso.webp",
-    capuccino: "latte.webp",
-    "flat white": "latte.webp",
-    "latte piccolo": "latte.webp",
-    "cafe con leche": "cafe-con-leche-xl.webp",
-    "vainilla latte": "latte.webp",
-    "caramel latte": "latte.webp",
-    "pistacchio latte": "pistachio-latte-xl.webp",
-    "te en hebras": "te.webp",
-    "matcha vainilla latte": "chai-latte.webp",
-    "dirty chai latte": "chai-latte.webp",
-    "cold brew": "iced-americano.webp",
-    "agua mineral agua con gas": "agua-mineral.webp",
-    "agua de jamaica": "agua-jamaica.webp",
-    "jugo de naranja exprimido": "jugo-naranja.webp",
-    limonada: "limonada-menta-jengibre.webp",
-    "licuado prote": "licuado-proteico.webp",
-    "tazon de granola": "tazon-granola.webp",
-    "waffle cero": "waffle-cero.webp",
-    "french banana toast": "french-banana-toast.webp",
-    "ensalada caesar": "avocado-toast.webp",
-    "kebab de carnes braseadas": "sandwich-criollo.webp",
-    "bowl cero": "tazon-granola.webp",
-    "wrap de pollo": "sandwich-criollo.webp",
-    "focaccia labneh": "arabe-jyo.webp",
-    "tarta de puerros y pollo": "torta-dia.webp",
-    "tarta capresse": "torta-dia.webp",
-    "mbeju guarani xl": "mbeyu-guarani-xl.webp",
-    "arabe jyq": "arabe-jyo.webp",
-    "croissant de jamon crudo": "croissant-jamon-crudo.webp",
-    "scon mas queso": "scon-queso.webp",
-    "bagel de salmon": "bagel-salmon.webp",
-    "alfajor de maicena": "alfajores.webp",
-    "medialuna de manteca": "medialuna-manteca.webp",
-    "cookie de vainilla y chips de chocolate semi amargo": "cookie-vainilla-chips.webp",
-    "budin de limon amapolas y arandanos": "budin-limon-amapolas-arandanos.webp",
-    "cookie rellena de pistacchio y chocolate blanco": "cookie-pistachio-chocolate-blanco.webp",
-    "roll de canela": "roll-canela.webp",
-    "croissant a la reina": "croissant-reina.webp",
-    "cuadrados de brownie": "cuadrados-brownie.webp",
-    "cheesecake de frutos rojos": "cheesecake-frutos-rojos.webp",
-    "torta del dia": "torta-dia.webp",
-    "budin de banana y nuez": "budin-banana-nuez.webp",
-    "pomelada con soda y romero": "pomelada-soda-romero.webp",
-    "te verde con cordial de lima batido": "te-verde-cordial-lima.webp",
-    "vermut la fuerza": "vermut-la-fuerza.webp",
-    "cervezas strange": "vermut-la-fuerza.webp",
-  };
-
-  const menuFallbackImageByGroup = {
-    cafe: "espresso.webp",
-    "bebidas-frias": "iced-latte.webp",
-    brunch: "avocado-toast.webp",
-    "menu-mediodia": "sandwich-criollo.webp",
-    "all-day-food": "sandwich-criollo.webp",
-    pasteleria: "croissant.webp",
-    "summer-drinks": "pomelada-soda-romero.webp",
-  };
+  const menuPlaceholderLogo = "assets/logos/Sublogo vertical_negro.svg";
 
   const selectors = {
     body: document.body,
@@ -133,6 +21,7 @@
     directionsLinks: document.querySelectorAll("[data-directions-link]"),
     contactCopy: document.querySelector("[data-contact-copy]"),
     header: document.querySelector("[data-header]"),
+    menuTabsTrack: document.querySelector("[data-menu-tabs-track]"),
   };
 
   initHeader();
@@ -140,9 +29,10 @@
   initFallbackImages();
   initFallbackVideos();
   initLazyVideos();
-  initFeaturedMenuCarousel();
+  initMenuTabsScroller();
   initMenuImageLightbox();
   initProductFilters();
+  initCoffeeOriginCards();
   initSpaceStrip();
   initSpaceVideoLightbox();
   initScrollAnimations();
@@ -273,25 +163,95 @@
     videos.forEach((video) => videoObserver.observe(video));
   }
 
-  function initFeaturedMenuCarousel() {
+  function initFeaturedMenuCarousel(items) {
     const slider = document.querySelector("[data-featured-slider]");
-    const slides = Array.from(document.querySelectorAll("[data-featured-slide]"));
     const dotsContainer = document.querySelector("[data-featured-dots]");
-    if (!slider || slides.length <= 1) return;
+    const previousButton = document.querySelector("[data-featured-prev]");
+    const nextButton = document.querySelector("[data-featured-next]");
+    if (!slider || !dotsContainer || !previousButton || !nextButton || !Array.isArray(items) || !items.length) return;
 
-    let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
-    if (activeIndex < 0) activeIndex = 0;
+    state.featuredCarouselCleanup?.();
+
+    slider.innerHTML = "";
+    dotsContainer.innerHTML = "";
+    slider.tabIndex = 0;
+    slider.role = "region";
+    slider.setAttribute("aria-label", "Carrusel Más vendidos");
+
+    const eventController = new AbortController();
+    const { signal } = eventController;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let activeIndex = 0;
+    let autoplayTimer = null;
+    let isHovered = false;
+    let isTouching = false;
+
+    const slides = items.map((item, index) => {
+      const slide = document.createElement("div");
+      slide.className = "menu-featured-slide";
+      slide.classList.toggle("is-active", index === 0);
+      slide.dataset.featuredSlide = "";
+      slide.setAttribute("aria-hidden", String(index !== 0));
+
+      const image = document.createElement("img");
+      const imageSource = getMenuItemImage(item);
+      if (index === 0) {
+        image.src = imageSource;
+      } else {
+        image.dataset.src = imageSource;
+      }
+      image.alt = `Fotografía del producto destacado ${index + 1}`;
+      image.width = 1200;
+      image.height = 900;
+      image.loading = index === 0 ? "eager" : "lazy";
+      image.decoding = "async";
+      image.dataset.featuredImage = String(index + 1);
+
+      slide.appendChild(image);
+      slider.appendChild(slide);
+      return slide;
+    });
+
+    const stopAutoplay = () => {
+      if (autoplayTimer === null) return;
+      window.clearTimeout(autoplayTimer);
+      autoplayTimer = null;
+    };
+
+    const canAutoplay = () => (
+      !reducedMotion.matches
+      && !document.hidden
+      && !isHovered
+      && !isTouching
+    );
+
+    const scheduleAutoplay = () => {
+      stopAutoplay();
+      if (!canAutoplay()) return;
+
+      autoplayTimer = window.setTimeout(() => {
+        showSlide(activeIndex + 1);
+        scheduleAutoplay();
+      }, 4000);
+    };
 
     const dots = slides.map((_, index) => {
-      const dot = document.createElement("span");
+      const dot = document.createElement("button");
       dot.className = "menu-featured-dot";
+      dot.type = "button";
+      dot.setAttribute("aria-label", `Mostrar imagen ${index + 1} de ${slides.length}`);
       dot.classList.toggle("is-active", index === activeIndex);
-      dotsContainer?.appendChild(dot);
+      dot.setAttribute("aria-current", String(index === activeIndex));
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        scheduleAutoplay();
+      }, { signal });
+      dotsContainer.appendChild(dot);
       return dot;
     });
 
     const showSlide = (nextIndex) => {
-      activeIndex = nextIndex % slides.length;
+      activeIndex = ((nextIndex % slides.length) + slides.length) % slides.length;
       const activeImage = slides[activeIndex].querySelector("img[data-src]");
       if (activeImage) {
         activeImage.src = activeImage.dataset.src;
@@ -299,26 +259,65 @@
       }
       slides.forEach((slide, index) => {
         slide.classList.toggle("is-active", index === activeIndex);
+        slide.setAttribute("aria-hidden", String(index !== activeIndex));
       });
       dots.forEach((dot, index) => {
         dot.classList.toggle("is-active", index === activeIndex);
+        dot.setAttribute("aria-current", String(index === activeIndex));
       });
     };
 
-    const startCarousel = () => {
-      window.setTimeout(() => {
-        showSlide(activeIndex + 1);
-        window.setInterval(() => {
-          showSlide(activeIndex + 1);
-        }, 4000);
-      }, 8000);
+    previousButton.addEventListener("click", () => {
+      showSlide(activeIndex - 1);
+      scheduleAutoplay();
+    }, { signal });
+    nextButton.addEventListener("click", () => {
+      showSlide(activeIndex + 1);
+      scheduleAutoplay();
+    }, { signal });
+    slider.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+      event.preventDefault();
+      showSlide(activeIndex + (event.key === "ArrowRight" ? 1 : -1));
+    }, { signal });
+
+    const carousel = slider.closest(".menu-featured-card");
+    carousel?.addEventListener("mouseenter", () => {
+      isHovered = true;
+      stopAutoplay();
+    }, { signal });
+    carousel?.addEventListener("mouseleave", () => {
+      isHovered = false;
+      scheduleAutoplay();
+    }, { signal });
+    carousel?.addEventListener("keydown", () => {
+      stopAutoplay();
+      scheduleAutoplay();
+    }, { signal });
+    carousel?.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "touch") return;
+      isTouching = true;
+      stopAutoplay();
+    }, { signal, passive: true });
+
+    const finishTouchInteraction = (event) => {
+      if (event.pointerType !== "touch") return;
+      isTouching = false;
+      scheduleAutoplay();
+    };
+    carousel?.addEventListener("pointerup", finishTouchInteraction, { signal, passive: true });
+    carousel?.addEventListener("pointercancel", finishTouchInteraction, { signal, passive: true });
+
+    document.addEventListener("visibilitychange", scheduleAutoplay, { signal });
+    reducedMotion.addEventListener("change", scheduleAutoplay, { signal });
+
+    state.featuredCarouselCleanup = () => {
+      stopAutoplay();
+      eventController.abort();
     };
 
-    if (document.readyState === "complete") {
-      startCarousel();
-    } else {
-      window.addEventListener("load", startCarousel, { once: true });
-    }
+    scheduleAutoplay();
   }
 
   function initMenuImageLightbox() {
@@ -422,6 +421,40 @@
           const isVisible = activeFilter === "all" || card.dataset.productCategory === activeFilter;
           card.classList.toggle("is-hidden", !isVisible);
         });
+      });
+    });
+  }
+
+  function initCoffeeOriginCards() {
+    const coffeeCards = Array.from(document.querySelectorAll("[data-coffee-origin]"));
+    if (!coffeeCards.length) return;
+    const hoverMedia = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    const updateView = (card, showLabel) => {
+      const packaging = card.querySelector("[data-coffee-packaging]");
+      const label = card.querySelector("[data-coffee-label]");
+      const media = card.querySelector("[data-coffee-media]");
+      if (!packaging || !label || !media) return;
+
+      const origin = card.dataset.coffeeOriginName || "este café";
+      packaging.setAttribute("aria-hidden", String(showLabel));
+      label.setAttribute("aria-hidden", String(!showLabel));
+      media.setAttribute("aria-pressed", String(showLabel));
+      media.setAttribute("aria-label", showLabel ? `Mostrar packaging de ${origin}` : `Mostrar etiqueta de ${origin}`);
+      media.dataset.touchHint = showLabel ? "Tocá para ver packaging" : "Tocá para ver etiqueta";
+      media.classList.toggle("is-showing-label", showLabel);
+    };
+
+    coffeeCards.forEach((card) => {
+      const media = card.querySelector("[data-coffee-media]");
+      if (!media) return;
+
+      media.addEventListener("click", (event) => {
+        const isKeyboardActivation = event.detail === 0;
+        if (hoverMedia.matches && !isKeyboardActivation) return;
+
+        const showLabel = media.getAttribute("aria-pressed") !== "true";
+        updateView(card, showLabel);
       });
     });
   }
@@ -640,6 +673,7 @@
       applySiteContent(bundledData);
       state.menuCategories = normalizeMenu(bundledData);
       renderMenu();
+      initFeaturedMenuCarousel(getFeaturedMenuItems());
       return;
     }
 
@@ -649,13 +683,20 @@
       applySiteContent(data);
       state.menuCategories = normalizeMenu(data);
       renderMenu();
+      initFeaturedMenuCarousel(getFeaturedMenuItems());
     } catch (error) {
       console.error("No se pudo cargar el contenido del sitio.", error);
       const fallbackData = window.CERO_CONTENIDO || {};
       applySiteContent(fallbackData);
       state.menuCategories = normalizeMenu(fallbackData);
       renderMenu();
+      initFeaturedMenuCarousel(getFeaturedMenuItems());
     }
+  }
+
+  function getFeaturedMenuItems() {
+    const featuredGroup = state.menuCategories.find((group) => group.id === "destacados");
+    return featuredGroup?.categories.flatMap((category) => category.items) || [];
   }
 
   async function fetchJson(url) {
@@ -674,7 +715,8 @@
     const whatsappUrl = buildWhatsappUrl(whatsapp);
     if (whatsappUrl) {
       selectors.whatsappLinks.forEach((link) => {
-        link.href = whatsappUrl;
+        const message = link.dataset.whatsappMessage;
+        link.href = message ? `${whatsappUrl}?text=${encodeURIComponent(message)}` : whatsappUrl;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
       });
@@ -725,6 +767,9 @@
       .map(normalizeCategory)
       .filter((category) => category.name && category.items.length);
 
+    const featuredCategory = createFeaturedCategory(data?.menu?.destacados, normalizedCategories);
+    if (featuredCategory) normalizedCategories.push(featuredCategory);
+
     return groupMenuCategories(normalizedCategories);
   }
 
@@ -732,11 +777,12 @@
     const name = cleanText(category?.nombre || "");
     const id = category?.id ? String(category.id) : slugify(name);
     const note = cleanText(category?.nota || "");
+    const groupNote = cleanText(category?.nota_grupo || "");
     const items = Array.isArray(category?.items)
       ? category.items.map(normalizeMenuItem).filter((item) => item.name)
       : [];
 
-    return { id, name, note, items };
+    return { id, name, note, groupNote, items };
   }
 
   function normalizeMenuItem(item) {
@@ -744,45 +790,77 @@
       name: cleanText(item?.nombre || ""),
       description: cleanText(item?.descripcion || ""),
       price: formatPrice(item?.precio),
+      image: cleanText(item?.imagen || ""),
+      badge: cleanText(item?.etiqueta || ""),
+      photoStatus: cleanText(item?.estado_foto || ""),
+      imageTreatment: cleanText(item?.ajuste_imagen || ""),
     };
+  }
+
+  function createFeaturedCategory(featuredItems, categories) {
+    if (!Array.isArray(featuredItems) || !featuredItems.length) return null;
+
+    const menuItems = categories.flatMap((category) => category.items);
+    const findItem = (name) => menuItems.find((item) => normalizeKey(item.name) === normalizeKey(name));
+    const items = featuredItems.map((featured) => {
+      if (featured?.productos) {
+        const referencedItems = featured.productos.map(findItem).filter(Boolean);
+        if (!referencedItems.length) return null;
+
+        return {
+          ...referencedItems[0],
+          isComposite: true,
+          name: cleanText(featured.nombre || referencedItems.map((item) => item.name).join(" / ")),
+          description: cleanText(featured.descripcion || referencedItems.map((item) => item.description).filter(Boolean).join(" / ")),
+          price: referencedItems.map((item) => `${item.name.replace(/\s*\([^)]*\)$/, "").replace("Té en hebras", "Té")} ${item.price}`).join(" / "),
+          image: cleanText(featured.imagen || referencedItems[0].image),
+          badge: "",
+        };
+      }
+
+      const item = findItem(featured?.producto);
+      return item ? { ...item, name: cleanText(featured.nombre || item.name) } : null;
+    }).filter(Boolean);
+
+    return items.length ? { id: "destacados", name: "Destacados", note: "", groupNote: "", items } : null;
   }
 
   function groupMenuCategories(categories) {
     const groups = [
       {
-        id: "cafe",
-        name: "Café",
-        categoryNames: ["Just Coffee", "Coffee with Milk", "Hot Drinks"],
+        id: "todo-el-dia",
+        name: "Todo el Día",
+        categoryNames: ["Todo el Día"],
       },
       {
-        id: "bebidas-frias",
-        name: "Bebidas frías",
-        categoryNames: ["Iced Coffee Drinks", "Cold Drinks"],
-      },
-      {
-        id: "brunch",
-        name: "Brunch",
-        categoryNames: ["Brunch / Combos"],
+        id: "combos-brunch",
+        name: "Combos / Brunch",
+        categoryNames: ["Combos / Brunch"],
       },
       {
         id: "menu-mediodia",
-        name: "Menú mediodía",
+        name: "Menú Mediodía",
         categoryNames: ["Menú Mediodía"],
       },
       {
-        id: "all-day-food",
-        name: "All day food",
-        categoryNames: ["All Day Food"],
+        id: "hot-drinks",
+        name: "Hot Drinks",
+        categoryNames: ["Solo Café", "Café con Leche", "Bebidas Calientes"],
       },
       {
-        id: "pasteleria",
-        name: "Pastelería",
-        categoryNames: ["Pastries"],
+        id: "cold-drinks",
+        name: "Cold Drinks",
+        categoryNames: ["Café Frío", "Bebidas Frías", "Winter Drinks"],
       },
       {
-        id: "summer-drinks",
-        name: "Summer drinks",
-        categoryNames: ["Summer Drinks"],
+        id: "mostrador",
+        name: "Mostrador",
+        categoryNames: ["Pastries", "Cakes"],
+      },
+      {
+        id: "destacados",
+        name: "Destacados",
+        categoryNames: ["Destacados"],
       },
     ];
 
@@ -800,6 +878,7 @@
         return {
           id: group.id,
           name: group.name,
+          note: matchedCategories.find((category) => category.groupNote)?.groupNote || "",
           categories: matchedCategories,
         };
       })
@@ -810,6 +889,7 @@
         menuGroups.push({
           id: category.id,
           name: category.name,
+          note: category.groupNote,
           categories: [category],
         });
       }
@@ -819,18 +899,18 @@
   }
 
   function renderMenu() {
-    if (!selectors.menuTabs || !selectors.menuPanel) return;
+    if (!selectors.menuTabs || !selectors.menuTabsTrack || !selectors.menuPanel) return;
 
     if (!state.menuCategories.length) {
       setMenuMessage("");
-      selectors.menuTabs.innerHTML = "";
+      selectors.menuTabsTrack.innerHTML = "";
       selectors.menuPanel.innerHTML = "";
       enhanceMotion(document);
       return;
     }
 
-    if (state.activeCategoryIndex !== null && state.activeCategoryIndex >= state.menuCategories.length) {
-      state.activeCategoryIndex = null;
+    if (state.activeCategoryIndex === null || state.activeCategoryIndex >= state.menuCategories.length) {
+      state.activeCategoryIndex = 0;
     }
 
     setMenuMessage("");
@@ -840,7 +920,7 @@
   }
 
   function renderTabs() {
-    selectors.menuTabs.innerHTML = "";
+    selectors.menuTabsTrack.innerHTML = "";
 
     state.menuCategories.forEach((group, index) => {
       const button = document.createElement("button");
@@ -852,12 +932,109 @@
       button.setAttribute("aria-selected", String(index === state.activeCategoryIndex));
       button.textContent = group.name;
       button.addEventListener("click", () => {
-        state.activeCategoryIndex = state.activeCategoryIndex === index ? null : index;
+        state.activeCategoryIndex = index;
         renderTabs();
         renderActiveCategory();
+
+        const activeTab = selectors.menuTabs.querySelector('[aria-selected="true"]');
+        requestAnimationFrame(() => scrollMenuTabIntoView(activeTab));
       });
-      selectors.menuTabs.appendChild(button);
+      selectors.menuTabsTrack.appendChild(button);
     });
+  }
+
+  function scrollMenuTabIntoView(tab) {
+    if (!tab) return;
+
+    tab.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "nearest",
+    });
+  }
+
+  function initMenuTabsScroller() {
+    const scroller = selectors.menuTabs;
+    if (!scroller) return;
+
+    let pointerId = null;
+    let pointerStartX = 0;
+    let scrollStartLeft = 0;
+    let isDragging = false;
+    let suppressNextClick = false;
+    const dragThreshold = 6;
+
+    scroller.addEventListener("wheel", (event) => {
+      if (scroller.scrollWidth <= scroller.clientWidth || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+
+      const deltaMultiplier = event.deltaMode === 1
+        ? 16
+        : event.deltaMode === 2
+          ? scroller.clientWidth
+          : 1;
+      const horizontalDelta = event.deltaY * deltaMultiplier;
+      const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
+      const canScroll = horizontalDelta < 0
+        ? scroller.scrollLeft > 0
+        : scroller.scrollLeft < maxScrollLeft;
+
+      if (!canScroll) return;
+
+      event.preventDefault();
+      scroller.scrollLeft += horizontalDelta;
+    }, { passive: false });
+
+    scroller.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "mouse" || event.button !== 0) return;
+
+      pointerId = event.pointerId;
+      pointerStartX = event.clientX;
+      scrollStartLeft = scroller.scrollLeft;
+      isDragging = false;
+    });
+
+    scroller.addEventListener("pointermove", (event) => {
+      if (event.pointerId !== pointerId) return;
+
+      const distance = event.clientX - pointerStartX;
+      if (!isDragging && Math.abs(distance) < dragThreshold) return;
+
+      if (!isDragging) {
+        isDragging = true;
+        suppressNextClick = true;
+        scroller.classList.add("is-dragging");
+        scroller.setPointerCapture(pointerId);
+      }
+
+      scroller.scrollLeft = scrollStartLeft - distance;
+    });
+
+    const stopDragging = (event) => {
+      if (event.pointerId !== pointerId) return;
+
+      if (scroller.hasPointerCapture(pointerId)) scroller.releasePointerCapture(pointerId);
+      scroller.classList.remove("is-dragging");
+      pointerId = null;
+      isDragging = false;
+
+      if (event.type === "pointercancel") {
+        suppressNextClick = false;
+      } else if (suppressNextClick) {
+        window.setTimeout(() => {
+          suppressNextClick = false;
+        }, 0);
+      }
+    };
+
+    scroller.addEventListener("pointerup", stopDragging);
+    scroller.addEventListener("pointercancel", stopDragging);
+    scroller.addEventListener("click", (event) => {
+      if (!suppressNextClick) return;
+
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      suppressNextClick = false;
+    }, true);
   }
 
   function renderActiveCategory() {
@@ -875,6 +1052,13 @@
     selectors.menuPanel.classList.add(`is-${group.id}`);
     selectors.menuPanel.setAttribute("aria-labelledby", `menu-tab-${group.id || state.activeCategoryIndex}`);
 
+    if (group.note) {
+      const groupNote = document.createElement("p");
+      groupNote.className = "menu-group-note";
+      groupNote.textContent = group.note;
+      selectors.menuPanel.appendChild(groupNote);
+    }
+
     group.categories.forEach((category) => {
       const section = createMenuSubcategory(category, group.id);
       selectors.menuPanel.appendChild(section);
@@ -886,6 +1070,7 @@
   function createMenuSubcategory(category, groupId) {
     const section = document.createElement("section");
     section.className = "menu-subcategory";
+    section.classList.add(`is-${category.id}`);
 
     const heading = document.createElement("div");
     heading.className = "menu-subcategory-heading";
@@ -913,31 +1098,43 @@
     items.forEach((item) => {
       const article = document.createElement("article");
       article.className = "menu-product-card";
+      if (item.isComposite) article.classList.add("is-composite");
+      if (item.imageTreatment) article.classList.add(`image-${slugify(item.imageTreatment)}`);
+      if (item.photoStatus) article.dataset.photoStatus = item.photoStatus;
 
       const imageWrap = document.createElement("figure");
       imageWrap.className = "menu-product-media";
 
-      const imageButton = document.createElement("button");
-      imageButton.className = "menu-product-image-button";
-      imageButton.type = "button";
-      imageButton.dataset.menuImageOpen = "";
-      imageButton.dataset.productName = item.name;
-      imageButton.setAttribute("aria-label", `Ver foto completa de ${item.name}`);
+      const imageSource = getMenuItemImage(item);
+      if (imageSource) {
+        const imageButton = document.createElement("button");
+        imageButton.className = "menu-product-image-button";
+        imageButton.type = "button";
+        imageButton.dataset.menuImageOpen = "";
+        imageButton.dataset.productName = item.name;
+        imageButton.setAttribute("aria-label", `Ver foto completa de ${item.name}`);
 
-      const image = document.createElement("img");
-      image.src = getMenuItemImage(item, category, groupId);
-      image.alt = item.name;
-      image.loading = "lazy";
-      image.decoding = "async";
-      image.width = 1200;
-      image.height = 900;
-      image.addEventListener("error", () => {
+        const image = document.createElement("img");
+        image.src = imageSource;
+        image.alt = `Foto de ${item.name}`;
+        image.loading = "lazy";
+        image.decoding = "async";
+        image.width = 1200;
+        image.height = 900;
+        image.addEventListener("error", () => {
+          article.classList.add("has-missing-image");
+          imageButton.replaceChildren(createMenuPlaceholder());
+          imageButton.disabled = true;
+          imageButton.removeAttribute("data-menu-image-open");
+          imageButton.removeAttribute("aria-label");
+        }, { once: true });
+
+        imageButton.appendChild(image);
+        imageWrap.appendChild(imageButton);
+      } else {
         article.classList.add("has-missing-image");
-        image.src = `assets/imagenes/menu/${menuFallbackImageByGroup[groupId] || "croissant.webp"}`;
-      }, { once: true });
-
-      imageButton.appendChild(image);
-      imageWrap.appendChild(imageButton);
+        imageWrap.appendChild(createMenuPlaceholder());
+      }
       article.appendChild(imageWrap);
 
       const body = document.createElement("div");
@@ -981,18 +1178,27 @@
     return grid;
   }
 
-  function getMenuItemImage(item, category, groupId) {
-    const itemKey = normalizeKey(item.name);
-    const driveImage = menuDriveImageByKey[itemKey];
-    const mappedImage = menuImageByKey[itemKey];
-    const slugImage = `${slugify(item.name)}.webp`;
-    const fallbackImage = menuFallbackImageByGroup[groupId] || menuFallbackImageByGroup[category.id] || "croissant.webp";
+  function createMenuPlaceholder() {
+    const placeholder = document.createElement("span");
+    placeholder.className = "menu-product-placeholder";
+    placeholder.setAttribute("aria-hidden", "true");
 
-    if (driveImage) return menuImage(driveImage);
-    return `assets/imagenes/menu/${mappedImage || slugImage || fallbackImage}`;
+    const logo = document.createElement("img");
+    logo.src = menuPlaceholderLogo;
+    logo.alt = "";
+    logo.width = 160;
+    logo.height = 160;
+    placeholder.appendChild(logo);
+    return placeholder;
+  }
+
+  function getMenuItemImage(item) {
+    if (!item.image) return "";
+    return encodeURI(item.image);
   }
 
   function getMenuItemBadge(item) {
+    if (item.badge) return item.badge;
     const text = normalizeKey(`${item.name} ${item.description}`);
     if (text.includes("vegano")) return "Opcional vegano";
     if (text.includes("sin tacc")) return "Sin TACC";
@@ -1001,10 +1207,6 @@
   }
 
   function getCategoryDisplayName(category, groupId) {
-    if (groupId === "pasteleria" && normalizeKey(category.name) === "pastries") {
-      return "Pastelería";
-    }
-
     return category.name;
   }
 
@@ -1057,7 +1259,7 @@
     if (value === undefined || value === null || value === "") return "";
     const text = cleanText(value).trim();
     if (!text || text.includes("$") || /consultar/i.test(text)) return text;
-    return `$ ${text}`;
+    return `$${text}`;
   }
 
   function normalizeAddress(value) {

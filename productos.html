@@ -43,61 +43,71 @@
 
         <div class="products-filter-bar" aria-label="Filtrar productos">
           <button class="products-filter is-active" type="button" data-product-filter="all">Todos</button>
+          <button class="products-filter" type="button" data-product-filter="cafe">Café</button>
           <button class="products-filter" type="button" data-product-filter="merch">Merch</button>
           <button class="products-filter" type="button" data-product-filter="objetos">Objetos</button>
-          <button class="products-filter" type="button" data-product-filter="cafe">Café</button>
-          <button class="products-filter" type="button" data-product-filter="velas">Velas</button>
         </div>
       </section>
 
       <section class="products-catalog-grid" aria-label="Catálogo de Productos Cero">
-        <article class="cero-product-card catalog-product-card" data-product-category="merch">
-          <figure class="cero-product-media">
-            <img src="assets/imagenes/productos/bolso.webp" alt="Bolso Cero" loading="lazy">
-          </figure>
-          <div class="cero-product-content">
-            <p class="cero-product-category">Merch</p>
-            <h2>Bolso Cero</h2>
-            <p>Pieza de uso diario con identidad Cero.</p>
+        <article class="cero-product-card catalog-product-card coffee-origin-card" data-product-category="cafe" data-coffee-origin data-coffee-origin-name="Colombia">
+          <button class="coffee-origin-media" type="button" aria-label="Mostrar etiqueta de Colombia" aria-pressed="false" data-coffee-media data-touch-hint="Tocá para ver etiqueta">
+            <img class="coffee-origin-image coffee-origin-packaging" src="assets/imagenes/productos/fotos%20cafe/cafe-cero-colombia.jpg" alt="Packaging del café de origen Colombia de Cero" width="1000" height="1000" loading="lazy" decoding="async" data-coffee-packaging>
+            <img class="coffee-origin-image coffee-origin-label" src="assets/imagenes/productos/fotos%20cafe/etiqueta-colombia.jpg" alt="Etiqueta del café de origen Colombia de Cero" width="1000" height="1000" loading="lazy" decoding="async" aria-hidden="true" data-coffee-label>
+          </button>
+          <div class="cero-product-content coffee-origin-content">
+            <p class="cero-product-category">Café de origen</p>
+            <h2>Colombia</h2>
+          </div>
+        </article>
+
+        <article class="cero-product-card catalog-product-card coffee-origin-card" data-product-category="cafe" data-coffee-origin data-coffee-origin-name="Perú">
+          <button class="coffee-origin-media" type="button" aria-label="Mostrar etiqueta de Perú" aria-pressed="false" data-coffee-media data-touch-hint="Tocá para ver etiqueta">
+            <img class="coffee-origin-image coffee-origin-packaging" src="assets/imagenes/productos/fotos%20cafe/cafe-cero-peru.jpg" alt="Packaging del café de origen Perú de Cero" width="1000" height="1000" loading="lazy" decoding="async" data-coffee-packaging>
+            <img class="coffee-origin-image coffee-origin-label" src="assets/imagenes/productos/fotos%20cafe/etiqueta-peru.jpg" alt="Etiqueta del café de origen Perú de Cero" width="1000" height="1000" loading="lazy" decoding="async" aria-hidden="true" data-coffee-label>
+          </button>
+          <div class="cero-product-content coffee-origin-content">
+            <p class="cero-product-category">Café de origen</p>
+            <h2>Perú</h2>
+          </div>
+        </article>
+
+        <article class="cero-product-card catalog-product-card coffee-origin-card" data-product-category="cafe" data-coffee-origin data-coffee-origin-name="Kenia">
+          <button class="coffee-origin-media" type="button" aria-label="Mostrar etiqueta de Kenia" aria-pressed="false" data-coffee-media data-touch-hint="Tocá para ver etiqueta">
+            <img class="coffee-origin-image coffee-origin-packaging" src="assets/imagenes/productos/fotos%20cafe/cafe-cero-kenia.jpg" alt="Packaging del café de origen Kenia de Cero" width="1000" height="1000" loading="lazy" decoding="async" data-coffee-packaging>
+            <img class="coffee-origin-image coffee-origin-label" src="assets/imagenes/productos/fotos%20cafe/etiqueta-kenia.jpg" alt="Etiqueta del café de origen Kenia de Cero" width="1000" height="1000" loading="lazy" decoding="async" aria-hidden="true" data-coffee-label>
+          </button>
+          <div class="cero-product-content coffee-origin-content">
+            <p class="cero-product-category">Café de origen</p>
+            <h2>Kenia</h2>
+          </div>
+        </article>
+
+        <article class="cero-product-card catalog-product-card coffee-origin-card" data-product-category="cafe" data-coffee-origin data-coffee-origin-name="Etiopía">
+          <button class="coffee-origin-media" type="button" aria-label="Mostrar etiqueta de Etiopía" aria-pressed="false" data-coffee-media data-touch-hint="Tocá para ver etiqueta">
+            <img class="coffee-origin-image coffee-origin-packaging" src="assets/imagenes/productos/fotos%20cafe/cafe-cero-etiopia.jpg" alt="Packaging del café de origen Etiopía de Cero" width="1000" height="1000" loading="lazy" decoding="async" data-coffee-packaging>
+            <img class="coffee-origin-image coffee-origin-label" src="assets/imagenes/productos/fotos%20cafe/etiqueta-etiopia-derecha.jpg" alt="Etiqueta del café de origen Etiopía de Cero" width="1000" height="1000" loading="lazy" decoding="async" aria-hidden="true" data-coffee-label>
+          </button>
+          <div class="cero-product-content coffee-origin-content">
+            <p class="cero-product-category">Café de origen</p>
+            <h2>Etiopía</h2>
+          </div>
+        </article>
+
+        <article class="cero-product-card catalog-product-card coffee-origin-card" data-product-category="cafe" data-coffee-origin data-coffee-origin-name="Brasil">
+          <button class="coffee-origin-media" type="button" aria-label="Mostrar etiqueta de Brasil" aria-pressed="false" data-coffee-media data-touch-hint="Tocá para ver etiqueta">
+            <img class="coffee-origin-image coffee-origin-packaging" src="assets/imagenes/productos/fotos%20cafe/cafe-cero-brasil.jpg" alt="Packaging del café de origen Brasil de Cero" width="1000" height="1000" loading="lazy" decoding="async" data-coffee-packaging>
+            <img class="coffee-origin-image coffee-origin-label" src="assets/imagenes/productos/fotos%20cafe/etiqueta-brasil.jpg" alt="Etiqueta del café de origen Brasil de Cero" width="1000" height="1000" loading="lazy" decoding="async" aria-hidden="true" data-coffee-label>
+          </button>
+          <div class="cero-product-content coffee-origin-content">
+            <p class="cero-product-category">Café de origen</p>
+            <h2>Brasil</h2>
           </div>
         </article>
 
         <article class="cero-product-card catalog-product-card" data-product-category="merch">
           <figure class="cero-product-media">
-            <img src="assets/imagenes/productos/buzo-cero.webp" alt="Buzo Cero" loading="lazy">
-          </figure>
-          <div class="cero-product-content">
-            <p class="cero-product-category">Merch</p>
-            <h2>Buzo Cero</h2>
-            <p>Merch de marca con diseño orgánico y espíritu urbano.</p>
-          </div>
-        </article>
-
-        <article class="cero-product-card catalog-product-card" data-product-category="objetos">
-          <figure class="cero-product-media">
-            <img src="assets/imagenes/productos/caja-cero.webp" alt="Caja Cero" loading="lazy">
-          </figure>
-          <div class="cero-product-content">
-            <p class="cero-product-category">Objetos</p>
-            <h2>Caja Cero</h2>
-            <p>Packaging de marca para regalar o llevar la experiencia Cero.</p>
-          </div>
-        </article>
-
-        <article class="cero-product-card catalog-product-card" data-product-category="objetos">
-          <figure class="cero-product-media">
-            <img src="assets/imagenes/productos/Cuadro-cero.webp" alt="Cuadro Cero" loading="lazy">
-          </figure>
-          <div class="cero-product-content">
-            <p class="cero-product-category">Objetos</p>
-            <h2>Cuadro Cero</h2>
-            <p>Objeto visual inspirado en el universo gráfico de Cero.</p>
-          </div>
-        </article>
-
-        <article class="cero-product-card catalog-product-card" data-product-category="merch">
-          <figure class="cero-product-media">
-            <img src="assets/imagenes/productos/gorra.webp" alt="Gorra Cero" loading="lazy">
+            <img src="assets/imagenes/productos/gorra.webp" alt="Gorra Cero" width="1200" height="900" loading="lazy" decoding="async">
           </figure>
           <div class="cero-product-content">
             <p class="cero-product-category">Merch</p>
@@ -106,9 +116,42 @@
           </div>
         </article>
 
+        <article class="cero-product-card catalog-product-card" data-product-category="merch">
+          <figure class="cero-product-media">
+            <img src="assets/imagenes/productos/buzo-cero.webp" alt="Buzo Cero" width="1200" height="900" loading="lazy" decoding="async">
+          </figure>
+          <div class="cero-product-content">
+            <p class="cero-product-category">Merch</p>
+            <h2>Buzo Cero</h2>
+            <p>Merch de marca con diseño orgánico y espíritu urbano.</p>
+          </div>
+        </article>
+
+        <article class="cero-product-card catalog-product-card" data-product-category="merch">
+          <figure class="cero-product-media">
+            <img src="assets/imagenes/productos/bolso.webp" alt="Bolso Cero" width="1200" height="900" loading="lazy" decoding="async">
+          </figure>
+          <div class="cero-product-content">
+            <p class="cero-product-category">Merch</p>
+            <h2>Bolso Cero</h2>
+            <p>Pieza de uso diario con identidad Cero.</p>
+          </div>
+        </article>
+
         <article class="cero-product-card catalog-product-card" data-product-category="objetos">
           <figure class="cero-product-media">
-            <img src="assets/imagenes/productos/Vasos.webp" alt="Vasos Cero" loading="lazy">
+            <img src="assets/imagenes/productos/Cuadro-cero.webp" alt="Cuadro Cero" width="1200" height="900" loading="lazy" decoding="async">
+          </figure>
+          <div class="cero-product-content">
+            <p class="cero-product-category">Objetos</p>
+            <h2>Cuadro Cero</h2>
+            <p>Objeto visual inspirado en el universo gráfico de Cero.</p>
+          </div>
+        </article>
+
+        <article class="cero-product-card catalog-product-card" data-product-category="objetos">
+          <figure class="cero-product-media">
+            <img src="assets/imagenes/productos/Vasos.webp" alt="Vasos Cero" width="1200" height="900" loading="lazy" decoding="async">
           </figure>
           <div class="cero-product-content">
             <p class="cero-product-category">Objetos</p>
@@ -117,69 +160,24 @@
           </div>
         </article>
 
-        <article class="cero-product-card catalog-product-card" data-product-category="velas">
+        <article class="cero-product-card catalog-product-card" data-product-category="objetos">
           <div class="cero-product-placeholder" aria-hidden="true">
-            <img src="assets/logos/Sublogo vertical_negro.svg" alt="">
+            <img src="assets/logos/Sublogo vertical_negro.svg" alt="" width="160" height="160">
           </div>
           <div class="cero-product-content">
-            <p class="cero-product-category">Velas</p>
+            <p class="cero-product-category">Objetos</p>
             <h2>Velas Cero</h2>
             <p>Objetos aromáticos para acompañar momentos de calma.</p>
           </div>
         </article>
 
-        <article class="cero-product-card catalog-product-card" data-product-category="cafe">
+        <article class="cero-product-card catalog-product-card" data-product-category="objetos">
           <div class="cero-product-placeholder" aria-hidden="true">
-            <img src="assets/logos/Sublogo vertical_negro.svg" alt="">
+            <img src="assets/logos/Sublogo vertical_negro.svg" alt="" width="160" height="160">
           </div>
           <div class="cero-product-content">
-            <p class="cero-product-category">Café</p>
-            <h2>Colombia Inzá 250 grs</h2>
-            <p>Café de origen seleccionado para preparar en casa.</p>
-          </div>
-        </article>
-
-        <article class="cero-product-card catalog-product-card" data-product-category="cafe">
-          <div class="cero-product-placeholder" aria-hidden="true">
-            <img src="assets/logos/Sublogo vertical_negro.svg" alt="">
-          </div>
-          <div class="cero-product-content">
-            <p class="cero-product-category">Café</p>
-            <h2>Perú Orgánico Alta Montaña 250 grs</h2>
-            <p>Café de origen con perfil de montaña y carácter propio.</p>
-          </div>
-        </article>
-
-        <article class="cero-product-card catalog-product-card" data-product-category="cafe">
-          <div class="cero-product-placeholder" aria-hidden="true">
-            <img src="assets/logos/Sublogo vertical_negro.svg" alt="">
-          </div>
-          <div class="cero-product-content">
-            <p class="cero-product-category">Café</p>
-            <h2>Kenya AB Kamavindi 250 grs</h2>
-            <p>Café de origen con identidad intensa y notas expresivas.</p>
-          </div>
-        </article>
-
-        <article class="cero-product-card catalog-product-card" data-product-category="cafe">
-          <div class="cero-product-placeholder" aria-hidden="true">
-            <img src="assets/logos/Sublogo vertical_negro.svg" alt="">
-          </div>
-          <div class="cero-product-content">
-            <p class="cero-product-category">Café</p>
-            <h2>Honduras Comicovel 250 grs</h2>
-            <p>Café de origen para disfrutar con pausa y ritual.</p>
-          </div>
-        </article>
-
-        <article class="cero-product-card catalog-product-card" data-product-category="cafe">
-          <div class="cero-product-placeholder" aria-hidden="true">
-            <img src="assets/logos/Sublogo vertical_negro.svg" alt="">
-          </div>
-          <div class="cero-product-content">
-            <p class="cero-product-category">Café</p>
-            <h2>Colombia Bolívar 250 grs</h2>
-            <p>Café de origen pensado para extender la experiencia Cero.</p>
+            <p class="cero-product-category">Objetos</p>
+            <h2>Tazas Cero</h2>
           </div>
         </article>
       </section>

@@ -1,0 +1,18 @@
+CERO CAFÉ — FOTOS CONFIRMADAS
+
+Contenido:
+- 28 fotografías confirmadas.
+- Todas están renombradas en formato WebP.
+- Ruta preparada para copiar directamente al proyecto:
+  assets/imagenes/menu/
+
+Archivos de control:
+- fotos-confirmadas.csv: relación entre cada nombre final y su archivo de origen.
+- fotos-pendientes.txt: productos que todavía necesitan una fotografía real.
+
+IMPORTANTE:
+- No usar imágenes generadas con IA.
+- No reutilizar una misma foto para productos diferentes.
+- Las imágenes de Pepa KETO, Alfajor de Coco KETO, Doble Tostón 3 Amores
+  y Focaccia de jamón crudo conservan texto/logo incorporado porque fueron
+  entregadas de esa forma.

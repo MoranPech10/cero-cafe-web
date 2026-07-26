@@ -1,674 +1,817 @@
 window.CERO_CONTENIDO = {
-"negocio": {
-"nombre": "Cero Café de Origen",
-"slug": "cero-cafe-de-origen",
-"rubro": "Cafetería / All Day Café / Café de especialidad",
-"diferencial": "Pet friendly",
-"descripcion_corta": "All day café en Villa Urquiza con café de especialidad, brunch, pastelería y platos para disfrutar durante todo el día.",
-"descripcion_larga": "Cero Café de Origen es un all day café en Villa Urquiza, pensado como un espacio cálido para disfrutar café de especialidad, brunch, pastelería y platos durante todo el día. Un lugar moderno, pet friendly y cómodo para conectar con el momento presente.",
-"concepto": "Un espacio para estar presente.",
-"proposito": "Estar aquí.",
-"idea_visual": "La luz natural como elemento principal. La cafetería busca transmitir calidez, pausa, presencia y una atmósfera que cambia durante el día.",
-"estado_web_actual": "No tiene página web actualmente."
-},
-"contacto": {
-"whatsapp": "+54 9 11 5817-3351",
-"telefono": "+54 9 11 5817-3351",
-"whatsapp_link": "https://wa.me/5491158173351",
-"texto_boton_whatsapp": "Consultar por WhatsApp",
-"medios_contacto": [
-"WhatsApp",
-"Instagram",
-"Llamada telefónica"
-],
-"nota": "El WhatsApp está confirmado para consultas. No usar texto de pedido hasta confirmar con el cliente."
-},
-"redes": {
-"instagram": {
-"usuario": "@cerocafedeorigen",
-"url": "https://www.instagram.com/cerocafedeorigen/"
-},
-"facebook": {
-"estado": "No tiene / no usar",
-"url": ""
-}
-},
-"ubicacion": {
-"direccion": "Av. Congreso 5080, Villa Urquiza, Buenos Aires",
-"barrio": "Villa Urquiza",
-"google_maps": "https://www.google.com.ar/maps/place/Cero+Cafe+de+Origen/@-34.5697587,-58.4925334,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcb70028f5094d:0x6ccca2a17439a70d!8m2!3d-34.5697631!4d-58.4899585!16s%2Fg%2F11yq37r5c4?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D",
-"texto_boton": "Cómo llegar"
-},
-"horarios": [
-{
-"dias": "Lunes a viernes",
-"horario": "8:00 a 20:00"
-},
-{
-"dias": "Sábados y domingos",
-"horario": "8:30 a 20:30"
-}
-],
-"atencion": {
-"modalidades_confirmadas": [
-"Comer en el local",
-"Retiro",
-"Consultas por WhatsApp",
-"Pet friendly"
-],
-"modalidades_no_confirmadas": [
-"Delivery",
-"Reservas",
-"Pedidos online",
-"Eventos",
-"Catering",
-"Cowork"
-]
-},
-"hero": {
-"pre_titulo": "All Day Café · Villa Urquiza",
-"titulo": "Café de especialidad en Villa Urquiza.",
-"subtitulo": "Brunch, pastelería y platos para disfrutar en un espacio cálido, luminoso y pet friendly.",
-"boton_principal": {
-"texto": "Consultar por WhatsApp",
-"url": "https://wa.me/5491158173351"
-},
-"boton_secundario": {
-"texto": "Ver menú",
-"url": "#menu"
-},
-"imagen": "assets/imagenes/hero-terraza-cero.webp",
-"imagen_estado": "Pendiente de cargar en assets/img"
-},
-"diseno": {
-"estilo": [
-"moderno",
-"cálido",
-"minimalista",
-"premium",
-"luminoso",
-"artesanal",
-"familiar"
-],
-"paleta": {
-"crema": "#E4D8B9",
-"naranja": "#FB732F",
-"naranja_suave": "#FFA940",
-"lila": "#D7C1F1",
-"negro": "#111111"
-},
-"reglas": [
-"Respetar los colores de la marca Cero Café de Origen.",
-"No usar la paleta de la página de referencia.",
-"La referencia visual sirve solo para composición, hero, cards y estructura.",
-"Evitar una estética oscura, bordó o pesada.",
-"Usar fondos claros, detalles naranjas y textos oscuros.",
-"Usar el lila solo como acento sutil.",
-"Dar protagonismo a las fotos del local, café y comida."
-]
-},
-"secciones": [
-{
-"id": "inicio",
-"nombre": "Inicio / Hero",
-"objetivo": "Presentar rápidamente el concepto del local y llevar al usuario al menú o WhatsApp."
-},
-{
-"id": "sabores",
-"nombre": "Sabores de Cero",
-"objetivo": "Mostrar destacados visuales como café, brunch, pastelería y bebidas frías."
-},
-{
-"id": "experiencia",
-"nombre": "Un espacio para estar presente",
-"objetivo": "Explicar el concepto de marca, la calidez del lugar y la experiencia dentro del local."
-},
-{
-"id": "menu",
-"nombre": "Menú por categorías",
-"objetivo": "Mostrar el menú cargado dentro de la web de forma ordenada y fácil de navegar."
-},
-{
-"id": "galeria",
-"nombre": "Galería",
-"objetivo": "Mostrar fotos del exterior, interior, barra, café, baristas y platos."
-},
-{
-"id": "pet-friendly",
-"nombre": "Pet friendly",
-"objetivo": "Destacar que el local acepta mascotas."
-},
-{
-"id": "ubicacion",
-"nombre": "Ubicación y horarios",
-"objetivo": "Mostrar dirección, horarios, botón de Google Maps y contacto."
-},
-{
-"id": "contacto",
-"nombre": "Contacto",
-"objetivo": "Facilitar consulta por WhatsApp e ingreso a Instagram."
-}
-],
-"especialidades": [
-{
-"titulo": "Café de especialidad",
-"descripcion": "Cafés clásicos, filtrados, bebidas con leche y opciones frías para disfrutar en cualquier momento del día.",
-"imagen": "assets/imagenes/barista-cafe-1.webp",
-"estado_imagen": "Pendiente"
-},
-{
-"titulo": "Brunch",
-"descripcion": "Opciones dulces y saladas como avocado toast, bowls, waffles, bagels y tostadas.",
-"imagen": "assets/imagenes/video-posters/brunch-cero-1-poster.webp",
-"estado_imagen": "Pendiente"
-},
-{
-"titulo": "Pastelería",
-"descripcion": "Cookies, croissants, budines, alfajores, tortas y opciones dulces para acompañar el café.",
-"imagen": "assets/imagenes/video-posters/nuevo-video-poster.webp",
-"estado_imagen": "Pendiente"
-},
-{
-"titulo": "All day food",
-"descripcion": "Platos para disfrutar durante todo el día, desde opciones livianas hasta propuestas de mediodía.",
-"imagen": "assets/imagenes/menu-drive/Bowl CERO 2.webp",
-"estado_imagen": "Pendiente"
-}
-],
-"imagenes": {
-"estado": "Pendiente de cargar en assets/img",
-"principales_sugeridas": [
-{
-"archivo": "Cero Logotipo negro.svg",
-"uso": "Logo principal del header y footer"
-},
-{
-"archivo": "hero-terraza-cero.webp",
-"uso": "Imagen principal del hero"
-},
-{
-"archivo": "interior-cero-1.webp",
-"uso": "Sección de experiencia o galería"
-},
-{
-"archivo": "interior-cero-2.webp",
-"uso": "Sección de experiencia o galería"
-},
-{
-"archivo": "frente-local-cero.webp",
-"uso": "Ubicación o galería"
-},
-{
-"archivo": "barista-cafe-1.webp",
-"uso": "Café de especialidad"
-},
-{
-"archivo": "barista-cafe-2.webp",
-"uso": "Galería o sección de café"
-},
-{
-"archivo": "brunch-cero-1-poster.webp",
-"uso": "Brunch o menú destacado"
-},
-{
-"archivo": "nuevo-video-poster.webp",
-"uso": "Pastelería"
-},
-{
-"archivo": "pet-friendly-cero.webp",
-"uso": "Sección pet friendly, si se consigue una imagen adecuada"
-}
-]
-},
-"menu": {
-"nota": "Menú tomado del PDF cargado por el usuario. Confirmar precios y disponibilidad antes de publicar.",
-"categorias": [
-{
-"id": "just-coffee",
-"nombre": "Just Coffee",
-"items": [
-{
-"nombre": "Espresso",
-"descripcion": "Tamaño S",
-"precio": "3900"
-},
-{
-"nombre": "Doppio",
-"descripcion": "Tamaño S",
-"precio": "4500"
-},
-{
-"nombre": "Americano",
-"descripcion": "Tamaño M",
-"precio": "4800"
-},
-{
-"nombre": "Filtrado",
-"descripcion": "Tamaño L",
-"precio": "6900"
-}
-]
-},
-{
-"id": "coffee-with-milk",
-"nombre": "Coffee with Milk",
-"items": [
-{
-"nombre": "Cortado",
-"descripcion": "Tamaño S",
-"precio": "4900"
-},
-{
-"nombre": "Magic",
-"descripcion": "Tamaño S",
-"precio": "5500"
-},
-{
-"nombre": "Flat White",
-"descripcion": "Tamaño M",
-"precio": "5900"
-},
-{
-"nombre": "Capuccino",
-"descripcion": "Tamaño M",
-"precio": "5300"
-},
-{
-"nombre": "Latte / Píccolo",
-"descripcion": "Tamaño M",
-"precio": "5500"
-},
-{
-"nombre": "Café con Leche",
-"descripcion": "Tamaño L",
-"precio": "6300"
-},
-{
-"nombre": "Moccacino",
-"descripcion": "Tamaño XL",
-"precio": "6900"
-},
-{
-"nombre": "Vainilla Latte",
-"descripcion": "Tamaño XL",
-"precio": "6900"
-},
-{
-"nombre": "Caramel Latte",
-"descripcion": "Tamaño XL",
-"precio": "6900"
-},
-{
-"nombre": "Pistacchio Latte",
-"descripcion": "Tamaño XL",
-"precio": "7200"
-}
-]
-},
-{
-"id": "hot-drinks",
-"nombre": "Hot Drinks",
-"items": [
-{
-"nombre": "Té en hebras",
-"descripcion": "Té negro, té verde o té chai.",
-"precio": "6100"
-},
-{
-"nombre": "Matcha Vainilla Latte",
-"descripcion": "Bebida caliente a base de matcha.",
-"precio": "6900"
-},
-{
-"nombre": "Chocolatada Belga",
-"descripcion": "Chocolatada caliente.",
-"precio": "6500"
-},
-{
-"nombre": "Dirty Chai Latte",
-"descripcion": "Chai latte con café.",
-"precio": "6900"
-}
-]
-},
-{
-"id": "iced-coffee-drinks",
-"nombre": "Iced Coffee Drinks",
-"items": [
-{
-"nombre": "Cold Brew",
-"descripcion": "Café frío.",
-"precio": "7300"
-},
-{
-"nombre": "Coffee Tonic",
-"descripcion": "Café con tónica.",
-"precio": "6900"
-},
-{
-"nombre": "Iced Americano",
-"descripcion": "Americano frío.",
-"precio": "5900"
-},
-{
-"nombre": "Iced Latte",
-"descripcion": "Latte frío.",
-"precio": "5900"
-},
-{
-"nombre": "Iced Flat",
-"descripcion": "Flat white frío.",
-"precio": "6100"
-}
-]
-},
-{
-"id": "cold-drinks",
-"nombre": "Cold Drinks",
-"items": [
-{
-"nombre": "Agua mineral / Agua con gas",
-"descripcion": "Bebida fría.",
-"precio": "4300"
-},
-{
-"nombre": "Gaseosas",
-"descripcion": "Bebida fría.",
-"precio": "4800"
-},
-{
-"nombre": "Jugo de naranja exprimido",
-"descripcion": "Jugo natural.",
-"precio": "7300"
-},
-{
-"nombre": "Limonada",
-"descripcion": "Casera con menta y jengibre.",
-"precio": "6500"
-},
-{
-"nombre": "Agua de Jamaica",
-"descripcion": "Té frío de hibiscus, cáscara de naranja y limón, canela, clavo de olor y cardamomo.",
-"precio": "6900"
-},
-{
-"nombre": "Licuado Prote",
-"descripcion": "Licuado de banana con leche y avena. Opcional shake de proteína.",
-"precio": "7500"
-},
-{
-"nombre": "Jugos Naturales",
-"descripcion": "Berries, frutal o maracuyá.",
-"precio": "7200"
-}
-]
-},
-{
-"id": "brunch-combos",
-"nombre": "Brunch / Combos",
-"items": [
-{
-"nombre": "Americano Deluxe",
-"descripcion": "Huevos revueltos, panceta crocante y cayena en pan tostado con dip de queso crema.",
-"precio": "11900"
-},
-{
-"nombre": "Avocado Toast",
-"descripcion": "Palta, tomates cherry, queso crema y aceite de oliva. Opcional huevo revuelto.",
-"precio": "12900"
-},
-{
-"nombre": "Tazón de Granola",
-"descripcion": "Yoghurt casero natural con frutas de estación, granola casera de frutos secos y miel.",
-"precio": "11000"
-},
-{
-"nombre": "Waffle CERO",
-"descripcion": "Topping de frutas de estación, queso mascarpone, garrapiñada, menta, syrup chai y azúcar impalpable.",
-"precio": "13200"
-},
-{
-"nombre": "Bagel 3 Amores",
-"descripcion": "Acompañado con queso crema, mermelada casera de frutos rojos y mantequilla de maní.",
-"precio": "10000"
-},
-{
-"nombre": "Chipa relleno",
-"descripcion": "Pan de queso casero gratinado, relleno de jamón cocido natural y queso tybo con dip de hummus de remolacha. Opcional sin TACC.",
-"precio": "12500"
-},
-{
-"nombre": "French Banana Toast",
-"descripcion": "Pan brioche dorado en manteca, con banana caramelizada, queso mascarpone, miel y frutas de estación.",
-"precio": "11500"
-}
-]
-},
-{
-"id": "menu-mediodia",
-"nombre": "Menú Mediodía",
-"nota": "Incluye plato principal, bebida a elección y café.",
-"items": [
-{
-"nombre": "Ensalada Caesar",
-"descripcion": "Mix de hojas verdes, pollo, panceta crocante, mayonesa de anchoas y crouton de focaccia.",
-"precio": "18500"
-},
-{
-"nombre": "Kebab de Carnes Braseadas",
-"descripcion": "Blend de carne braseada a baja temperatura acompañado con dip de yoghurt, salsa criolla y hummus de remolacha.",
-"precio": "18900"
-},
-{
-"nombre": "Bowl CERO",
-"descripcion": "Arroz yamaní, calabaza asada gratinada, huevo, garbanzos, zucchini grillado, pesto ligero y garrapiñada de girasol. Opcional vegano.",
-"precio": "18500"
-},
-{
-"nombre": "Wrap de pollo",
-"descripcion": "Tiras de pollo especiado, tomate, lechuga, aderezo cremoso con chips de papas.",
-"precio": "18900"
-},
-{
-"nombre": "Focaccia Labneh",
-"descripcion": "Untada con crema de calabaza, ricotta con hierbas, espinaca, nueces tostadas, queso gratinado y hongos.",
-"precio": "18900"
-},
-{
-"nombre": "Tarta de puerros y pollo",
-"descripcion": "Puerro, tiras de pollo salteados con queso crema en masa integral con semillas.",
-"precio": "18500"
-},
-{
-"nombre": "Tarta Capresse",
-"descripcion": "Mozzarella con tomates confitados y pesto de albahaca en masa de hojaldre.",
-"precio": "18500"
-}
-]
-},
-{
-"id": "all-day-food",
-"nombre": "All Day Food",
-"items": [
-{
-"nombre": "Medialuna JyQ",
-"descripcion": "Medialuna de manteca rellena de jamón, queso gratinado y almíbar chai.",
-"precio": "8900"
-},
-{
-"nombre": "Sandwich Criollo",
-"descripcion": "Lomito ahumado, queso gratinado, hojas verdes, salsa criolla y citrus alioli en pan hojaldrado.",
-"precio": "12900"
-},
-{
-"nombre": "Mbejú Guaraní XL",
-"descripcion": "Relleno de jamón, queso gratinado, pickles de pepino, zucchini y cebolla morada, tomate confitado, emulsión de palta y mayonesa de eneldo fresco. Sin TACC.",
-"precio": "14900"
-},
-{
-"nombre": "Árabe JyQ",
-"descripcion": "Jamón, queso gratinado, opcional tomate fresco en pan árabe con chips de papas.",
-"precio": "11900"
-},
-{
-"nombre": "Croissant de jamón crudo",
-"descripcion": "Jamón crudo, queso en láminas, tomates secos confitados y mix verdes.",
-"precio": "12500"
-},
-{
-"nombre": "Scon más queso",
-"descripcion": "Scon gratinado relleno de jamón natural, queso gouda, tomates secos, mostaza Dijon y miel.",
-"precio": "10500"
-},
-{
-"nombre": "Bagel de salmón",
-"descripcion": "Con rúcula, queso crema y ciboulette.",
-"precio": "16500"
-}
-]
-},
-{
-"id": "pastries",
-"nombre": "Pastries",
-"items": [
-{
-"nombre": "Medialuna de manteca",
-"descripcion": "Medialuna clásica.",
-"precio": "2800"
-},
-{
-"nombre": "Alfajor de maicena",
-"descripcion": "Alfajor clásico.",
-"precio": "4900"
-},
-{
-"nombre": "Cookie Red Velvet",
-"descripcion": "Cookie dulce.",
-"precio": "7000"
-},
-{
-"nombre": "Cookie de vainilla y chips de chocolate semi-amargo",
-"descripcion": "Cookie con chips de chocolate.",
-"precio": "6800"
-},
-{
-"nombre": "Budín de limón, amapolas y arándanos",
-"descripcion": "Budín artesanal.",
-"precio": "8300"
-},
-{
-"nombre": "Croissant",
-"descripcion": "Croissant clásico.",
-"precio": "3800"
-},
-{
-"nombre": "Cookie rellena de pistacchio y chocolate blanco",
-"descripcion": "Cookie rellena.",
-"precio": "7800"
-},
-{
-"nombre": "Roll de canela",
-"descripcion": "Con frosting de queso crema, chocolate y almendras caramelizadas.",
-"precio": "7500"
-},
-{
-"nombre": "Croissant a la Reina",
-"descripcion": "Rellena de crema pastelera, base fina de dulce de leche con topping de frutos rojos y azúcar impalpable.",
-"precio": "8900"
-},
-{
-"nombre": "Cuadrados de Brownie",
-"descripcion": "Opción dulce.",
-"precio": "9500"
-},
-{
-"nombre": "Alfajores",
-"descripcion": "Choco 60% cacao, avellanas o pistacchios.",
-"precio": "7900"
-},
-{
-"nombre": "Cheesecake de frutos rojos",
-"descripcion": "Porción de torta.",
-"precio": "12500"
-},
-{
-"nombre": "Key Lime Pie",
-"descripcion": "Porción de torta.",
-"precio": "13300"
-},
-{
-"nombre": "Torta del día",
-"descripcion": "Consultar variedad disponible.",
-"precio": "11900"
-},
-{
-"nombre": "Budín de banana y nuez",
-"descripcion": "Opción vegana.",
-"precio": "7900"
-}
-]
-},
-{
-"id": "summer-drinks",
-"nombre": "Summer Drinks",
-"items": [
-{
-"nombre": "Pomelada con soda y romero",
-"descripcion": "Sin alcohol y sin café.",
-"precio": "6000"
-},
-{
-"nombre": "Té verde con cordial de lima batido",
-"descripcion": "Sin alcohol y sin café.",
-"precio": "7000"
-},
-{
-"nombre": "Coffee Collins",
-"descripcion": "Cold brew, soda y rodaja cítrica. Sin alcohol con café.",
-"precio": "7000"
-},
-{
-"nombre": "Bumble",
-"descripcion": "Jugo de naranja exprimido, espresso y vainilla caramel. Sin alcohol con café.",
-"precio": "8000"
-},
-{
-"nombre": "Vermut La Fuerza",
-"descripcion": "Vermut La Fuerza, tónica y rodaja cítrica. Con alcohol sin café.",
-"precio": "7000"
-},
-{
-"nombre": "Aperol Spritz",
-"descripcion": "Con alcohol sin café.",
-"precio": "8000"
-},
-{
-"nombre": "Cervezas Strange",
-"descripcion": "Pilsener, Lager, Maltosa, NEPA e IPA.",
-"precio": "Consultar"
-},
-{
-"nombre": "Amarula Iced Flat",
-"descripcion": "Con alcohol con café.",
-"precio": "8000"
-},
-{
-"nombre": "Espresso Martini",
-"descripcion": "Dos shots de café, vodka, vainilla y kahlua.",
-"precio": "9000"
-}
-]
-}
-]
-},
-"pendientes": [
-"Confirmar que el menú y los precios estén actualizados.",
-"Confirmar autorización para usar las fotos descargadas del Instagram o provistas por el cliente.",
-"Cargar imágenes reales en assets/img.",
-"Confirmar si el WhatsApp también se usa para pedidos o solo consultas.",
-"Confirmar si agregan delivery o reservas en el futuro.",
-"Confirmar si quieren mostrar todos los precios o solo productos destacados.",
-"Revisar detalles del menú importado desde PDF antes de publicar."
-]
+  "negocio": {
+    "nombre": "Cero Café de Origen",
+    "slug": "cero-cafe-de-origen",
+    "rubro": "Cafetería / All Day Café / Café de especialidad",
+    "diferencial": "Pet friendly",
+    "descripcion_corta": "All day café en Villa Urquiza con café de especialidad, brunch, pastelería y platos para disfrutar durante todo el día.",
+    "descripcion_larga": "Cero Café de Origen es un all day café en Villa Urquiza, pensado como un espacio cálido para disfrutar café de especialidad, brunch, pastelería y platos durante todo el día. Un lugar moderno, pet friendly y cómodo para conectar con el momento presente.",
+    "concepto": "Un espacio para estar presente.",
+    "proposito": "Estar aquí.",
+    "idea_visual": "La luz natural como elemento principal. La cafetería busca transmitir calidez, pausa, presencia y una atmósfera que cambia durante el día.",
+    "estado_web_actual": "No tiene página web actualmente."
+  },
+  "contacto": {
+    "whatsapp": "+54 9 11 5817-3351",
+    "telefono": "+54 9 11 5817-3351",
+    "whatsapp_link": "https://wa.me/5491158173351",
+    "texto_boton_whatsapp": "Consultar por WhatsApp",
+    "medios_contacto": [
+      "WhatsApp",
+      "Instagram",
+      "Llamada telefónica"
+    ],
+    "nota": "El WhatsApp está confirmado para consultas. No usar texto de pedido hasta confirmar con el cliente."
+  },
+  "redes": {
+    "instagram": {
+      "usuario": "@cerocafedeorigen",
+      "url": "https://www.instagram.com/cerocafedeorigen/"
+    },
+    "facebook": {
+      "estado": "No tiene / no usar",
+      "url": ""
+    }
+  },
+  "ubicacion": {
+    "direccion": "Av. Congreso 5080, Villa Urquiza, Buenos Aires",
+    "barrio": "Villa Urquiza",
+    "google_maps": "https://www.google.com.ar/maps/place/Cero+Cafe+de+Origen/@-34.5697587,-58.4925334,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcb70028f5094d:0x6ccca2a17439a70d!8m2!3d-34.5697631!4d-58.4899585!16s%2Fg%2F11yq37r5c4?entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D",
+    "texto_boton": "Cómo llegar"
+  },
+  "horarios": [
+    {
+      "dias": "Lunes a viernes",
+      "horario": "8:00 a 20:00"
+    },
+    {
+      "dias": "Sábados y domingos",
+      "horario": "8:30 a 20:30"
+    }
+  ],
+  "atencion": {
+    "modalidades_confirmadas": [
+      "Comer en el local",
+      "Retiro",
+      "Consultas por WhatsApp",
+      "Pet friendly"
+    ],
+    "modalidades_no_confirmadas": [
+      "Delivery",
+      "Reservas",
+      "Pedidos online",
+      "Eventos",
+      "Catering",
+      "Cowork"
+    ]
+  },
+  "hero": {
+    "pre_titulo": "All Day Café · Villa Urquiza",
+    "titulo": "Café de especialidad en Villa Urquiza.",
+    "subtitulo": "Brunch, pastelería y platos para disfrutar en un espacio cálido, luminoso y pet friendly.",
+    "boton_principal": {
+      "texto": "Consultar por WhatsApp",
+      "url": "https://wa.me/5491158173351"
+    },
+    "boton_secundario": {
+      "texto": "Ver menú",
+      "url": "#menu"
+    },
+    "imagen": "assets/imagenes/hero-terraza-cero.webp",
+    "imagen_estado": "Pendiente de cargar en assets/img"
+  },
+  "diseno": {
+    "estilo": [
+      "moderno",
+      "cálido",
+      "minimalista",
+      "premium",
+      "luminoso",
+      "artesanal",
+      "familiar"
+    ],
+    "paleta": {
+      "crema": "#E4D8B9",
+      "naranja": "#FB732F",
+      "naranja_suave": "#FFA940",
+      "lila": "#D7C1F1",
+      "negro": "#111111"
+    },
+    "reglas": [
+      "Respetar los colores de la marca Cero Café de Origen.",
+      "No usar la paleta de la página de referencia.",
+      "La referencia visual sirve solo para composición, hero, cards y estructura.",
+      "Evitar una estética oscura, bordó o pesada.",
+      "Usar fondos claros, detalles naranjas y textos oscuros.",
+      "Usar el lila solo como acento sutil.",
+      "Dar protagonismo a las fotos del local, café y comida."
+    ]
+  },
+  "secciones": [
+    {
+      "id": "inicio",
+      "nombre": "Inicio / Hero",
+      "objetivo": "Presentar rápidamente el concepto del local y llevar al usuario al menú o WhatsApp."
+    },
+    {
+      "id": "sabores",
+      "nombre": "Sabores de Cero",
+      "objetivo": "Mostrar destacados visuales como café, brunch, pastelería y bebidas frías."
+    },
+    {
+      "id": "experiencia",
+      "nombre": "Un espacio para estar presente",
+      "objetivo": "Explicar el concepto de marca, la calidez del lugar y la experiencia dentro del local."
+    },
+    {
+      "id": "menu",
+      "nombre": "Menú por categorías",
+      "objetivo": "Mostrar el menú cargado dentro de la web de forma ordenada y fácil de navegar."
+    },
+    {
+      "id": "galeria",
+      "nombre": "Galería",
+      "objetivo": "Mostrar fotos del exterior, interior, barra, café, baristas y platos."
+    },
+    {
+      "id": "pet-friendly",
+      "nombre": "Pet friendly",
+      "objetivo": "Destacar que el local acepta mascotas."
+    },
+    {
+      "id": "ubicacion",
+      "nombre": "Ubicación y horarios",
+      "objetivo": "Mostrar dirección, horarios, botón de Google Maps y contacto."
+    },
+    {
+      "id": "contacto",
+      "nombre": "Contacto",
+      "objetivo": "Facilitar consulta por WhatsApp e ingreso a Instagram."
+    }
+  ],
+  "especialidades": [
+    {
+      "titulo": "Café de especialidad",
+      "descripcion": "Cafés clásicos, filtrados, bebidas con leche y opciones frías para disfrutar en cualquier momento del día.",
+      "imagen": "assets/imagenes/barista-cafe-1.webp",
+      "estado_imagen": "Pendiente"
+    },
+    {
+      "titulo": "Brunch",
+      "descripcion": "Opciones dulces y saladas como avocado toast, bowls, waffles, bagels y tostadas.",
+      "imagen": "assets/imagenes/video-posters/brunch-cero-1-poster.webp",
+      "estado_imagen": "Pendiente"
+    },
+    {
+      "titulo": "Pastelería",
+      "descripcion": "Cookies, croissants, budines, alfajores, tortas y opciones dulces para acompañar el café.",
+      "imagen": "assets/imagenes/video-posters/nuevo-video-poster.webp",
+      "estado_imagen": "Pendiente"
+    },
+    {
+      "titulo": "All day food",
+      "descripcion": "Platos para disfrutar durante todo el día, desde opciones livianas hasta propuestas de mediodía.",
+      "imagen": "assets/imagenes/menu-drive/Bowl CERO 2.webp",
+      "estado_imagen": "Pendiente"
+    }
+  ],
+  "imagenes": {
+    "estado": "Pendiente de cargar en assets/img",
+    "principales_sugeridas": [
+      {
+        "archivo": "Cero Logotipo negro.svg",
+        "uso": "Logo principal del header y footer"
+      },
+      {
+        "archivo": "hero-terraza-cero.webp",
+        "uso": "Imagen principal del hero"
+      },
+      {
+        "archivo": "interior-cero-1.webp",
+        "uso": "Sección de experiencia o galería"
+      },
+      {
+        "archivo": "interior-cero-2.webp",
+        "uso": "Sección de experiencia o galería"
+      },
+      {
+        "archivo": "frente-local-cero.webp",
+        "uso": "Ubicación o galería"
+      },
+      {
+        "archivo": "barista-cafe-1.webp",
+        "uso": "Café de especialidad"
+      },
+      {
+        "archivo": "barista-cafe-2.webp",
+        "uso": "Galería o sección de café"
+      },
+      {
+        "archivo": "brunch-cero-1-poster.webp",
+        "uso": "Brunch o menú destacado"
+      },
+      {
+        "archivo": "nuevo-video-poster.webp",
+        "uso": "Pastelería"
+      },
+      {
+        "archivo": "pet-friendly-cero.webp",
+        "uso": "Sección pet friendly, si se consigue una imagen adecuada"
+      }
+    ]
+  },
+  "menu": {
+    "nota": "Carta aprobada · julio de 2026.",
+    "categorias": [
+      {
+        "id": "todo-el-dia",
+        "nombre": "Todo el Día",
+        "items": [
+          {
+            "nombre": "Medialuna JyQ",
+            "precio": "8.900",
+            "descripcion": "Medialuna de manteca rellena de jamón, queso gratinado y almíbar chai.",
+            "imagen": "assets/imagenes/menu/medialuna-jyq.webp"
+          },
+          {
+            "nombre": "Mbejú Guaraní XL",
+            "precio": "16.900",
+            "descripcion": "Relleno de jamón, queso gratinado, pickles de pepino, zucchini y cebolla morada, tomate confitado, emulsión de palta y mayonesa de eneldo fresco.",
+            "etiqueta": "SIN TACC",
+            "imagen": "assets/imagenes/menu/mbeju-guarani.webp"
+          },
+          {
+            "nombre": "Árabe JyQ",
+            "precio": "13.500",
+            "descripcion": "Jamón y queso gratinado, acompañado con chips de papas. Adicional: tomate fresco.",
+            "imagen": "assets/imagenes/menu-drive/Arabe jyq 2.webp"
+          },
+          {
+            "nombre": "Chipa relleno",
+            "precio": "13.900",
+            "descripcion": "Pan de queso casero gratinado, relleno de jamón cocido natural y queso tybo, con dip de hummus de remolacha.",
+            "etiqueta": "OPCIONAL SIN TACC",
+            "imagen": "assets/imagenes/menu/chipa-relleno.webp"
+          },
+          {
+            "nombre": "Focaccia jamón crudo",
+            "precio": "16.500",
+            "descripcion": "Jamón crudo, queso tybo, ricotta especiada, rúcula y caviar de Dijon.",
+            "etiqueta": "NOVEDAD",
+            "imagen": "assets/imagenes/menu/focaccia-jamon-crudo.webp",
+            "ajuste_imagen": "con-texto"
+          },
+          {
+            "nombre": "Scon más queso",
+            "precio": "12.500",
+            "descripcion": "Scon gratinado relleno de jamón natural, queso, tomates secos, caviar de mostaza y miel.",
+            "imagen": "assets/imagenes/menu/scon-queso.webp"
+          },
+          {
+            "nombre": "Waffle CERO",
+            "precio": "14.200",
+            "descripcion": "Con queso mascarpone, crema de avellanas, topping de frutas de estación y syrup chai.",
+            "etiqueta": "OPCIONAL KETO",
+            "imagen": "assets/imagenes/menu/waffle-cero.webp"
+          }
+        ]
+      },
+      {
+        "id": "combos-brunch",
+        "nombre": "Combos / Brunch",
+        "nota_grupo": "SUMÁ UNA INFUSIÓN A ELECCIÓN — TAMAÑO S O M\nY UN SHOT DE NARANJA EXPRIMIDA POR $4.900",
+        "items": [
+          {
+            "nombre": "American Bagel Deluxe",
+            "precio": "11.900",
+            "descripcion": "Huevos revueltos, panceta crocante y cherrys, en pan tostado con dip de queso crema.",
+            "imagen": "assets/imagenes/menu-drive/Americano Deluxe.webp"
+          },
+          {
+            "nombre": "Avocado Toast",
+            "precio": "13.900",
+            "descripcion": "Tostón de masa madre con doble textura de palta en láminas y cremosa, tomates cherry, queso crema y brotes. Adicional: huevo revuelto.",
+            "imagen": "assets/imagenes/menu/avocado-toast.webp"
+          },
+          {
+            "nombre": "Tazón de Granola",
+            "precio": "12.900",
+            "descripcion": "Yogur casero natural con frutas de estación, granola casera de frutos secos y miel.",
+            "imagen": "assets/imagenes/menu/tazon-granola.webp"
+          },
+          {
+            "nombre": "Doble Tostón 3 Amores",
+            "precio": "11.500",
+            "descripcion": "Acompañado con queso crema, mermelada casera de frutos rojos y dulce de leche o manteca de maní.",
+            "imagen": "assets/imagenes/menu/doble-toston-3-amores.webp",
+            "ajuste_imagen": "con-texto"
+          },
+          {
+            "nombre": "Waffle KETO de salmón",
+            "precio": "17.900",
+            "descripcion": "A base de harina de garbanzos, salmón, palta, queso crema, eneldo fresco y ralladura de limón. Adicional: huevo revuelto.",
+            "etiqueta": "KETO",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "French Banana Toast",
+            "precio": "13.200",
+            "descripcion": "Pan brioche con banana caramelizada, queso mascarpone, miel y frutas de estación.",
+            "etiqueta": "NOVEDAD",
+            "imagen": "assets/imagenes/menu/french-banana-toast.webp"
+          }
+        ]
+      },
+      {
+        "id": "menu-mediodia",
+        "nombre": "Menú Mediodía",
+        "nota_grupo": "Incluye plato principal, bebida a elección y café.",
+        "items": [
+          {
+            "nombre": "Bowl CERO",
+            "precio": "20.900",
+            "descripcion": "Arroz yamaní, garbanzos, verduras grilladas, huevo revuelto, pesto ligero y almendras crocantes.",
+            "etiqueta": "OPCIONAL VEGANO",
+            "imagen": "assets/imagenes/menu/bowl-cero.webp"
+          },
+          {
+            "nombre": "Wrap de Carne Braseada",
+            "precio": "21.900",
+            "descripcion": "Carne braseada, queso cremoso y ciboulette con dip de guacamole y lima, acompañado de chips de papas.",
+            "imagen": "assets/imagenes/menu/wrap-carne-braseada.webp"
+          },
+          {
+            "nombre": "Sopa Crema",
+            "precio": "18.900",
+            "descripcion": "Sopa crema de calabaza con queso cremoso y tostón de pesto.",
+            "imagen": "assets/imagenes/menu/sopa-crema.webp"
+          },
+          {
+            "nombre": "Mila de Pollo",
+            "precio": "21.900",
+            "descripcion": "Milanesa de pollo con mix de semillas, acompañada con verduras grillé en mayonesa de eneldo fresco.",
+            "imagen": "assets/imagenes/menu/mila-pollo.webp"
+          },
+          {
+            "nombre": "Canelones rellenos x2",
+            "precio": "20.900",
+            "descripcion": "Rellenos de ricota, espinaca, jamón y queso en salsa mixta.",
+            "imagen": "assets/imagenes/menu/canelones-rellenos.webp"
+          },
+          {
+            "nombre": "Burger Luna",
+            "precio": "21.900",
+            "descripcion": "Pan de croissant relleno de tapa de asado desmechado, panceta crocante, queso cheddar, cebolla caramelizada, ciboulette y aderezo casero.",
+            "imagen": "assets/imagenes/menu/burger-luna.webp"
+          }
+        ]
+      },
+      {
+        "id": "solo-cafe",
+        "nombre": "Solo Café",
+        "nota_grupo": "SERVIMOS EL CAFÉ ENTRE 60°C Y 70°C.\nSI LO PREFERÍS MÁS CALIENTE, PODÉS PEDIRNOS.",
+        "items": [
+          {
+            "nombre": "Espresso / Lungo (S)",
+            "precio": "3.900",
+            "descripcion": "Shot de espresso en pocillo.",
+            "imagen": "assets/imagenes/menu/espresso.webp"
+          },
+          {
+            "nombre": "Lungo (S)",
+            "precio": "3.900",
+            "descripcion": "Shot de espresso en pocillo con colchón de agua."
+          },
+          {
+            "nombre": "Americano (M)",
+            "precio": "5.500",
+            "descripcion": "Doble shot de espresso con colchón de agua.",
+            "imagen": "assets/imagenes/menu-drive/Americano 2.webp"
+          },
+          {
+            "nombre": "Filtrado (L)",
+            "precio": "7.900",
+            "descripcion": "Café de origen seleccionado. Método de filtrado V60.",
+            "imagen": "assets/imagenes/menu/filtrado-cafe.webp"
+          }
+        ]
+      },
+      {
+        "id": "cafe-con-leche",
+        "nombre": "Café con Leche",
+        "nota": "Leches disponibles: entera, descremada, sin lactosa y de avena.",
+        "items": [
+          {
+            "nombre": "Cortado (S)",
+            "precio": "5.600",
+            "descripcion": "Shot de espresso y leche texturizada.",
+            "imagen": "assets/imagenes/menu-drive/Cortado 2.webp"
+          },
+          {
+            "nombre": "Magic (S)",
+            "precio": "6.300",
+            "descripcion": "Doble shot de espresso con leche texturizada.",
+            "imagen": "assets/imagenes/menu/magic.webp"
+          },
+          {
+            "nombre": "Flat White (M)",
+            "precio": "6.900",
+            "descripcion": "Doble shot de espresso con microespuma de leche sedosa.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Capuccino (M)",
+            "precio": "6.500",
+            "descripcion": "Shot de espresso con leche texturizada y espuma de leche. Adicional: cacao y canela.",
+            "imagen": "assets/imagenes/menu/capuccino.webp"
+          },
+          {
+            "nombre": "Café con Leche (L)",
+            "precio": "7.200",
+            "descripcion": "Doble shot de espresso con leche texturizada.",
+            "imagen": "assets/imagenes/menu/cafe-con-leche.webp"
+          },
+          {
+            "nombre": "Moccacino (XL)",
+            "precio": "8.300",
+            "descripcion": "Doble shot de espresso, chocolate semiamargo y leche texturizada.",
+            "imagen": "assets/imagenes/menu/moccacino.webp",
+            "ajuste_imagen": "contain"
+          },
+          {
+            "nombre": "Vainilla Latte (XL)",
+            "precio": "7.900",
+            "descripcion": "Doble shot de espresso con leche texturizada y reducción de vainilla.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Caramel Latte (XL)",
+            "precio": "7.500",
+            "descripcion": "Doble shot de espresso con leche texturizada y reducción de caramelo.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Pistacchio Latte (XL)",
+            "precio": "8.400",
+            "descripcion": "Doble shot de espresso, leche texturizada y reducción de pistacchios.",
+            "etiqueta": "NOVEDAD",
+            "imagen": "assets/imagenes/menu/pistacchio-latte.webp"
+          },
+          {
+            "nombre": "Nutella Latte (XL)",
+            "precio": "8.800",
+            "descripcion": "Doble shot de espresso, leche vaporizada y reducción de Nutella.",
+            "etiqueta": "HOT",
+            "estado_foto": "pendiente"
+          }
+        ]
+      },
+      {
+        "id": "bebidas-calientes",
+        "nombre": "Bebidas Calientes",
+        "items": [
+          {
+            "nombre": "Té en hebras",
+            "precio": "6.900",
+            "descripcion": "Negro, verde, chai, blend.",
+            "imagen": "assets/imagenes/menu-drive/Te negro 2.webp"
+          },
+          {
+            "nombre": "Matcha (Vainilla) Latte (XL)",
+            "precio": "8.900",
+            "descripcion": "Té verde ceremonial japonés con leche texturizada. Adicional: syrup de vainilla.",
+            "imagen": "assets/imagenes/menu-drive/Matcha latte.webp"
+          },
+          {
+            "nombre": "Chocolatada Belga (XL)",
+            "precio": "7.200",
+            "descripcion": "Leche caliente, chocolate semiamargo y ralladura de cacao.",
+            "imagen": "assets/imagenes/menu/chocolatada-belga.webp"
+          },
+          {
+            "nombre": "Chai Latte (XL)",
+            "precio": "7.300",
+            "descripcion": "Reducción de té chai especiado con canela y leche vaporizada. Adicional: shot de espresso.",
+            "imagen": "assets/imagenes/menu/chai-latte.webp"
+          },
+          {
+            "nombre": "Golden Milk (XL)",
+            "precio": "6.900",
+            "descripcion": "Leche vaporizada, cardamomo y anís estrellado en reducción de cúrcuma y especias.",
+            "imagen": "assets/imagenes/menu/golden-milk.webp"
+          }
+        ]
+      },
+      {
+        "id": "cafe-frio",
+        "nombre": "Café Frío",
+        "items": [
+          {
+            "nombre": "Iced Americano",
+            "precio": "5.800",
+            "descripcion": "Doble shot de espresso, agua fría y hielo.",
+            "imagen": "assets/imagenes/menu/iced-americano.webp"
+          },
+          {
+            "nombre": "Iced Latte",
+            "precio": "6.500",
+            "descripcion": "Shot de espresso y leche fría semitexturizada.",
+            "imagen": "assets/imagenes/menu/iced-latte.webp"
+          },
+          {
+            "nombre": "Iced Flat",
+            "precio": "7.900",
+            "descripcion": "Doble shot de espresso y leche fría semitexturizada.",
+            "imagen": "assets/imagenes/menu/iced-flat.webp"
+          },
+          {
+            "nombre": "Café Tonic & Quinotos",
+            "precio": "8.200",
+            "descripcion": "Doble espresso con almíbar de quinotos, ginger ale o tónica.",
+            "etiqueta": "NOVEDAD",
+            "imagen": "assets/imagenes/menu/cafe-tonic-quinotos.webp"
+          }
+        ]
+      },
+      {
+        "id": "bebidas-frias",
+        "nombre": "Bebidas Frías",
+        "items": [
+          {
+            "nombre": "Agua mineral / Agua con gas",
+            "precio": "4.300",
+            "imagen": "assets/imagenes/menu/agua-mineral.webp"
+          },
+          {
+            "nombre": "Gaseosas",
+            "precio": "4.900",
+            "imagen": "assets/imagenes/menu/gaseosas.webp"
+          },
+          {
+            "nombre": "Limonada",
+            "precio": "7.200",
+            "descripcion": "Casera, con menta y jengibre.",
+            "imagen": "assets/imagenes/menu/limonada-menta-jengibre.webp"
+          },
+          {
+            "nombre": "Jugo de naranja exprimido",
+            "precio": "8.200",
+            "imagen": "assets/imagenes/menu/jugo-naranja.webp"
+          },
+          {
+            "nombre": "Agua de Jamaica",
+            "precio": "7.900",
+            "descripcion": "Té frío de hibiscus, cáscara de naranja y limón, canela, clavo de olor y cardamomo.",
+            "imagen": "assets/imagenes/menu/agua-jamaica.webp"
+          },
+          {
+            "nombre": "Licuados Naturales",
+            "precio": "8.200",
+            "descripcion": "Berries: frambuesas, frutillas, arándanos y moras.\nFrutal: naranja, pomelo, frutilla y rosa mosqueta.\nMaracuyá: maracuyá, mango, naranja y menta.\nBanana con leche. Adicional: shake de proteína.",
+            "imagen": "assets/imagenes/menu/licuados-naturales.webp"
+          }
+        ]
+      },
+      {
+        "id": "winter-drinks",
+        "nombre": "Winter Drinks",
+        "nota": "para entrar en calor\nEDICIÓN DE TEMPORADA",
+        "items": [
+          {
+            "nombre": "Chocolatada Spicy",
+            "precio": "8.400",
+            "descripcion": "Leche vaporizada, chocolate semiamargo, ralladura de naranja y un touch de pimienta.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Espresso Martini",
+            "precio": "10.000",
+            "descripcion": "Vodka, doble espresso, vainilla y licor Kahlúa.",
+            "imagen": "assets/imagenes/menu/espresso-martini.webp"
+          },
+          {
+            "nombre": "Amarula Flat",
+            "precio": "9.000",
+            "descripcion": "Amarula, doble espresso y leche texturizada.",
+            "etiqueta": "HOT",
+            "imagen": "assets/imagenes/menu/amarula-flat.webp"
+          },
+          {
+            "nombre": "Aconcagua Bourbon",
+            "precio": "11.000",
+            "descripcion": "Doble espresso, whisky bourbon, Kahlúa, quinotos en almíbar y caramel cold foam.",
+            "imagen": "assets/imagenes/menu/aconcagua-bourbon.webp"
+          },
+          {
+            "nombre": "Aperol Spritz",
+            "precio": "9.500",
+            "descripcion": "Espumoso Chandon, Aperol, agua con gas y rodaja de naranja.",
+            "imagen": "assets/imagenes/menu/aperol-spritz.webp"
+          },
+          {
+            "nombre": "Samsa Enamorado",
+            "precio": "8.100",
+            "descripcion": "American IPA · rubia, suave amargor, aromática y con notas a frutos rojos.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Alma Gorda",
+            "precio": "6.300",
+            "descripcion": "Amber Lager · rojiza, suave y lupulada.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Fiesta de Focas",
+            "precio": "5.900",
+            "descripcion": "Fest Beer · rubia, cristalina y maltosa.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Más Monje",
+            "precio": "7.200",
+            "descripcion": "Dubbel · robusta, acaramelada y con carácter.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Catacumbia",
+            "precio": "9.000",
+            "descripcion": "Imperial Stout · oscura, tostada y cremosa.",
+            "estado_foto": "pendiente"
+          }
+        ]
+      },
+      {
+        "id": "pastries",
+        "nombre": "Pastries",
+        "items": [
+          {
+            "nombre": "Medialuna de manteca",
+            "precio": "3.200",
+            "imagen": "assets/imagenes/menu/medialuna-manteca.webp"
+          },
+          {
+            "nombre": "Sfogliatella rellena",
+            "precio": "6.300",
+            "descripcion": "Crema pastelera / ricotta y naranja / pistacchio.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Scon de queso",
+            "precio": "8.900",
+            "imagen": "assets/imagenes/menu/scon-de-queso.webp"
+          },
+          {
+            "nombre": "Alfajor de Coco",
+            "precio": "6.900",
+            "descripcion": "Masa a base de coco, baño de chocolate semiamargo y corazón de pasta de maní endulzado con dátiles.",
+            "etiqueta": "KETO",
+            "imagen": "assets/imagenes/menu/alfajor-coco-keto.webp",
+            "ajuste_imagen": "con-texto"
+          },
+          {
+            "nombre": "Alfajor de Almendras Vainilla / Chocolate",
+            "precio": "7.900",
+            "descripcion": "Masa a base de harina de almendras —cacao amargo o vainilla—, relleno con dulce de leche endulzado con stevia.",
+            "etiqueta": "KETO",
+            "imagen": "assets/imagenes/menu/alfajor-almendras-keto.webp"
+          },
+          {
+            "nombre": "Pepa",
+            "precio": "5.900",
+            "descripcion": "Masa de almendras y coco, recubierta con semillas de sésamo y topping de frutos rojos sin azúcar agregada.",
+            "etiqueta": "KETO",
+            "imagen": "assets/imagenes/menu/pepa-keto.webp",
+            "ajuste_imagen": "con-texto"
+          },
+          {
+            "nombre": "Roll de canela",
+            "precio": "7.900",
+            "imagen": "assets/imagenes/menu/roll-canela.webp"
+          },
+          {
+            "nombre": "Croissant",
+            "precio": "4.900",
+            "imagen": "assets/imagenes/menu/croissant.webp"
+          },
+          {
+            "nombre": "Cookie black velvet",
+            "precio": "8.000",
+            "descripcion": "Masa húmeda de cacao semiamargo con topping de frutos rojos.",
+            "imagen": "assets/imagenes/menu/cookie-velvet.webp",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Cookie vainilla & chips",
+            "precio": "7.500",
+            "descripcion": "Chocolate semiamargo.",
+            "imagen": "assets/imagenes/menu/cookie-vainilla-chips.webp"
+          },
+          {
+            "nombre": "Cookie pistacchio",
+            "precio": "8.500",
+            "descripcion": "Masa suave con pistacchios tostados y centro de chocolate con pistacchios.",
+            "imagen": "assets/imagenes/menu/cookie-pistacchio.webp"
+          },
+          {
+            "nombre": "Budín de banana y nuez",
+            "precio": "7.900",
+            "imagen": "assets/imagenes/menu/budin-banana-nuez.webp"
+          },
+          {
+            "nombre": "Budín de limón, amapolas y arándanos",
+            "precio": "7.900",
+            "imagen": "assets/imagenes/menu/budin-limon-amapolas-arandanos.webp"
+          },
+          {
+            "nombre": "Pavlova",
+            "precio": "8.500",
+            "descripcion": "Rellena de crema pastelera, dulce de leche y frutas de estación.",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Brownie",
+            "precio": "9.900",
+            "etiqueta": "OPCIONAL SIN TACC",
+            "imagen": "assets/imagenes/menu/cuadrados-brownie.webp"
+          },
+          {
+            "nombre": "Croissant a la Reina",
+            "precio": "10.200",
+            "descripcion": "Rellena de crema pastelera, fina base de dulce de leche con topping de frutos rojos y azúcar impalpable.",
+            "imagen": "assets/imagenes/menu/croissant-reina.webp"
+          }
+        ]
+      },
+      {
+        "id": "cakes",
+        "nombre": "Cakes",
+        "items": [
+          {
+            "nombre": "Cheesecake de Frutos Rojos",
+            "precio": "13.900",
+            "imagen": "assets/imagenes/menu/cheesecake-frutos-rojos.webp"
+          },
+          {
+            "nombre": "Key Lime Pie",
+            "precio": "14.500",
+            "imagen": "assets/imagenes/menu/key-lime-pie.webp"
+          },
+          {
+            "nombre": "Carrot Cake",
+            "precio": "14.900",
+            "estado_foto": "pendiente"
+          },
+          {
+            "nombre": "Torta del día",
+            "precio": "14.900",
+            "imagen": "assets/imagenes/menu/torta-dia.webp"
+          },
+          {
+            "nombre": "Alfajores",
+            "precio": "9.900",
+            "descripcion": "Choco 60% / Avellanas / Pistacchios.",
+            "etiqueta": "SIN TACC",
+            "imagen": "assets/imagenes/menu/alfajores.webp"
+          }
+        ]
+      }
+    ],
+    "destacados": [
+      {
+        "producto": "Avocado Toast"
+      },
+      {
+        "producto": "Pistacchio Latte (XL)",
+        "nombre": "Pistacchio Latte"
+      },
+      {
+        "producto": "Mbejú Guaraní XL",
+        "nombre": "Mbejú Guaraní"
+      },
+      {
+        "productos": [
+          "Filtrado (L)",
+          "Té en hebras"
+        ],
+        "nombre": "Filtrado / Té",
+        "descripcion": "Elegí café filtrado V60 o té en hebras.",
+        "imagen": "assets/imagenes/menu/filtrado-cafe.webp"
+      },
+      {
+        "producto": "French Banana Toast"
+      }
+    ]
+  },
+  "pendientes": [
+    "Confirmar que el menú y los precios estén actualizados.",
+    "Confirmar autorización para usar las fotos descargadas del Instagram o provistas por el cliente.",
+    "Cargar imágenes reales en assets/img.",
+    "Confirmar si el WhatsApp también se usa para pedidos o solo consultas.",
+    "Confirmar si agregan delivery o reservas en el futuro.",
+    "Confirmar si quieren mostrar todos los precios o solo productos destacados.",
+    "Revisar detalles del menú importado desde PDF antes de publicar.",
+    "Fotos pendientes de carta: Caramel Latte, Vainilla Latte, Nutella Latte, Chocolatada Spicy, cervezas Strange, Waffle KETO de salmón, Sfogliatella rellena, Cookie black velvet, Pavlova y Carrot Cake.",
+    "Fotos pendientes de Productos: Colombia Palmera, Colombia Orgánico Alta Montaña, AB Kamavindi, Limmu Kossa, Paraíso, Velas Cero y Tazas Cero."
+  ]
 }
 ;
