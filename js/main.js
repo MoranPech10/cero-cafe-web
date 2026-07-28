@@ -3,7 +3,6 @@
     menuCategories: [],
     activeCategoryIndex: null,
     revealObserver: null,
-    featuredCarouselCleanup: null,
   };
 
   const menuPlaceholderLogo = "assets/logos/Sublogo vertical_negro.svg";
@@ -163,165 +162,24 @@
     videos.forEach((video) => videoObserver.observe(video));
   }
 
-  function initFeaturedMenuCarousel(items) {
+  function renderFeaturedMenuItems(items) {
     const slider = document.querySelector("[data-featured-slider]");
-    const dotsContainer = document.querySelector("[data-featured-dots]");
-    const previousButton = document.querySelector("[data-featured-prev]");
-    const nextButton = document.querySelector("[data-featured-next]");
-    if (!slider || !dotsContainer || !previousButton || !nextButton || !Array.isArray(items) || !items.length) return;
+    const controls = document.querySelector(".menu-featured-controls");
+    if (!slider || !Array.isArray(items) || !items.length) return;
 
-    state.featuredCarouselCleanup?.();
+    slider.replaceChildren(createMenuProductGrid(items, { id: "destacados" }, "destacados"));
+    slider.classList.add("is-product-grid");
+    slider.removeAttribute("tabindex");
+    slider.removeAttribute("role");
+    slider.setAttribute("aria-label", "Productos más vendidos");
+    if (controls) controls.hidden = true;
 
-    slider.innerHTML = "";
-    dotsContainer.innerHTML = "";
-    slider.tabIndex = 0;
-    slider.role = "region";
-    slider.setAttribute("aria-label", "Carrusel Más vendidos");
-
-    const eventController = new AbortController();
-    const { signal } = eventController;
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    let activeIndex = 0;
-    let autoplayTimer = null;
-    let isHovered = false;
-    let isTouching = false;
-
-    const slides = items.map((item, index) => {
-      const slide = document.createElement("div");
-      slide.className = "menu-featured-slide";
-      slide.classList.toggle("is-active", index === 0);
-      slide.dataset.featuredSlide = "";
-      slide.setAttribute("aria-hidden", String(index !== 0));
-
-      const image = document.createElement("img");
-      const imageSource = getMenuItemImage(item);
-      if (index === 0) {
-        image.src = imageSource;
-      } else {
-        image.dataset.src = imageSource;
-      }
-      image.alt = `Fotografía del producto destacado ${index + 1}`;
-      image.width = 1200;
-      image.height = 900;
-      image.loading = index === 0 ? "eager" : "lazy";
-      image.decoding = "async";
-      image.dataset.featuredImage = String(index + 1);
-
-      slide.appendChild(image);
-      slider.appendChild(slide);
-      return slide;
-    });
-
-    const stopAutoplay = () => {
-      if (autoplayTimer === null) return;
-      window.clearTimeout(autoplayTimer);
-      autoplayTimer = null;
-    };
-
-    const canAutoplay = () => (
-      !reducedMotion.matches
-      && !document.hidden
-      && !isHovered
-      && !isTouching
-    );
-
-    const scheduleAutoplay = () => {
-      stopAutoplay();
-      if (!canAutoplay()) return;
-
-      autoplayTimer = window.setTimeout(() => {
-        showSlide(activeIndex + 1);
-        scheduleAutoplay();
-      }, 4000);
-    };
-
-    const dots = slides.map((_, index) => {
-      const dot = document.createElement("button");
-      dot.className = "menu-featured-dot";
-      dot.type = "button";
-      dot.setAttribute("aria-label", `Mostrar imagen ${index + 1} de ${slides.length}`);
-      dot.classList.toggle("is-active", index === activeIndex);
-      dot.setAttribute("aria-current", String(index === activeIndex));
-      dot.addEventListener("click", () => {
-        showSlide(index);
-        scheduleAutoplay();
-      }, { signal });
-      dotsContainer.appendChild(dot);
-      return dot;
-    });
-
-    const showSlide = (nextIndex) => {
-      activeIndex = ((nextIndex % slides.length) + slides.length) % slides.length;
-      const activeImage = slides[activeIndex].querySelector("img[data-src]");
-      if (activeImage) {
-        activeImage.src = activeImage.dataset.src;
-        activeImage.removeAttribute("data-src");
-      }
-      slides.forEach((slide, index) => {
-        slide.classList.toggle("is-active", index === activeIndex);
-        slide.setAttribute("aria-hidden", String(index !== activeIndex));
-      });
-      dots.forEach((dot, index) => {
-        dot.classList.toggle("is-active", index === activeIndex);
-        dot.setAttribute("aria-current", String(index === activeIndex));
-      });
-    };
-
-    previousButton.addEventListener("click", () => {
-      showSlide(activeIndex - 1);
-      scheduleAutoplay();
-    }, { signal });
-    nextButton.addEventListener("click", () => {
-      showSlide(activeIndex + 1);
-      scheduleAutoplay();
-    }, { signal });
-    slider.addEventListener("keydown", (event) => {
-      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-
-      event.preventDefault();
-      showSlide(activeIndex + (event.key === "ArrowRight" ? 1 : -1));
-    }, { signal });
-
-    const carousel = slider.closest(".menu-featured-card");
-    carousel?.addEventListener("mouseenter", () => {
-      isHovered = true;
-      stopAutoplay();
-    }, { signal });
-    carousel?.addEventListener("mouseleave", () => {
-      isHovered = false;
-      scheduleAutoplay();
-    }, { signal });
-    carousel?.addEventListener("keydown", () => {
-      stopAutoplay();
-      scheduleAutoplay();
-    }, { signal });
-    carousel?.addEventListener("pointerdown", (event) => {
-      if (event.pointerType !== "touch") return;
-      isTouching = true;
-      stopAutoplay();
-    }, { signal, passive: true });
-
-    const finishTouchInteraction = (event) => {
-      if (event.pointerType !== "touch") return;
-      isTouching = false;
-      scheduleAutoplay();
-    };
-    carousel?.addEventListener("pointerup", finishTouchInteraction, { signal, passive: true });
-    carousel?.addEventListener("pointercancel", finishTouchInteraction, { signal, passive: true });
-
-    document.addEventListener("visibilitychange", scheduleAutoplay, { signal });
-    reducedMotion.addEventListener("change", scheduleAutoplay, { signal });
-
-    state.featuredCarouselCleanup = () => {
-      stopAutoplay();
-      eventController.abort();
-    };
-
-    scheduleAutoplay();
+    enhanceMotion(slider);
   }
 
   function initMenuImageLightbox() {
     if (!selectors.menuPanel) return;
+    const interactionRoot = selectors.menuPanel.closest(".menu-section") || selectors.menuPanel;
 
     let lightbox = null;
     let lightboxImage = null;
@@ -393,7 +251,7 @@
       }
     };
 
-    selectors.menuPanel.addEventListener("click", (event) => {
+    interactionRoot.addEventListener("click", (event) => {
       const button = event.target.closest("[data-menu-image-open]");
       if (!button) return;
       openLightbox(button);
@@ -428,7 +286,6 @@
   function initCoffeeOriginCards() {
     const coffeeCards = Array.from(document.querySelectorAll("[data-coffee-origin]"));
     if (!coffeeCards.length) return;
-    const hoverMedia = window.matchMedia("(hover: hover) and (pointer: fine)");
 
     const updateView = (card, showLabel) => {
       const packaging = card.querySelector("[data-coffee-packaging]");
@@ -441,17 +298,36 @@
       label.setAttribute("aria-hidden", String(!showLabel));
       media.setAttribute("aria-pressed", String(showLabel));
       media.setAttribute("aria-label", showLabel ? `Mostrar packaging de ${origin}` : `Mostrar etiqueta de ${origin}`);
-      media.dataset.touchHint = showLabel ? "Tocá para ver packaging" : "Tocá para ver etiqueta";
       media.classList.toggle("is-showing-label", showLabel);
     };
 
     coffeeCards.forEach((card) => {
       const media = card.querySelector("[data-coffee-media]");
       if (!media) return;
+      let activePointerId = null;
+
+      const finishPress = (event) => {
+        if (activePointerId === null) return;
+        if (typeof event.pointerId === "number" && event.pointerId !== activePointerId) return;
+
+        activePointerId = null;
+        updateView(card, false);
+      };
+
+      media.addEventListener("pointerdown", (event) => {
+        if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+
+        activePointerId = event.pointerId;
+        updateView(card, true);
+      }, { passive: true });
+
+      media.addEventListener("pointerup", finishPress, { passive: true });
+      media.addEventListener("pointercancel", finishPress, { passive: true });
+      window.addEventListener("pointerup", finishPress, { passive: true });
+      window.addEventListener("pointercancel", finishPress, { passive: true });
 
       media.addEventListener("click", (event) => {
-        const isKeyboardActivation = event.detail === 0;
-        if (hoverMedia.matches && !isKeyboardActivation) return;
+        if (event.detail !== 0) return;
 
         const showLabel = media.getAttribute("aria-pressed") !== "true";
         updateView(card, showLabel);
@@ -673,7 +549,7 @@
       applySiteContent(bundledData);
       state.menuCategories = normalizeMenu(bundledData);
       renderMenu();
-      initFeaturedMenuCarousel(getFeaturedMenuItems());
+      renderFeaturedMenuItems(getFeaturedMenuItems());
       return;
     }
 
@@ -683,14 +559,14 @@
       applySiteContent(data);
       state.menuCategories = normalizeMenu(data);
       renderMenu();
-      initFeaturedMenuCarousel(getFeaturedMenuItems());
+      renderFeaturedMenuItems(getFeaturedMenuItems());
     } catch (error) {
       console.error("No se pudo cargar el contenido del sitio.", error);
       const fallbackData = window.CERO_CONTENIDO || {};
       applySiteContent(fallbackData);
       state.menuCategories = normalizeMenu(fallbackData);
       renderMenu();
-      initFeaturedMenuCarousel(getFeaturedMenuItems());
+      renderFeaturedMenuItems(getFeaturedMenuItems());
     }
   }
 

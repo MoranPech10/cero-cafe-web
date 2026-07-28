@@ -600,7 +600,7 @@
             "nombre": "Aconcagua Bourbon",
             "precio": "11.000",
             "descripcion": "Doble espresso, whisky bourbon, Kahlúa, quinotos en almíbar y caramel cold foam.",
-            "imagen": "assets/imagenes/menu/aconcagua-bourbon.webp"
+            "imagen": "assets/imagenes/menu/aconcagua-bourbon-corregido.png"
           },
           {
             "nombre": "Aperol Spritz",
@@ -673,7 +673,7 @@
             "precio": "7.900",
             "descripcion": "Masa a base de harina de almendras —cacao amargo o vainilla—, relleno con dulce de leche endulzado con stevia.",
             "etiqueta": "KETO",
-            "imagen": "assets/imagenes/menu/alfajor-almendras-keto.webp"
+            "imagen": "assets/imagenes/menu/alfajor-almendras-keto-corregido.png"
           },
           {
             "nombre": "Pepa",
