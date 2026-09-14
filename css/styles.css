@@ -3301,6 +3301,73 @@ h3 {
   }
 }
 
+/* Carta compacta en mobile: dos productos por fila sin limitar el contenido. */
+@media (max-width: 679px) {
+  .menu-section {
+    padding-inline: clamp(0.75rem, 4vw, 1rem);
+  }
+
+  .menu-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem 0.625rem;
+    align-items: start;
+  }
+
+  .menu-product-card {
+    height: auto;
+    border-radius: 16px;
+  }
+
+  .menu-product-media {
+    aspect-ratio: 3 / 2;
+  }
+
+  .menu-product-body {
+    gap: 0.35rem;
+    padding: 0.625rem;
+  }
+
+  .menu-product-header,
+  .menu-product-card.is-composite .menu-product-header {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+
+  .menu-product-header h4,
+  .menu-price {
+    font-size: 0.875rem;
+  }
+
+  .menu-product-header h4 {
+    line-height: 1.22;
+  }
+
+  .menu-product-description {
+    font-size: 0.78125rem;
+    line-height: 1.4;
+  }
+
+  .menu-product-badge {
+    max-width: 100%;
+    padding: 0.3rem 0.48rem;
+    font-size: 0.6875rem;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .menu-bestsellers,
+  .menu-subcategory.is-winter-drinks {
+    padding: 0.75rem;
+  }
+}
+
+/* El zoom de página reduce el viewport CSS: prioriza legibilidad antes que dos columnas. */
+@media (max-width: 300px) {
+  .menu-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 @media (max-width: 420px) {
   .flavors-section .visual-card {
     min-height: clamp(480px, 136vw, 560px);
