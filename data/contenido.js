@@ -77,8 +77,47 @@ window.CERO_CONTENIDO = {
       "texto": "Ver menú",
       "url": "#menu"
     },
+    "valoraciones": {
+      "puntuacion": 4.8,
+      "total_opiniones": 224,
+      "fuente": "Google",
+      "enlace_google": "https://www.google.com/maps/place/Cero+Cafe+de+Origen/@-34.5697587,-58.4925334,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcb70028f5094d:0x6ccca2a17439a70d!8m2!3d-34.5697631!4d-58.4899585!16s%2Fg%2F11yq37r5c4",
+      "distribucion_aproximada": [
+        { "estrellas": 5, "nivel_visual": 100 },
+        { "estrellas": 4, "nivel_visual": 9 },
+        { "estrellas": 3, "nivel_visual": 5 },
+        { "estrellas": 2, "nivel_visual": 2 },
+        { "estrellas": 1, "nivel_visual": 3 }
+      ],
+      "aclaracion": "Distribución aproximada según Google",
+      "resumen": {
+        "titulo": "Lo que los comensales dicen",
+        "texto": "Los clientes destacan el café de especialidad y las propuestas para comer, como los croissants y el mbejú. Valoran la atención amable, el ambiente cálido y cómodo, los precios razonables y la limpieza del lugar.",
+        "aclaracion": "Resumen adaptado de opiniones de Google."
+      }
+    },
     "imagen": "assets/imagenes/hero-terraza-cero.webp",
     "imagen_estado": "Pendiente de cargar en assets/img"
+  },
+  "reservas": {
+    "recursos": [
+      {
+        "tipo": "video",
+        "src": "assets/videos/video-reserva/1.mp4",
+        "poster": "assets/imagenes/video-posters/reserva-video-1-poster.webp",
+        "descripcion": "Plato servido en Cero Café de Origen",
+        "posicion": "center",
+        "posicion_movil": "center"
+      },
+      {
+        "tipo": "video",
+        "src": "assets/videos/video-reserva/2.mp4",
+        "poster": "assets/imagenes/video-posters/reserva-video-2-poster.webp",
+        "descripcion": "Frente de Cero Café de Origen",
+        "posicion": "center",
+        "posicion_movil": "center"
+      }
+    ]
   },
   "diseno": {
     "estilo": [
@@ -258,8 +297,9 @@ window.CERO_CONTENIDO = {
             "precio": "16.500",
             "descripcion": "Jamón crudo, queso tybo, ricotta especiada, rúcula y caviar de Dijon.",
             "etiqueta": "NOVEDAD",
-            "imagen": "assets/imagenes/menu/focaccia-jamon-crudo.webp",
-            "ajuste_imagen": "con-texto"
+            "imagen": "assets/imagenes/menu/focaccia-jamon-crudo-foto.webp",
+            "posicion_imagen": "50% 58%",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Scon más queso",
@@ -272,7 +312,7 @@ window.CERO_CONTENIDO = {
             "precio": "14.200",
             "descripcion": "Con queso mascarpone, crema de avellanas, topping de frutas de estación y syrup chai.",
             "etiqueta": "OPCIONAL KETO",
-            "imagen": "assets/imagenes/menu/waffle-cero.webp"
+            "imagen": "assets/imagenes/menu/waffle-cero-brunch.jpeg"
           }
         ]
       },
@@ -285,7 +325,8 @@ window.CERO_CONTENIDO = {
             "nombre": "American Bagel Deluxe",
             "precio": "11.900",
             "descripcion": "Huevos revueltos, panceta crocante y cherrys, en pan tostado con dip de queso crema.",
-            "imagen": "assets/imagenes/menu-drive/Americano Deluxe.webp"
+            "imagen": "assets/imagenes/menu-drive/Americano Deluxe.webp",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Avocado Toast",
@@ -303,15 +344,17 @@ window.CERO_CONTENIDO = {
             "nombre": "Doble Tostón 3 Amores",
             "precio": "11.500",
             "descripcion": "Acompañado con queso crema, mermelada casera de frutos rojos y dulce de leche o manteca de maní.",
-            "imagen": "assets/imagenes/menu/doble-toston-3-amores.webp",
-            "ajuste_imagen": "con-texto"
+            "imagen": "assets/imagenes/menu/doble-toston-3-amores-foto.webp",
+            "posicion_imagen": "50% 48%",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Waffle KETO de salmón",
             "precio": "17.900",
             "descripcion": "A base de harina de garbanzos, salmón, palta, queso crema, eneldo fresco y ralladura de limón. Adicional: huevo revuelto.",
             "etiqueta": "KETO",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu/waffle-keto-salmon.webp",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "French Banana Toast",
@@ -362,7 +405,8 @@ window.CERO_CONTENIDO = {
             "nombre": "Burger Luna",
             "precio": "21.900",
             "descripcion": "Pan de croissant relleno de tapa de asado desmechado, panceta crocante, queso cheddar, cebolla caramelizada, ciboulette y aderezo casero.",
-            "imagen": "assets/imagenes/menu/burger-luna.webp"
+            "imagen": "assets/imagenes/menu/burger-luna-foto.webp",
+            "ajuste_imagen": "crop"
           }
         ]
       },
@@ -386,7 +430,9 @@ window.CERO_CONTENIDO = {
             "nombre": "Americano (M)",
             "precio": "5.500",
             "descripcion": "Doble shot de espresso con colchón de agua.",
-            "imagen": "assets/imagenes/menu-drive/Americano 2.webp"
+            "imagen": "assets/imagenes/menu-drive/Americano 2.webp",
+            "posicion_imagen": "50% 52%",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Filtrado (L)",
@@ -405,13 +451,15 @@ window.CERO_CONTENIDO = {
             "nombre": "Cortado (S)",
             "precio": "5.600",
             "descripcion": "Shot de espresso y leche texturizada.",
-            "imagen": "assets/imagenes/menu-drive/Cortado 2.webp"
+            "imagen": "assets/imagenes/menu-adaptadas/cortado-card.webp",
+            "imagen_original": "assets/imagenes/menu-drive/Cortado 2.webp"
           },
           {
             "nombre": "Magic (S)",
             "precio": "6.300",
             "descripcion": "Doble shot de espresso con leche texturizada.",
-            "imagen": "assets/imagenes/menu/magic.webp"
+            "imagen": "assets/imagenes/menu-adaptadas/magic-card.png",
+            "imagen_original": "assets/imagenes/menu/magic.webp"
           },
           {
             "nombre": "Flat White (M)",
@@ -423,7 +471,8 @@ window.CERO_CONTENIDO = {
             "nombre": "Capuccino (M)",
             "precio": "6.500",
             "descripcion": "Shot de espresso con leche texturizada y espuma de leche. Adicional: cacao y canela.",
-            "imagen": "assets/imagenes/menu/capuccino.webp"
+            "imagen": "assets/imagenes/menu-adaptadas/capuccino-card.webp",
+            "imagen_original": "assets/imagenes/menu/capuccino.webp"
           },
           {
             "nombre": "Café con Leche (L)",
@@ -435,8 +484,8 @@ window.CERO_CONTENIDO = {
             "nombre": "Moccacino (XL)",
             "precio": "8.300",
             "descripcion": "Doble shot de espresso, chocolate semiamargo y leche texturizada.",
-            "imagen": "assets/imagenes/menu/moccacino.webp",
-            "ajuste_imagen": "contain"
+            "imagen": "assets/imagenes/menu-adaptadas/moccacino-card.webp",
+            "imagen_original": "assets/imagenes/menu-drive/Moccachino.webp"
           },
           {
             "nombre": "Vainilla Latte (XL)",
@@ -455,7 +504,9 @@ window.CERO_CONTENIDO = {
             "precio": "8.400",
             "descripcion": "Doble shot de espresso, leche texturizada y reducción de pistacchios.",
             "etiqueta": "NOVEDAD",
-            "imagen": "assets/imagenes/menu/pistacchio-latte.webp"
+            "imagen": "assets/imagenes/menu/pistacchio-latte.webp",
+            "posicion_imagen": "50% 58%",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Nutella Latte (XL)",
@@ -480,7 +531,9 @@ window.CERO_CONTENIDO = {
             "nombre": "Matcha (Vainilla) Latte (XL)",
             "precio": "8.900",
             "descripcion": "Té verde ceremonial japonés con leche texturizada. Adicional: syrup de vainilla.",
-            "imagen": "assets/imagenes/menu-drive/Matcha latte.webp"
+            "imagen": "assets/imagenes/menu-drive/Matcha latte.webp",
+            "posicion_imagen": "50% 43%",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Chocolatada Belga (XL)",
@@ -492,13 +545,16 @@ window.CERO_CONTENIDO = {
             "nombre": "Chai Latte (XL)",
             "precio": "7.300",
             "descripcion": "Reducción de té chai especiado con canela y leche vaporizada. Adicional: shot de espresso.",
-            "imagen": "assets/imagenes/menu/chai-latte.webp"
+            "imagen": "assets/imagenes/menu-drive/Dirty Chai Latte.webp",
+            "posicion_imagen": "50% 55%",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Golden Milk (XL)",
             "precio": "6.900",
             "descripcion": "Leche vaporizada, cardamomo y anís estrellado en reducción de cúrcuma y especias.",
-            "imagen": "assets/imagenes/menu/golden-milk.webp"
+            "imagen": "assets/imagenes/menu/golden-milk-foto.webp",
+            "ajuste_imagen": "crop"
           }
         ]
       },
@@ -510,26 +566,33 @@ window.CERO_CONTENIDO = {
             "nombre": "Iced Americano",
             "precio": "5.800",
             "descripcion": "Doble shot de espresso, agua fría y hielo.",
-            "imagen": "assets/imagenes/menu/iced-americano.webp"
+            "imagen": "assets/imagenes/menu-drive/Iced Americano.webp",
+            "posicion_imagen": "50% 45%",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Iced Latte",
             "precio": "6.500",
             "descripcion": "Shot de espresso y leche fría semitexturizada.",
-            "imagen": "assets/imagenes/menu/iced-latte.webp"
+            "imagen": "assets/imagenes/menu-drive/Iced Latte.webp",
+            "ajuste_imagen": "crop",
+            "estado_foto": "requiere-reemplazo"
           },
           {
             "nombre": "Iced Flat",
             "precio": "7.900",
             "descripcion": "Doble shot de espresso y leche fría semitexturizada.",
-            "imagen": "assets/imagenes/menu/iced-flat.webp"
+            "imagen": "assets/imagenes/menu/iced-flat.webp",
+            "ajuste_imagen": "crop",
+            "estado_foto": "requiere-reemplazo"
           },
           {
             "nombre": "Café Tonic & Quinotos",
             "precio": "8.200",
             "descripcion": "Doble espresso con almíbar de quinotos, ginger ale o tónica.",
             "etiqueta": "NOVEDAD",
-            "imagen": "assets/imagenes/menu/cafe-tonic-quinotos.webp"
+            "imagen": "assets/imagenes/menu-adaptadas/cafe-tonic-card.webp",
+            "imagen_original": "assets/imagenes/menu/cafe-tonic-quinotos.webp"
           }
         ]
       },
@@ -551,24 +614,31 @@ window.CERO_CONTENIDO = {
             "nombre": "Limonada",
             "precio": "7.200",
             "descripcion": "Casera, con menta y jengibre.",
-            "imagen": "assets/imagenes/menu/limonada-menta-jengibre.webp"
+            "imagen": "assets/imagenes/menu/limonada-menta-jengibre.webp",
+            "ajuste_imagen": "crop",
+            "estado_foto": "requiere-reemplazo"
           },
           {
             "nombre": "Jugo de naranja exprimido",
             "precio": "8.200",
-            "imagen": "assets/imagenes/menu/jugo-naranja.webp"
+            "imagen": "assets/imagenes/menu/jugo-naranja.webp",
+            "ajuste_imagen": "crop",
+            "estado_foto": "requiere-reemplazo"
           },
           {
             "nombre": "Agua de Jamaica",
             "precio": "7.900",
             "descripcion": "Té frío de hibiscus, cáscara de naranja y limón, canela, clavo de olor y cardamomo.",
-            "imagen": "assets/imagenes/menu/agua-jamaica.webp"
+            "imagen": "assets/imagenes/menu-drive/Agua de Jamaica.webp",
+            "ajuste_imagen": "crop",
+            "estado_foto": "requiere-reemplazo"
           },
           {
             "nombre": "Licuados Naturales",
             "precio": "8.200",
             "descripcion": "Berries: frambuesas, frutillas, arándanos y moras.\nFrutal: naranja, pomelo, frutilla y rosa mosqueta.\nMaracuyá: maracuyá, mango, naranja y menta.\nBanana con leche. Adicional: shake de proteína.",
-            "imagen": "assets/imagenes/menu/licuados-naturales.webp"
+            "imagen": "assets/imagenes/menu-adaptadas/licuados-card.webp",
+            "imagen_original": "assets/imagenes/menu/licuados-naturales.webp"
           }
         ]
       },
@@ -581,7 +651,8 @@ window.CERO_CONTENIDO = {
             "nombre": "Chocolatada Spicy",
             "precio": "8.400",
             "descripcion": "Leche vaporizada, chocolate semiamargo, ralladura de naranja y un touch de pimienta.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu/chocolatada-spicy.webp",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Espresso Martini",
@@ -600,7 +671,9 @@ window.CERO_CONTENIDO = {
             "nombre": "Aconcagua Bourbon",
             "precio": "11.000",
             "descripcion": "Doble espresso, whisky bourbon, Kahlúa, quinotos en almíbar y caramel cold foam.",
-            "imagen": "assets/imagenes/menu/aconcagua-bourbon-corregido.png"
+            "imagen": "assets/imagenes/menu/aconcagua-bourbon-corregido.png",
+            "posicion_imagen": "50% 64%",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Aperol Spritz",
@@ -653,7 +726,8 @@ window.CERO_CONTENIDO = {
             "nombre": "Sfogliatella rellena",
             "precio": "6.300",
             "descripcion": "Crema pastelera / ricotta y naranja / pistacchio.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu/sfogliatella-rellena.webp",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Scon de queso",
@@ -665,23 +739,24 @@ window.CERO_CONTENIDO = {
             "precio": "6.900",
             "descripcion": "Masa a base de coco, baño de chocolate semiamargo y corazón de pasta de maní endulzado con dátiles.",
             "etiqueta": "KETO",
-            "imagen": "assets/imagenes/menu/alfajor-coco-keto.webp",
-            "ajuste_imagen": "con-texto"
+            "imagen": "assets/imagenes/menu/alfajor-coco-keto-foto.webp",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Alfajor de Almendras Vainilla / Chocolate",
             "precio": "7.900",
             "descripcion": "Masa a base de harina de almendras —cacao amargo o vainilla—, relleno con dulce de leche endulzado con stevia.",
             "etiqueta": "KETO",
-            "imagen": "assets/imagenes/menu/alfajor-almendras-keto-corregido.png"
+            "imagen": "assets/imagenes/menu/alfajor-almendras-keto-corregido.png",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Pepa",
             "precio": "5.900",
             "descripcion": "Masa de almendras y coco, recubierta con semillas de sésamo y topping de frutos rojos sin azúcar agregada.",
             "etiqueta": "KETO",
-            "imagen": "assets/imagenes/menu/pepa-keto.webp",
-            "ajuste_imagen": "con-texto"
+            "imagen": "assets/imagenes/menu/pepa-keto-foto.webp",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Roll de canela",
@@ -726,7 +801,8 @@ window.CERO_CONTENIDO = {
             "nombre": "Pavlova",
             "precio": "8.500",
             "descripcion": "Rellena de crema pastelera, dulce de leche y frutas de estación.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu/pavlova.webp",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Brownie",
@@ -759,7 +835,9 @@ window.CERO_CONTENIDO = {
           {
             "nombre": "Carrot Cake",
             "precio": "14.900",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu/carrot-cake.webp",
+            "posicion_imagen": "50% 60%",
+            "ajuste_imagen": "crop"
           },
           {
             "nombre": "Torta del día",
@@ -776,29 +854,24 @@ window.CERO_CONTENIDO = {
         ]
       }
     ],
-    "destacados": [
+    "mas_vendidos": [
       {
         "producto": "Avocado Toast"
       },
       {
-        "producto": "Pistacchio Latte (XL)",
-        "nombre": "Pistacchio Latte"
-      },
-      {
-        "producto": "Mbejú Guaraní XL",
-        "nombre": "Mbejú Guaraní"
-      },
-      {
-        "productos": [
-          "Filtrado (L)",
-          "Té en hebras"
-        ],
-        "nombre": "Filtrado / Té",
-        "descripcion": "Elegí café filtrado V60 o té en hebras.",
-        "imagen": "assets/imagenes/menu/filtrado-cafe.webp"
+        "producto": "Mbejú Guaraní XL"
       },
       {
         "producto": "French Banana Toast"
+      },
+      {
+        "producto": "Croissant a la Reina"
+      },
+      {
+        "producto": "Iced Americano"
+      },
+      {
+        "producto": "Pistacchio Latte (XL)"
       }
     ]
   },
@@ -810,7 +883,7 @@ window.CERO_CONTENIDO = {
     "Confirmar si agregan delivery o reservas en el futuro.",
     "Confirmar si quieren mostrar todos los precios o solo productos destacados.",
     "Revisar detalles del menú importado desde PDF antes de publicar.",
-    "Fotos pendientes de carta: Caramel Latte, Vainilla Latte, Nutella Latte, Chocolatada Spicy, cervezas Strange, Waffle KETO de salmón, Sfogliatella rellena, Cookie black velvet, Pavlova y Carrot Cake.",
+    "Fotos pendientes de carta: Lungo (S), Flat White (M), Vainilla Latte (XL), Caramel Latte (XL), Nutella Latte (XL), cervezas Strange y Cookie black velvet. Reemplazos pendientes: Iced Latte, Iced Flat, Limonada, Jugo de naranja exprimido y Agua de Jamaica.",
     "Fotos pendientes de Productos: Colombia Palmera, Colombia Orgánico Alta Montaña, AB Kamavindi, Limmu Kossa, Paraíso, Velas Cero y Tazas Cero."
   ]
 }

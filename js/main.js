@@ -1,11 +1,24 @@
 (function () {
   const state = {
     menuCategories: [],
-    activeCategoryIndex: null,
+    bestSellerItems: [],
+    activeMenuId: "",
+    programmaticMenuTarget: "",
+    menuScrollCleanup: null,
+    menuScrollUnlockTimer: null,
     revealObserver: null,
+    reservationsSlider: null,
   };
 
   const menuPlaceholderLogo = "assets/logos/Sublogo vertical_negro.svg";
+  const defaultBestSellerNames = [
+    "Avocado Toast",
+    "Mbejú Guaraní XL",
+    "French Banana Toast",
+    "Croissant a la Reina",
+    "Iced Americano",
+    "Pistacchio Latte (XL)",
+  ];
 
   const selectors = {
     body: document.body,
@@ -21,6 +34,7 @@
     contactCopy: document.querySelector("[data-contact-copy]"),
     header: document.querySelector("[data-header]"),
     menuTabsTrack: document.querySelector("[data-menu-tabs-track]"),
+    heroReviews: document.querySelector("[data-hero-reviews]"),
   };
 
   initHeader();
@@ -162,19 +176,379 @@
     videos.forEach((video) => videoObserver.observe(video));
   }
 
-  function renderFeaturedMenuItems(items) {
-    const slider = document.querySelector("[data-featured-slider]");
-    const controls = document.querySelector(".menu-featured-controls");
-    if (!slider || !Array.isArray(items) || !items.length) return;
+  function initReservationsSlider(config) {
+    const section = document.querySelector("[data-reservations-slider]");
+    const stage = section?.querySelector("[data-reservations-stage]");
+    const resources = Array.isArray(config?.recursos)
+      ? config.recursos.filter((item) => item?.src && item.tipo === "video").slice(0, 6)
+      : [];
 
-    slider.replaceChildren(createMenuProductGrid(items, { id: "destacados" }, "destacados"));
-    slider.classList.add("is-product-grid");
-    slider.removeAttribute("tabindex");
-    slider.removeAttribute("role");
-    slider.setAttribute("aria-label", "Productos más vendidos");
-    if (controls) controls.hidden = true;
+    if (!section || !stage || !resources.length || state.reservationsSlider) return;
 
-    enhanceMotion(slider);
+    stage.innerHTML = "";
+    const slides = resources.map((resource, index) => {
+      const slide = document.createElement("figure");
+      slide.className = `reservations-slide${index === 0 ? " is-active" : ""}`;
+      slide.dataset.reservationsSlide = String(index);
+      slide.dataset.mediaType = resource.tipo;
+      slide.style.setProperty("--reservation-position", resource.posicion || "center");
+      slide.style.setProperty("--reservation-position-mobile", resource.posicion_movil || resource.posicion || "center");
+
+      const ambient = document.createElement("div");
+      ambient.className = "reservations-video-ambient";
+      ambient.setAttribute("aria-hidden", "true");
+
+      const ambientPoster = document.createElement("img");
+      ambientPoster.className = "reservations-video-ambient__poster";
+      ambientPoster.alt = "";
+      ambientPoster.decoding = "async";
+      ambientPoster.loading = "lazy";
+      ambientPoster.dataset.src = resource.poster || "";
+      ambient.appendChild(ambientPoster);
+
+      const phone = document.createElement("div");
+      phone.className = "reservations-phone";
+      phone.setAttribute("aria-hidden", "true");
+
+      const video = document.createElement("video");
+      video.className = "reservations-video-main";
+      video.muted = true;
+      video.defaultMuted = true;
+      video.controls = false;
+      video.loop = false;
+      video.playsInline = true;
+      video.preload = "none";
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("tabindex", "-1");
+      video.removeAttribute("controls");
+      video.removeAttribute("loop");
+      video.dataset.poster = resource.poster || "";
+      video.dataset.ambientSrc = resource.src;
+
+      const source = document.createElement("source");
+      source.dataset.src = resource.src;
+      source.type = "video/mp4";
+      video.appendChild(source);
+      phone.appendChild(video);
+      slide.append(ambient, phone);
+
+      stage.appendChild(slide);
+      return slide;
+    });
+
+    const slider = {
+      section,
+      slides,
+      index: 0,
+      inView: false,
+      pageVisible: !document.hidden,
+      frameRatio: "",
+      failedSlides: new Set(),
+      scheduleToken: 0,
+    };
+    state.reservationsSlider = slider;
+
+    const getVideo = (slide) => slide?.querySelector(".reservations-video-main") || null;
+    const getAmbientVideo = (slide) => slide?.querySelector(".reservations-video-ambient__video") || null;
+
+    const shouldPlay = () => slider.inView && slider.pageVisible;
+
+    const canPlayAmbientVideo = () => {
+      const hasRoom = window.matchMedia("(min-width: 768px)").matches;
+      const savesData = Boolean(navigator.connection?.saveData);
+      const deviceMemory = Number(navigator.deviceMemory);
+      const isLowMemoryDevice = Number.isFinite(deviceMemory) && deviceMemory <= 4;
+      return hasRoom && !savesData && !isLowMemoryDevice;
+    };
+
+    const pauseSlideVideos = (slide) => {
+      getVideo(slide)?.pause();
+      getAmbientVideo(slide)?.pause();
+    };
+
+    const syncAmbientTime = (slide, force = false) => {
+      const video = getVideo(slide);
+      const ambientVideo = getAmbientVideo(slide);
+      if (!video || !ambientVideo || ambientVideo.readyState < 1 || !Number.isFinite(video.currentTime)) return;
+
+      if (force || Math.abs(ambientVideo.currentTime - video.currentTime) > 0.22) {
+        try {
+          ambientVideo.currentTime = video.currentTime;
+        } catch (error) {
+          // El siguiente evento de reproduccion vuelve a intentar la sincronizacion.
+        }
+      }
+      ambientVideo.playbackRate = video.playbackRate;
+    };
+
+    const playAmbientVideo = (slide) => {
+      const video = getVideo(slide);
+      const ambientVideo = getAmbientVideo(slide);
+      if (!video || !ambientVideo || video.paused || !slide.classList.contains("is-active") || !shouldPlay()) return;
+
+      const beginPlayback = () => {
+        if (video.paused || !slide.classList.contains("is-active") || !shouldPlay()) return;
+        syncAmbientTime(slide, true);
+        const playPromise = ambientVideo.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => slide.classList.add("uses-ambient-poster"));
+        }
+      };
+
+      if (ambientVideo.readyState >= 2) {
+        beginPlayback();
+      } else if (ambientVideo.dataset.waitingToPlay !== "true") {
+        ambientVideo.dataset.waitingToPlay = "true";
+        ambientVideo.addEventListener("canplay", () => {
+          delete ambientVideo.dataset.waitingToPlay;
+          beginPlayback();
+        }, { once: true });
+      }
+    };
+
+    const ensureAmbientVideo = (slide) => {
+      if (!slide?.classList.contains("is-vertical-video") || !canPlayAmbientVideo()) return null;
+
+      let ambientVideo = getAmbientVideo(slide);
+      if (ambientVideo) return ambientVideo;
+
+      const video = getVideo(slide);
+      const ambient = slide.querySelector(".reservations-video-ambient");
+      if (!video || !ambient || !video.dataset.ambientSrc) return null;
+
+      ambientVideo = document.createElement("video");
+      ambientVideo.className = "reservations-video-ambient__video";
+      ambientVideo.muted = true;
+      ambientVideo.defaultMuted = true;
+      ambientVideo.controls = false;
+      ambientVideo.loop = false;
+      ambientVideo.playsInline = true;
+      ambientVideo.preload = "none";
+      ambientVideo.setAttribute("muted", "");
+      ambientVideo.setAttribute("playsinline", "");
+      ambientVideo.setAttribute("aria-hidden", "true");
+      ambientVideo.setAttribute("tabindex", "-1");
+      ambientVideo.removeAttribute("controls");
+      ambientVideo.removeAttribute("loop");
+
+      const source = document.createElement("source");
+      source.src = video.dataset.ambientSrc;
+      source.type = "video/mp4";
+      ambientVideo.appendChild(source);
+      ambientVideo.addEventListener("playing", () => slide.classList.add("is-ambient-playing"));
+      ambientVideo.addEventListener("pause", () => slide.classList.remove("is-ambient-playing"));
+      ambientVideo.addEventListener("error", () => {
+        ambientVideo.pause();
+        slide.classList.add("uses-ambient-poster");
+      }, { once: true });
+      ambient.appendChild(ambientVideo);
+      ambientVideo.load();
+      return ambientVideo;
+    };
+
+    const applyVideoOrientation = (slide, width, height) => {
+      if (!slide || !width || !height) return;
+
+      const isVertical = height > width;
+      if (isVertical && !slider.frameRatio) {
+        slider.frameRatio = `${width} / ${height}`;
+        slider.slides.forEach((item) => {
+          item.querySelector(".reservations-phone")?.style.setProperty("--reservation-video-ratio", slider.frameRatio);
+        });
+      }
+      slide.classList.toggle("is-vertical-video", isVertical);
+      slide.dataset.videoOrientation = isVertical ? "vertical" : "horizontal";
+      if (slide.classList.contains("is-active")) {
+        section.classList.toggle("has-active-vertical-video", isVertical);
+      }
+
+      if (isVertical && slide.classList.contains("is-active") && shouldPlay()) {
+        ensureAmbientVideo(slide);
+        playAmbientVideo(slide);
+      }
+    };
+
+    const updateVideoOrientation = (slide) => {
+      const video = getVideo(slide);
+      if (!video) return;
+      applyVideoOrientation(slide, video.videoWidth, video.videoHeight);
+    };
+
+    const markVideoError = (slide) => {
+      if (!slide || slide.dataset.mediaFailed === "true") return;
+      slide.dataset.mediaFailed = "true";
+      slider.failedSlides.add(slide);
+      pauseSlideVideos(slide);
+      const video = getVideo(slide);
+      video?.removeAttribute("autoplay");
+      video?.classList.add("has-playback-error");
+
+      if (slide.classList.contains("is-active") && shouldPlay() && slider.failedSlides.size < slider.slides.length) {
+        window.requestAnimationFrame(showNext);
+      }
+    };
+
+    const loadSlide = (index) => {
+      const slide = slider.slides[index];
+      if (!slide || slide.dataset.mediaLoaded === "true") return;
+
+      const video = getVideo(slide);
+      if (video) {
+        if (video.dataset.poster) video.poster = video.dataset.poster;
+        const ambientPoster = slide.querySelector(".reservations-video-ambient__poster[data-src]");
+        if (ambientPoster?.dataset.src) {
+          ambientPoster.addEventListener("load", () => {
+            applyVideoOrientation(slide, ambientPoster.naturalWidth, ambientPoster.naturalHeight);
+          }, { once: true });
+          ambientPoster.src = ambientPoster.dataset.src;
+          ambientPoster.removeAttribute("data-src");
+        }
+        video.querySelectorAll("source[data-src]").forEach((source) => {
+          source.src = source.dataset.src;
+          source.removeAttribute("data-src");
+          source.addEventListener("error", () => markVideoError(slide), { once: true });
+        });
+        video.addEventListener("error", () => markVideoError(slide), { once: true });
+        video.addEventListener("loadedmetadata", () => updateVideoOrientation(slide));
+        video.addEventListener("playing", () => {
+          ensureAmbientVideo(slide);
+          playAmbientVideo(slide);
+        });
+        video.addEventListener("pause", () => getAmbientVideo(slide)?.pause());
+        video.addEventListener("seeking", () => syncAmbientTime(slide, true));
+        video.addEventListener("ratechange", () => syncAmbientTime(slide));
+        video.addEventListener("timeupdate", () => syncAmbientTime(slide));
+        video.addEventListener("ended", () => {
+          if (slide.classList.contains("is-active") && shouldPlay()) showNext();
+        });
+        video.preload = "metadata";
+        video.load();
+      }
+
+      slide.dataset.mediaLoaded = "true";
+    };
+
+    const prepareNextSlide = () => {
+      const nextIndex = (slider.index + 1) % slider.slides.length;
+      loadSlide(nextIndex);
+      const nextVideo = getVideo(slider.slides[nextIndex]);
+      if (!nextVideo || nextVideo.dataset.prepared === "true") return;
+
+      nextVideo.preload = "auto";
+      nextVideo.dataset.prepared = "true";
+      nextVideo.load();
+    };
+
+    const pauseActiveMedia = () => {
+      const activeSlide = slider.slides[slider.index];
+      const video = getVideo(activeSlide);
+      pauseSlideVideos(activeSlide);
+      video?.removeAttribute("autoplay");
+    };
+
+    const scheduleActiveSlide = () => {
+      pauseActiveMedia();
+      slider.scheduleToken += 1;
+      const scheduleToken = slider.scheduleToken;
+      if (!shouldPlay()) return;
+
+      const slide = slider.slides[slider.index];
+      const video = getVideo(slide);
+
+      if (!video || slide.dataset.mediaFailed === "true") {
+        if (slider.failedSlides.size < slider.slides.length) window.requestAnimationFrame(showNext);
+        return;
+      }
+
+      const startVideo = () => {
+        if (slider.scheduleToken !== scheduleToken || slider.slides[slider.index] !== slide || !shouldPlay()) return;
+
+        video.autoplay = true;
+        video.setAttribute("autoplay", "");
+        const playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(() => markVideoError(slide));
+        }
+      };
+
+      if (video.readyState >= 2) {
+        startVideo();
+      } else {
+        video.addEventListener("canplay", startVideo, { once: true });
+      }
+    };
+
+    const showSlide = (nextIndex) => {
+      const normalizedIndex = (nextIndex + slider.slides.length) % slider.slides.length;
+      const currentSlide = slider.slides[slider.index];
+      const nextSlide = slider.slides[normalizedIndex];
+
+      pauseActiveMedia();
+      const currentVideo = getVideo(currentSlide);
+      if (currentVideo && currentVideo.readyState >= 1) {
+        try {
+          currentVideo.currentTime = 0;
+          const ambientVideo = getAmbientVideo(currentSlide);
+          if (ambientVideo?.readyState >= 1) ambientVideo.currentTime = 0;
+        } catch (error) {
+          // El reinicio se completa cuando el video vuelve a estar listo.
+        }
+      }
+      currentSlide?.classList.remove("is-active");
+      nextSlide.classList.add("is-active");
+      slider.index = normalizedIndex;
+      section.classList.toggle("has-active-vertical-video", nextSlide.classList.contains("is-vertical-video"));
+
+      loadSlide(slider.index);
+      prepareNextSlide();
+      scheduleActiveSlide();
+    };
+
+    function showNext() {
+      showSlide(slider.index + 1);
+    }
+
+    loadSlide(0);
+
+    document.addEventListener("visibilitychange", () => {
+      slider.pageVisible = !document.hidden;
+      scheduleActiveSlide();
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      slider.inView = true;
+      prepareNextSlide();
+      scheduleActiveSlide();
+      return;
+    }
+
+    const preloadObserver = new IntersectionObserver((entries, observer) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      loadSlide(0);
+      prepareNextSlide();
+      observer.disconnect();
+    }, { rootMargin: "400px 0px", threshold: 0.01 });
+
+    const visibilityObserver = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      slider.inView = Boolean(entry?.isIntersecting);
+      scheduleActiveSlide();
+    }, { threshold: [0, 0.01, 0.5] });
+
+    preloadObserver.observe(section);
+    visibilityObserver.observe(section);
+
+    window.addEventListener("resize", () => {
+      const activeSlide = slider.slides[slider.index];
+      const ambientVideo = getAmbientVideo(activeSlide);
+      if (!canPlayAmbientVideo()) {
+        ambientVideo?.pause();
+        return;
+      }
+      ensureAmbientVideo(activeSlide);
+      playAmbientVideo(activeSlide);
+    }, { passive: true });
   }
 
   function initMenuImageLightbox() {
@@ -231,7 +605,7 @@
 
       ensureLightbox();
       lastFocusedElement = document.activeElement;
-      lightboxImage.src = image.currentSrc || image.src;
+      lightboxImage.src = button.dataset.fullImage || image.currentSrc || image.src;
       lightboxImage.alt = image.alt || "";
       lightboxCaption.textContent = button.dataset.productName || image.alt || "";
       lightbox.hidden = false;
@@ -504,7 +878,8 @@
     const hashId = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
     const initialTarget = hashId ? document.getElementById(hashId) : null;
     const revealTargets = Array.from(scope.querySelectorAll([
-      ".menu-featured-card",
+      ".menu-group-heading",
+      ".reservations-content",
       ".menu-product-card",
       ".cero-product-card",
       ".event-type-card",
@@ -547,9 +922,7 @@
     const bundledData = window.CERO_CONTENIDO;
     if (bundledData && Object.keys(bundledData).length) {
       applySiteContent(bundledData);
-      state.menuCategories = normalizeMenu(bundledData);
-      renderMenu();
-      renderFeaturedMenuItems(getFeaturedMenuItems());
+      applyMenuContent(bundledData);
       return;
     }
 
@@ -557,22 +930,20 @@
       const data = await fetchJson("./data/contenido.json");
 
       applySiteContent(data);
-      state.menuCategories = normalizeMenu(data);
-      renderMenu();
-      renderFeaturedMenuItems(getFeaturedMenuItems());
+      applyMenuContent(data);
     } catch (error) {
       console.error("No se pudo cargar el contenido del sitio.", error);
       const fallbackData = window.CERO_CONTENIDO || {};
       applySiteContent(fallbackData);
-      state.menuCategories = normalizeMenu(fallbackData);
-      renderMenu();
-      renderFeaturedMenuItems(getFeaturedMenuItems());
+      applyMenuContent(fallbackData);
     }
   }
 
-  function getFeaturedMenuItems() {
-    const featuredGroup = state.menuCategories.find((group) => group.id === "destacados");
-    return featuredGroup?.categories.flatMap((category) => category.items) || [];
+  function applyMenuContent(data) {
+    const menu = normalizeMenu(data);
+    state.menuCategories = menu.groups;
+    state.bestSellerItems = menu.bestSellers;
+    renderMenu();
   }
 
   async function fetchJson(url) {
@@ -586,6 +957,8 @@
   function applySiteContent(data) {
     const contact = data.contacto || data.contact || {};
     const location = data.ubicacion || data.location || {};
+    renderHeroReviews(data?.hero?.valoraciones);
+    initReservationsSlider(data?.reservas);
 
     const whatsapp = contact.whatsapp_link || contact.whatsappLink || contact.whatsapp || data.whatsapp_link || data.whatsapp || "";
     const whatsappUrl = buildWhatsappUrl(whatsapp);
@@ -635,18 +1008,119 @@
     }
   }
 
+  function renderHeroReviews(reviews) {
+    if (!selectors.heroReviews || !reviews) return;
+
+    const score = Number(reviews.puntuacion);
+    const total = Number(reviews.total_opiniones);
+    const source = cleanText(reviews.fuente || "Google");
+    const link = cleanText(reviews.enlace_google || "");
+    const disclaimer = cleanText(reviews.aclaracion || "Distribución aproximada según Google");
+    const distribution = Array.isArray(reviews.distribucion_aproximada)
+      ? reviews.distribucion_aproximada
+      : [];
+
+    if (!Number.isFinite(score) || !Number.isFinite(total) || !distribution.length) return;
+
+    const summary = document.createElement("div");
+    summary.className = "hero-reviews-summary";
+
+    const scoreElement = document.createElement("strong");
+    scoreElement.className = "hero-reviews-score";
+    scoreElement.textContent = score.toFixed(1);
+
+    const stars = document.createElement("span");
+    stars.className = "hero-reviews-stars";
+    stars.textContent = "★★★★★";
+    stars.setAttribute("aria-hidden", "true");
+
+    const countLink = document.createElement("a");
+    countLink.className = "hero-reviews-count";
+    countLink.textContent = `${total} opiniones`;
+    countLink.href = link;
+    countLink.target = "_blank";
+    countLink.rel = "noopener noreferrer";
+    countLink.setAttribute("aria-label", `${total} opiniones en ${source} (abre en una pestaña nueva)`);
+
+    const sourceElement = document.createElement("span");
+    sourceElement.className = "hero-reviews-source";
+    sourceElement.textContent = source;
+
+    summary.append(scoreElement, stars, countLink, sourceElement);
+
+    const bars = document.createElement("div");
+    bars.className = "hero-reviews-bars";
+    bars.setAttribute("role", "img");
+    bars.setAttribute("aria-label", disclaimer);
+
+    distribution.forEach((item) => {
+      const starsCount = Math.min(5, Math.max(1, Number(item?.estrellas) || 1));
+      const visualLevel = Math.min(100, Math.max(0, Number(item?.nivel_visual) || 0));
+      const row = document.createElement("div");
+      row.className = "hero-reviews-row";
+
+      const label = document.createElement("span");
+      label.className = "hero-reviews-row-label";
+      label.textContent = String(starsCount);
+
+      const track = document.createElement("span");
+      track.className = "hero-reviews-track";
+      track.setAttribute("aria-hidden", "true");
+
+      const fill = document.createElement("span");
+      fill.className = "hero-reviews-fill";
+      fill.style.setProperty("--review-level", `${visualLevel}%`);
+      track.appendChild(fill);
+      row.append(label, track);
+      bars.appendChild(row);
+    });
+
+    const note = document.createElement("p");
+    note.className = "hero-reviews-note";
+    note.textContent = disclaimer;
+
+    const reviewSummary = reviews.resumen || {};
+    const reviewSummaryTitle = cleanText(reviewSummary.titulo || "");
+    const reviewSummaryText = cleanText(reviewSummary.texto || "");
+    const reviewSummaryNote = cleanText(reviewSummary.aclaracion || "");
+    const reviewBubble = document.createElement("aside");
+    reviewBubble.className = "hero-reviews-bubble";
+    reviewBubble.setAttribute("aria-labelledby", "hero-reviews-bubble-title");
+
+    const reviewBubbleTitle = document.createElement("h2");
+    reviewBubbleTitle.id = "hero-reviews-bubble-title";
+    reviewBubbleTitle.textContent = reviewSummaryTitle;
+
+    const reviewBubbleText = document.createElement("p");
+    reviewBubbleText.className = "hero-reviews-bubble-text";
+    reviewBubbleText.textContent = reviewSummaryText;
+
+    const reviewBubbleNote = document.createElement("p");
+    reviewBubbleNote.className = "hero-reviews-bubble-note";
+    reviewBubbleNote.textContent = reviewSummaryNote;
+
+    reviewBubble.append(reviewBubbleTitle, reviewBubbleText, reviewBubbleNote);
+    reviewBubble.hidden = !reviewSummaryTitle || !reviewSummaryText;
+
+    selectors.heroReviews.replaceChildren(summary, bars, note, reviewBubble);
+    selectors.heroReviews.setAttribute(
+      "aria-label",
+      `Valoración de ${source}: ${score.toFixed(1)} de 5, basada en ${total} opiniones. ${disclaimer}.`,
+    );
+  }
+
   function normalizeMenu(data) {
     const categories = data?.menu?.categorias;
-    if (!Array.isArray(categories)) return [];
+    if (!Array.isArray(categories)) return { groups: [], bestSellers: [] };
 
     const normalizedCategories = categories
       .map(normalizeCategory)
       .filter((category) => category.name && category.items.length);
 
-    const featuredCategory = createFeaturedCategory(data?.menu?.destacados, normalizedCategories);
-    if (featuredCategory) normalizedCategories.push(featuredCategory);
-
-    return groupMenuCategories(normalizedCategories);
+    return {
+      groups: groupMenuCategories(normalizedCategories),
+      bestSellers: createBestSellerItems(data?.menu?.mas_vendidos, normalizedCategories),
+    };
   }
 
   function normalizeCategory(category) {
@@ -667,42 +1141,39 @@
       description: cleanText(item?.descripcion || ""),
       price: formatPrice(item?.precio),
       image: cleanText(item?.imagen || ""),
+      originalImage: cleanText(item?.imagen_original || item?.imagen || ""),
       badge: cleanText(item?.etiqueta || ""),
       photoStatus: cleanText(item?.estado_foto || ""),
       imageTreatment: cleanText(item?.ajuste_imagen || ""),
+      imagePosition: cleanText(item?.posicion_imagen || ""),
     };
   }
 
-  function createFeaturedCategory(featuredItems, categories) {
-    if (!Array.isArray(featuredItems) || !featuredItems.length) return null;
-
+  function createBestSellerItems(bestSellerReferences, categories) {
     const menuItems = categories.flatMap((category) => category.items);
     const findItem = (name) => menuItems.find((item) => normalizeKey(item.name) === normalizeKey(name));
-    const items = featuredItems.map((featured) => {
-      if (featured?.productos) {
-        const referencedItems = featured.productos.map(findItem).filter(Boolean);
-        if (!referencedItems.length) return null;
+    const references = Array.isArray(bestSellerReferences) && bestSellerReferences.length
+      ? bestSellerReferences
+      : defaultBestSellerNames.map((name) => ({ producto: name }));
 
-        return {
-          ...referencedItems[0],
-          isComposite: true,
-          name: cleanText(featured.nombre || referencedItems.map((item) => item.name).join(" / ")),
-          description: cleanText(featured.descripcion || referencedItems.map((item) => item.description).filter(Boolean).join(" / ")),
-          price: referencedItems.map((item) => `${item.name.replace(/\s*\([^)]*\)$/, "").replace("Té en hebras", "Té")} ${item.price}`).join(" / "),
-          image: cleanText(featured.imagen || referencedItems[0].image),
-          badge: "",
-        };
-      }
-
-      const item = findItem(featured?.producto);
-      return item ? { ...item, name: cleanText(featured.nombre || item.name) } : null;
-    }).filter(Boolean);
-
-    return items.length ? { id: "destacados", name: "Destacados", note: "", groupNote: "", items } : null;
+    return references
+      .map((reference) => findItem(typeof reference === "string" ? reference : reference?.producto))
+      .filter(Boolean)
+      .map((item) => ({ ...item }));
   }
 
   function groupMenuCategories(categories) {
     const groups = [
+      {
+        id: "hot-drinks",
+        name: "Hot Drinks",
+        categoryNames: ["Solo Café", "Café con Leche", "Bebidas Calientes"],
+      },
+      {
+        id: "cold-drinks",
+        name: "Cold Drinks",
+        categoryNames: ["Café Frío", "Bebidas Frías", "Winter Drinks"],
+      },
       {
         id: "todo-el-dia",
         name: "Todo el Día",
@@ -719,24 +1190,9 @@
         categoryNames: ["Menú Mediodía"],
       },
       {
-        id: "hot-drinks",
-        name: "Hot Drinks",
-        categoryNames: ["Solo Café", "Café con Leche", "Bebidas Calientes"],
-      },
-      {
-        id: "cold-drinks",
-        name: "Cold Drinks",
-        categoryNames: ["Café Frío", "Bebidas Frías", "Winter Drinks"],
-      },
-      {
         id: "mostrador",
         name: "Mostrador",
         categoryNames: ["Pastries", "Cakes"],
-      },
-      {
-        id: "destacados",
-        name: "Destacados",
-        categoryNames: ["Destacados"],
       },
     ];
 
@@ -785,47 +1241,51 @@
       return;
     }
 
-    if (state.activeCategoryIndex === null || state.activeCategoryIndex >= state.menuCategories.length) {
-      state.activeCategoryIndex = 0;
-    }
-
     setMenuMessage("");
-    renderTabs();
-    renderActiveCategory();
-    enhanceMotion(document);
-  }
+    state.activeMenuId = state.menuCategories[0].id;
+    renderMenuNavigation();
+    renderAllMenuCategories();
+    enhanceMotion(selectors.menuPanel);
 
-  function renderTabs() {
-    selectors.menuTabsTrack.innerHTML = "";
-
-    state.menuCategories.forEach((group, index) => {
-      const button = document.createElement("button");
-      button.className = "menu-tab";
-      button.type = "button";
-      button.role = "tab";
-      button.id = `menu-tab-${group.id || index}`;
-      button.setAttribute("aria-controls", "menu-panel");
-      button.setAttribute("aria-selected", String(index === state.activeCategoryIndex));
-      button.textContent = group.name;
-      button.addEventListener("click", () => {
-        state.activeCategoryIndex = index;
-        renderTabs();
-        renderActiveCategory();
-
-        const activeTab = selectors.menuTabs.querySelector('[aria-selected="true"]');
-        requestAnimationFrame(() => scrollMenuTabIntoView(activeTab));
-      });
-      selectors.menuTabsTrack.appendChild(button);
+    window.requestAnimationFrame(() => {
+      initMenuScrollSpy();
+      restoreHashPosition();
     });
   }
 
-  function scrollMenuTabIntoView(tab) {
-    if (!tab) return;
+  function renderMenuNavigation() {
+    selectors.menuTabsTrack.innerHTML = "";
+    const navigationItems = state.menuCategories.map((group) => ({ id: group.id, name: group.name }));
+    if (state.bestSellerItems.length) navigationItems.push({ id: "mas-vendidos", name: "Más vendidos" });
 
-    tab.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "nearest",
+    navigationItems.forEach((item) => {
+      const link = document.createElement("a");
+      link.className = "menu-tab";
+      link.href = `#${item.id}`;
+      link.dataset.menuLink = item.id;
+      link.textContent = item.name;
+      if (item.id === state.activeMenuId) link.setAttribute("aria-current", "true");
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        navigateToMenuCategory(item.id, { updateHistory: true });
+      });
+      selectors.menuTabsTrack.appendChild(link);
+    });
+  }
+
+  function scrollMenuLinkIntoView(link) {
+    if (!link || !selectors.menuTabs) return;
+
+    const scrollerRect = selectors.menuTabs.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    const targetLeft = selectors.menuTabs.scrollLeft
+      + linkRect.left
+      - scrollerRect.left
+      - (selectors.menuTabs.clientWidth - linkRect.width) / 2;
+
+    selectors.menuTabs.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: prefersReducedMotion() ? "auto" : "smooth",
     });
   }
 
@@ -839,26 +1299,6 @@
     let isDragging = false;
     let suppressNextClick = false;
     const dragThreshold = 6;
-
-    scroller.addEventListener("wheel", (event) => {
-      if (scroller.scrollWidth <= scroller.clientWidth || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-
-      const deltaMultiplier = event.deltaMode === 1
-        ? 16
-        : event.deltaMode === 2
-          ? scroller.clientWidth
-          : 1;
-      const horizontalDelta = event.deltaY * deltaMultiplier;
-      const maxScrollLeft = scroller.scrollWidth - scroller.clientWidth;
-      const canScroll = horizontalDelta < 0
-        ? scroller.scrollLeft > 0
-        : scroller.scrollLeft < maxScrollLeft;
-
-      if (!canScroll) return;
-
-      event.preventDefault();
-      scroller.scrollLeft += horizontalDelta;
-    }, { passive: false });
 
     scroller.addEventListener("pointerdown", (event) => {
       if (event.pointerType !== "mouse" || event.button !== 0) return;
@@ -913,58 +1353,214 @@
     }, true);
   }
 
-  function renderActiveCategory() {
+  function renderAllMenuCategories() {
     selectors.menuPanel.innerHTML = "";
     selectors.menuPanel.className = "menu-panel";
-    selectors.menuPanel.id = "menu-panel";
-    selectors.menuPanel.role = "tabpanel";
+    selectors.menuPanel.removeAttribute("role");
+    selectors.menuPanel.removeAttribute("aria-labelledby");
 
-    if (state.activeCategoryIndex === null) {
-      selectors.menuPanel.removeAttribute("aria-labelledby");
-      return;
+    state.menuCategories.forEach((group, index) => {
+      selectors.menuPanel.appendChild(createMenuCategoryGroup(group, index));
+    });
+
+    if (state.bestSellerItems.length) {
+      selectors.menuPanel.appendChild(createBestSellersGroup(state.bestSellerItems));
     }
+  }
 
-    const group = state.menuCategories[state.activeCategoryIndex];
-    selectors.menuPanel.classList.add(`is-${group.id}`);
-    selectors.menuPanel.setAttribute("aria-labelledby", `menu-tab-${group.id || state.activeCategoryIndex}`);
+  function createMenuCategoryGroup(group, index) {
+    const section = document.createElement("section");
+    section.className = `menu-category-group is-${group.id}`;
+    section.id = group.id;
+    section.dataset.menuCategory = group.id;
+
+    const heading = document.createElement("header");
+    heading.className = "menu-group-heading";
+
+    const eyebrow = document.createElement("p");
+    eyebrow.className = "cero-eyebrow";
+    eyebrow.textContent = `Carta ${String(index + 1).padStart(2, "0")}`;
+
+    const title = document.createElement("h3");
+    title.textContent = group.name;
+    heading.append(eyebrow, title);
+    section.appendChild(heading);
 
     if (group.note) {
       const groupNote = document.createElement("p");
       groupNote.className = "menu-group-note";
       groupNote.textContent = group.note;
-      selectors.menuPanel.appendChild(groupNote);
+      section.appendChild(groupNote);
     }
 
+    const repeatsGroupName = group.categories.length === 1
+      && normalizeKey(group.categories[0].name) === normalizeKey(group.name);
     group.categories.forEach((category) => {
-      const section = createMenuSubcategory(category, group.id);
-      selectors.menuPanel.appendChild(section);
+      section.appendChild(createMenuSubcategory(category, group.id, !repeatsGroupName));
     });
 
-    enhanceMotion(selectors.menuPanel);
+    return section;
   }
 
-  function createMenuSubcategory(category, groupId) {
+  function createBestSellersGroup(items) {
+    const section = document.createElement("section");
+    section.className = "menu-category-group menu-bestsellers";
+    section.id = "mas-vendidos";
+    section.dataset.menuCategory = "mas-vendidos";
+
+    const heading = document.createElement("header");
+    heading.className = "menu-group-heading";
+
+    const eyebrow = document.createElement("p");
+    eyebrow.className = "cero-eyebrow";
+    eyebrow.textContent = "Selección de Cero";
+
+    const title = document.createElement("h3");
+    title.textContent = "Más vendidos";
+    heading.append(eyebrow, title);
+    section.append(heading, createMenuProductGrid(items, { id: "mas-vendidos" }, "mas-vendidos"));
+    return section;
+  }
+
+  function createMenuSubcategory(category, groupId, showHeading = true) {
     const section = document.createElement("section");
     section.className = "menu-subcategory";
     section.classList.add(`is-${category.id}`);
 
-    const heading = document.createElement("div");
-    heading.className = "menu-subcategory-heading";
+    if (showHeading || category.note) {
+      const heading = document.createElement("div");
+      heading.className = "menu-subcategory-heading";
 
-    const title = document.createElement("h3");
-    title.textContent = getCategoryDisplayName(category, groupId);
-    heading.appendChild(title);
+      if (showHeading) {
+        const title = document.createElement("h4");
+        title.textContent = getCategoryDisplayName(category, groupId);
+        heading.appendChild(title);
+      }
 
-    if (category.note) {
-      const note = document.createElement("p");
-      note.textContent = category.note;
-      heading.appendChild(note);
+      if (category.note) {
+        const note = document.createElement("p");
+        note.textContent = category.note;
+        heading.appendChild(note);
+      }
+
+      section.appendChild(heading);
     }
-
-    section.appendChild(heading);
 
     section.appendChild(createMenuProductGrid(category.items, category, groupId));
     return section;
+  }
+
+  function initMenuScrollSpy() {
+    if (typeof state.menuScrollCleanup === "function") state.menuScrollCleanup();
+
+    const sections = Array.from(selectors.menuPanel.querySelectorAll("[data-menu-category]"));
+    if (!sections.length) return;
+
+    let frameId = 0;
+    const updateActiveCategory = () => {
+      frameId = 0;
+      const offset = getMenuScrollOffset();
+
+      if (state.programmaticMenuTarget) {
+        const lockedTarget = document.getElementById(state.programmaticMenuTarget);
+        if (lockedTarget && Math.abs(lockedTarget.getBoundingClientRect().top - offset) <= 4) {
+          clearProgrammaticMenuTarget();
+        } else {
+          return;
+        }
+      }
+
+      let activeSection = sections[0];
+      const marker = offset + 24;
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= marker) activeSection = section;
+      });
+      setActiveMenuCategory(activeSection.dataset.menuCategory);
+    };
+
+    const requestUpdate = () => {
+      if (frameId) return;
+      frameId = window.requestAnimationFrame(updateActiveCategory);
+    };
+
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate, { passive: true });
+    state.menuScrollCleanup = () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
+    requestUpdate();
+  }
+
+  function navigateToMenuCategory(id, { updateHistory = false, behavior } = {}) {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    state.programmaticMenuTarget = id;
+    setActiveMenuCategory(id);
+    window.clearTimeout(state.menuScrollUnlockTimer);
+    state.menuScrollUnlockTimer = window.setTimeout(clearProgrammaticMenuTarget, 1800);
+
+    if (updateHistory && window.location.hash !== `#${id}`) {
+      window.history.pushState(null, "", `#${id}`);
+    }
+
+    const scrollBehavior = behavior || (prefersReducedMotion() ? "auto" : "smooth");
+    const top = window.scrollY + target.getBoundingClientRect().top - getMenuScrollOffset();
+    window.scrollTo({ top: Math.max(0, top), behavior: scrollBehavior });
+  }
+
+  function restoreHashPosition() {
+    const id = window.location.hash ? decodeURIComponent(window.location.hash.slice(1)) : "";
+    if (!id) return;
+
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    if (target.matches("[data-menu-category]")) {
+      window.requestAnimationFrame(() => navigateToMenuCategory(id, { behavior: "instant" }));
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      const headerHeight = selectors.header?.getBoundingClientRect().height || 0;
+      const top = window.scrollY + target.getBoundingClientRect().top - headerHeight - 16;
+      window.scrollTo({ top: Math.max(0, top), behavior: "instant" });
+    });
+  }
+
+  function clearProgrammaticMenuTarget() {
+    window.clearTimeout(state.menuScrollUnlockTimer);
+    state.programmaticMenuTarget = "";
+    state.menuScrollUnlockTimer = null;
+  }
+
+  function setActiveMenuCategory(id) {
+    if (!id || state.activeMenuId === id) return;
+    state.activeMenuId = id;
+
+    selectors.menuTabsTrack.querySelectorAll("[data-menu-link]").forEach((link) => {
+      const isActive = link.dataset.menuLink === id;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "true");
+        scrollMenuLinkIntoView(link);
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function getMenuScrollOffset() {
+    const headerHeight = selectors.header?.getBoundingClientRect().height || 0;
+    const menuNavigation = selectors.menuTabs?.closest(".menu-tabs");
+    const navigationHeight = menuNavigation?.getBoundingClientRect().height || 0;
+    return headerHeight + navigationHeight + 16;
+  }
+
+  function prefersReducedMotion() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
 
   function createMenuProductGrid(items, category, groupId) {
@@ -988,6 +1584,7 @@
         imageButton.type = "button";
         imageButton.dataset.menuImageOpen = "";
         imageButton.dataset.productName = item.name;
+        imageButton.dataset.fullImage = item.originalImage || imageSource;
         imageButton.setAttribute("aria-label", `Ver foto completa de ${item.name}`);
 
         const image = document.createElement("img");
@@ -997,6 +1594,7 @@
         image.decoding = "async";
         image.width = 1200;
         image.height = 900;
+        if (item.imagePosition) image.style.objectPosition = item.imagePosition;
         image.addEventListener("error", () => {
           article.classList.add("has-missing-image");
           imageButton.replaceChildren(createMenuPlaceholder());
