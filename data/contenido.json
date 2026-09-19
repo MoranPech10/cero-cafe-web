@@ -332,7 +332,8 @@
             "nombre": "Avocado Toast",
             "precio": "13.900",
             "descripcion": "Tostón de masa madre con doble textura de palta en láminas y cremosa, tomates cherry, queso crema y brotes. Adicional: huevo revuelto.",
-            "imagen": "assets/imagenes/menu/avocado-toast.webp"
+            "imagen": "assets/imagenes/menu-sofi/avocado-toast-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/avocado-toast.jpg"
           },
           {
             "nombre": "Tazón de Granola",
@@ -416,15 +417,18 @@
         "nota_grupo": "SERVIMOS EL CAFÉ ENTRE 60°C Y 70°C.\nSI LO PREFERÍS MÁS CALIENTE, PODÉS PEDIRNOS.",
         "items": [
           {
-            "nombre": "Espresso / Lungo (S)",
+            "nombre": "Espresso (S)",
             "precio": "3.900",
             "descripcion": "Shot de espresso en pocillo.",
-            "imagen": "assets/imagenes/menu/espresso.webp"
+            "imagen": "assets/imagenes/menu-sofi/espresso-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/espresso.jpg"
           },
           {
             "nombre": "Lungo (S)",
             "precio": "3.900",
-            "descripcion": "Shot de espresso en pocillo con colchón de agua."
+            "descripcion": "Shot de espresso en pocillo con colchón de agua.",
+            "imagen": "assets/imagenes/menu-sofi/lungo-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/lungo.jpg"
           },
           {
             "nombre": "Americano (M)",
@@ -465,7 +469,8 @@
             "nombre": "Flat White (M)",
             "precio": "6.900",
             "descripcion": "Doble shot de espresso con microespuma de leche sedosa.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/flat-white-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/flat-white.jpg"
           },
           {
             "nombre": "Capuccino (M)",
@@ -478,14 +483,15 @@
             "nombre": "Café con Leche (L)",
             "precio": "7.200",
             "descripcion": "Doble shot de espresso con leche texturizada.",
-            "imagen": "assets/imagenes/menu/cafe-con-leche.webp"
+            "imagen": "assets/imagenes/menu-sofi/cafe-con-leche-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/cafe-con-leche.jpg"
           },
           {
             "nombre": "Moccacino (XL)",
             "precio": "8.300",
             "descripcion": "Doble shot de espresso, chocolate semiamargo y leche texturizada.",
-            "imagen": "assets/imagenes/menu-adaptadas/moccacino-card.webp",
-            "imagen_original": "assets/imagenes/menu-drive/Moccachino.webp"
+            "imagen": "assets/imagenes/menu-sofi/moccacino-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/moccacino.jpg"
           },
           {
             "nombre": "Vainilla Latte (XL)",
@@ -513,7 +519,8 @@
             "precio": "8.800",
             "descripcion": "Doble shot de espresso, leche vaporizada y reducción de Nutella.",
             "etiqueta": "HOT",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/nutella-latte-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/nutella-latte.jpg"
           }
         ]
       },
@@ -545,9 +552,8 @@
             "nombre": "Chai Latte (XL)",
             "precio": "7.300",
             "descripcion": "Reducción de té chai especiado con canela y leche vaporizada. Adicional: shot de espresso.",
-            "imagen": "assets/imagenes/menu-drive/Dirty Chai Latte.webp",
-            "posicion_imagen": "50% 55%",
-            "ajuste_imagen": "crop"
+            "imagen": "assets/imagenes/menu-sofi/chai-latte-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/chai-latte.jpg"
           },
           {
             "nombre": "Golden Milk (XL)",
@@ -574,17 +580,15 @@
             "nombre": "Iced Latte",
             "precio": "6.500",
             "descripcion": "Shot de espresso y leche fría semitexturizada.",
-            "imagen": "assets/imagenes/menu-drive/Iced Latte.webp",
-            "ajuste_imagen": "crop",
-            "estado_foto": "requiere-reemplazo"
+            "imagen": "assets/imagenes/menu-sofi/iced-latte-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/iced-latte.jpg"
           },
           {
             "nombre": "Iced Flat",
             "precio": "7.900",
             "descripcion": "Doble shot de espresso y leche fría semitexturizada.",
-            "imagen": "assets/imagenes/menu/iced-flat.webp",
-            "ajuste_imagen": "crop",
-            "estado_foto": "requiere-reemplazo"
+            "imagen": "assets/imagenes/menu-sofi/iced-flat-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/iced-flat.jpg"
           },
           {
             "nombre": "Café Tonic & Quinotos",
@@ -614,24 +618,21 @@
             "nombre": "Limonada",
             "precio": "7.200",
             "descripcion": "Casera, con menta y jengibre.",
-            "imagen": "assets/imagenes/menu/limonada-menta-jengibre.webp",
-            "ajuste_imagen": "crop",
-            "estado_foto": "requiere-reemplazo"
+            "imagen": "assets/imagenes/menu-sofi/limonada-menta-jengibre-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/limonada-menta-jengibre.jpg"
           },
           {
             "nombre": "Jugo de naranja exprimido",
             "precio": "8.200",
-            "imagen": "assets/imagenes/menu/jugo-naranja.webp",
-            "ajuste_imagen": "crop",
-            "estado_foto": "requiere-reemplazo"
+            "imagen": "assets/imagenes/menu-sofi/jugo-naranja-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/jugo-naranja.jpg"
           },
           {
             "nombre": "Agua de Jamaica",
             "precio": "7.900",
             "descripcion": "Té frío de hibiscus, cáscara de naranja y limón, canela, clavo de olor y cardamomo.",
-            "imagen": "assets/imagenes/menu-drive/Agua de Jamaica.webp",
-            "ajuste_imagen": "crop",
-            "estado_foto": "requiere-reemplazo"
+            "imagen": "assets/imagenes/menu-sofi/agua-jamaica-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/agua-jamaica.jpg"
           },
           {
             "nombre": "Licuados Naturales",
@@ -679,19 +680,22 @@
             "nombre": "Aperol Spritz",
             "precio": "9.500",
             "descripcion": "Espumoso Chandon, Aperol, agua con gas y rodaja de naranja.",
-            "imagen": "assets/imagenes/menu/aperol-spritz.webp"
+            "imagen": "assets/imagenes/menu-sofi/aperol-spritz-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/aperol-spritz.jpg"
           },
           {
             "nombre": "Samsa Enamorado",
             "precio": "8.100",
             "descripcion": "American IPA · rubia, suave amargor, aromática y con notas a frutos rojos.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/samsa-enamorado-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/samsa-enamorado.jpg"
           },
           {
             "nombre": "Alma Gorda",
             "precio": "6.300",
             "descripcion": "Amber Lager · rojiza, suave y lupulada.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/alma-gorda-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/alma-gorda.jpg"
           },
           {
             "nombre": "Fiesta de Focas",
@@ -772,8 +776,8 @@
             "nombre": "Cookie black velvet",
             "precio": "8.000",
             "descripcion": "Masa húmeda de cacao semiamargo con topping de frutos rojos.",
-            "imagen": "assets/imagenes/menu/cookie-velvet.webp",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/cookie-black-velvet-card.jpg",
+            "imagen_original": "assets/imagenes/menu-sofi/cookie-black-velvet.jpg"
           },
           {
             "nombre": "Cookie vainilla & chips",
@@ -883,7 +887,7 @@
     "Confirmar si agregan delivery o reservas en el futuro.",
     "Confirmar si quieren mostrar todos los precios o solo productos destacados.",
     "Revisar detalles del menú importado desde PDF antes de publicar.",
-    "Fotos pendientes de carta: Lungo (S), Flat White (M), Vainilla Latte (XL), Caramel Latte (XL), Nutella Latte (XL), cervezas Strange y Cookie black velvet. Reemplazos pendientes: Iced Latte, Iced Flat, Limonada, Jugo de naranja exprimido y Agua de Jamaica.",
+    "Fotos pendientes de carta: Vainilla Latte (XL) y Caramel Latte (XL) requieren confirmación porque los archivos provistos son duplicados idénticos. Fiesta de Focas, Más Monje y Catacumbia no tienen una fotografía identificable en el material nuevo.",
     "Fotos pendientes de Productos: Colombia Palmera, Colombia Orgánico Alta Montaña, AB Kamavindi, Limmu Kossa, Paraíso, Velas Cero y Tazas Cero."
   ]
 }
