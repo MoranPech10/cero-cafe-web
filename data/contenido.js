@@ -322,10 +322,12 @@ window.CERO_CONTENIDO = {
         "nota_grupo": "SUMÁ UNA INFUSIÓN A ELECCIÓN — TAMAÑO S O M\nY UN SHOT DE NARANJA EXPRIMIDA POR $4.900",
         "items": [
           {
-            "nombre": "American Bagel Deluxe",
+            "nombre": "American Deluxe",
             "precio": "11.900",
             "descripcion": "Huevos revueltos, panceta crocante y cherrys, en pan tostado con dip de queso crema.",
-            "imagen": "assets/imagenes/menu-drive/Americano Deluxe.webp",
+            "imagen": "assets/imagenes/menu-sofi/american-deluxe-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/BRUNCH-COMBOS/BRUNCH- AMERICAN NUEVO DELUXE.jpeg",
+            "posicion_imagen": "50% 55%",
             "ajuste_imagen": "crop"
           },
           {
@@ -362,7 +364,9 @@ window.CERO_CONTENIDO = {
             "precio": "13.200",
             "descripcion": "Pan brioche con banana caramelizada, queso mascarpone, miel y frutas de estación.",
             "etiqueta": "NOVEDAD",
-            "imagen": "assets/imagenes/menu/french-banana-toast.webp"
+            "imagen": "assets/imagenes/menu-sofi/french-banana-toast-actual-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/BRUNCH-COMBOS/BRUNCH- FRENCH TOAST.jpg",
+            "posicion_imagen": "50% 60%"
           }
         ]
       },
@@ -497,13 +501,15 @@ window.CERO_CONTENIDO = {
             "nombre": "Vainilla Latte (XL)",
             "precio": "7.900",
             "descripcion": "Doble shot de espresso con leche texturizada y reducción de vainilla.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/vainilla-caramel-latte-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/COFFEE WITH MILK/COFFEE WITH MILK- VAINILLA LATTE.jpg"
           },
           {
             "nombre": "Caramel Latte (XL)",
             "precio": "7.500",
             "descripcion": "Doble shot de espresso con leche texturizada y reducción de caramelo.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/vainilla-caramel-latte-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/COFFEE WITH MILK/COFFEE WITH MILK- VAINILLA LATTE.jpg"
           },
           {
             "nombre": "Pistacchio Latte (XL)",
@@ -538,15 +544,17 @@ window.CERO_CONTENIDO = {
             "nombre": "Matcha (Vainilla) Latte (XL)",
             "precio": "8.900",
             "descripcion": "Té verde ceremonial japonés con leche texturizada. Adicional: syrup de vainilla.",
-            "imagen": "assets/imagenes/menu-drive/Matcha latte.webp",
-            "posicion_imagen": "50% 43%",
+            "imagen": "assets/imagenes/menu-sofi/matcha-caliente-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/HOT DRINKS/HOT DRINKS- MATCHA LATTE.png",
+            "posicion_imagen": "50% 53%",
             "ajuste_imagen": "crop"
           },
           {
             "nombre": "Chocolatada Belga (XL)",
             "precio": "7.200",
             "descripcion": "Leche caliente, chocolate semiamargo y ralladura de cacao.",
-            "imagen": "assets/imagenes/menu/chocolatada-belga.webp"
+            "imagen": "assets/imagenes/menu-sofi/chocolatada-belga-fondo-extendido-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/HOT DRINKS/HOT DRINKS- CHOCOLATADA BELGA.jpg"
           },
           {
             "nombre": "Chai Latte (XL)",
@@ -687,33 +695,36 @@ window.CERO_CONTENIDO = {
             "nombre": "Samsa Enamorado",
             "precio": "8.100",
             "descripcion": "American IPA · rubia, suave amargor, aromática y con notas a frutos rojos.",
-            "imagen": "assets/imagenes/menu-sofi/samsa-enamorado-card.jpg",
-            "imagen_original": "assets/imagenes/menu-sofi/samsa-enamorado.jpg"
+            "imagen": "assets/imagenes/menu-sofi/samsa-enamorado-fondo-extendido-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/DRINKS DE ESTACION/CERVEZA- SAMSA ENAMORADO.png"
           },
           {
             "nombre": "Alma Gorda",
             "precio": "6.300",
             "descripcion": "Amber Lager · rojiza, suave y lupulada.",
-            "imagen": "assets/imagenes/menu-sofi/alma-gorda-card.jpg",
-            "imagen_original": "assets/imagenes/menu-sofi/alma-gorda.jpg"
+            "imagen": "assets/imagenes/menu-sofi/alma-gorda-fondo-extendido-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/DRINKS DE ESTACION/CERVEZA ALMA GORDA.png"
           },
           {
             "nombre": "Fiesta de Focas",
             "precio": "5.900",
             "descripcion": "Fest Beer · rubia, cristalina y maltosa.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/fiesta-de-focas-fondo-extendido-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/DRINKS DE ESTACION/CERVEZAS- FIESTA DE FOCAS.png"
           },
           {
             "nombre": "Más Monje",
             "precio": "7.200",
             "descripcion": "Dubbel · robusta, acaramelada y con carácter.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/mas-monje-fondo-extendido-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/DRINKS DE ESTACION/CERVEZA- MAS MONJE.png"
           },
           {
             "nombre": "Catacumbia",
             "precio": "9.000",
             "descripcion": "Imperial Stout · oscura, tostada y cremosa.",
-            "estado_foto": "pendiente"
+            "imagen": "assets/imagenes/menu-sofi/catacumbia-fondo-extendido-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/DRINKS DE ESTACION/CERVEZAS- CATACUMBIA.png"
           }
         ]
       },
@@ -730,7 +741,8 @@ window.CERO_CONTENIDO = {
             "nombre": "Sfogliatella rellena",
             "precio": "6.300",
             "descripcion": "Crema pastelera / ricotta y naranja / pistacchio.",
-            "imagen": "assets/imagenes/menu/sfogliatella-rellena.webp",
+            "imagen": "assets/imagenes/menu-sofi/sfogliatella-alternativa-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/PASTRIES/PASTRIES- SFOGLIATELLA.jpg",
             "ajuste_imagen": "crop"
           },
           {
@@ -783,13 +795,16 @@ window.CERO_CONTENIDO = {
             "nombre": "Cookie vainilla & chips",
             "precio": "7.500",
             "descripcion": "Chocolate semiamargo.",
-            "imagen": "assets/imagenes/menu/cookie-vainilla-chips.webp"
+            "imagen": "assets/imagenes/menu-sofi/cookie-vainilla-centro-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/PASTRIES/PASTRIES- COOKIE DE CHIPS.png"
           },
           {
             "nombre": "Cookie pistacchio",
             "precio": "8.500",
             "descripcion": "Masa suave con pistacchios tostados y centro de chocolate con pistacchios.",
-            "imagen": "assets/imagenes/menu/cookie-pistacchio.webp"
+            "imagen": "assets/imagenes/menu-sofi/cookie-pistacchio-decorada-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/PASTRIES/PASTRIES- COOKIE DE PISTACHO.jpg",
+            "posicion_imagen": "50% 62%"
           },
           {
             "nombre": "Budín de banana y nuez",
@@ -839,7 +854,8 @@ window.CERO_CONTENIDO = {
           {
             "nombre": "Carrot Cake",
             "precio": "14.900",
-            "imagen": "assets/imagenes/menu/carrot-cake.webp",
+            "imagen": "assets/imagenes/menu-sofi/carrot-cake-porcion-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/CAKES/CAKES- CARROT CAKE.jpg",
             "posicion_imagen": "50% 60%",
             "ajuste_imagen": "crop"
           },
@@ -847,6 +863,13 @@ window.CERO_CONTENIDO = {
             "nombre": "Torta del día",
             "precio": "14.900",
             "imagen": "assets/imagenes/menu/torta-dia.webp"
+          },
+          {
+            "nombre": "Tortas enteras",
+            "precio": "70.000",
+            "descripcion": "Key Lime, Cheesecake, Brownie, Carrot Cake y Matilda. Consultá por más opciones. Pedidos con 48 horas de anticipación y seña del 50%.",
+            "imagen": "assets/imagenes/menu-sofi/tortas-enteras-brownie-franui-card.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/CAKES/TORTA ENTERA BROWNIE- FRANUI.jpg"
           },
           {
             "nombre": "Alfajores",
@@ -887,7 +910,6 @@ window.CERO_CONTENIDO = {
     "Confirmar si agregan delivery o reservas en el futuro.",
     "Confirmar si quieren mostrar todos los precios o solo productos destacados.",
     "Revisar detalles del menú importado desde PDF antes de publicar.",
-    "Fotos pendientes de carta: Vainilla Latte (XL) y Caramel Latte (XL) requieren confirmación porque los archivos provistos son duplicados idénticos. Fiesta de Focas, Más Monje y Catacumbia no tienen una fotografía identificable en el material nuevo.",
     "Fotos pendientes de Productos: Colombia Palmera, Colombia Orgánico Alta Montaña, AB Kamavindi, Limmu Kossa, Paraíso, Velas Cero y Tazas Cero."
   ]
 }
