@@ -79,7 +79,7 @@ window.CERO_CONTENIDO = {
     },
     "valoraciones": {
       "puntuacion": 4.8,
-      "total_opiniones": 224,
+      "total_opiniones": 250,
       "fuente": "Google",
       "enlace_google": "https://www.google.com/maps/place/Cero+Cafe+de+Origen/@-34.5697587,-58.4925334,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcb70028f5094d:0x6ccca2a17439a70d!8m2!3d-34.5697631!4d-58.4899585!16s%2Fg%2F11yq37r5c4",
       "distribucion_aproximada": [
@@ -788,8 +788,8 @@ window.CERO_CONTENIDO = {
             "nombre": "Cookie black velvet",
             "precio": "8.000",
             "descripcion": "Masa húmeda de cacao semiamargo con topping de frutos rojos.",
-            "imagen": "assets/imagenes/menu-sofi/cookie-black-velvet-card.jpg",
-            "imagen_original": "assets/imagenes/menu-sofi/cookie-black-velvet.jpg"
+            "imagen": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/PASTRIES/PASTRIES- BLACK VELVET.jpg",
+            "imagen_original": "assets/imagenes/Foto Productos cero/FOTO PRODUCTO CERO CAFE/PASTRIES/PASTRIES- BLACK VELVET.jpg"
           },
           {
             "nombre": "Cookie vainilla & chips",

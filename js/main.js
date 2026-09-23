@@ -1036,11 +1036,11 @@
 
     const countLink = document.createElement("a");
     countLink.className = "hero-reviews-count";
-    countLink.textContent = `${total} opiniones`;
+    countLink.textContent = `+${total} opiniones`;
     countLink.href = link;
     countLink.target = "_blank";
     countLink.rel = "noopener noreferrer";
-    countLink.setAttribute("aria-label", `${total} opiniones en ${source} (abre en una pestaña nueva)`);
+    countLink.setAttribute("aria-label", `Más de ${total} opiniones en ${source} (abre en una pestaña nueva)`);
 
     const sourceElement = document.createElement("span");
     sourceElement.className = "hero-reviews-source";
@@ -1105,7 +1105,7 @@
     selectors.heroReviews.replaceChildren(summary, bars, note, reviewBubble);
     selectors.heroReviews.setAttribute(
       "aria-label",
-      `Valoración de ${source}: ${score.toFixed(1)} de 5, basada en ${total} opiniones. ${disclaimer}.`,
+      `Valoración de ${source}: ${score.toFixed(1)} de 5, basada en más de ${total} opiniones. ${disclaimer}.`,
     );
   }
 
